@@ -154,6 +154,7 @@
 		96CCC66B174E7DEE00AF832F /* ideviceclient.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B63174E0CF200B868D9 /* ideviceclient.c */; };
 		96CCC66D174E828900AF832F /* plist.h in Copy plist.h */ = {isa = PBXBuildFile; fileRef = 96B88C06174E160E00B868D9 /* plist.h */; };
 		96CCC670174E83DC00AF832F /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
+		96CCC672174EA0DF00AF832F /* plist.h in Copy plist.h */ = {isa = PBXBuildFile; fileRef = 96B88C06174E160E00B868D9 /* plist.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +226,17 @@
 			dstSubfolderSpec = 16;
 			files = (
 				96CCC66D174E828900AF832F /* plist.h in Copy plist.h */,
+			);
+			name = "Copy plist.h";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CCC671174EA0B900AF832F /* Copy plist.h */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = usr/local/include/plist;
+			dstSubfolderSpec = 16;
+			files = (
+				96CCC672174EA0DF00AF832F /* plist.h in Copy plist.h */,
 			);
 			name = "Copy plist.h";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,6 +795,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96CCC5FF174E493200AF832F /* Build configuration list for PBXNativeTarget "imobiledevice.dylib" */;
 			buildPhases = (
+				96CCC671174EA0B900AF832F /* Copy plist.h */,
 				96CCC5FA174E493200AF832F /* Sources */,
 				96CCC5FB174E493200AF832F /* Frameworks */,
 				96CCC5FC174E493200AF832F /* Headers */,
