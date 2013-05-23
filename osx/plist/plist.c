@@ -147,7 +147,8 @@ plist_t plist_new_date(int32_t sec, int32_t usec)
  */
 void plist_free(plist_t plist)
 {
-	CFRelease(plist);
+	if (plist)
+		CFRelease(plist);
 }
 
 /**
