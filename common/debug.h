@@ -28,6 +28,8 @@
 #ifndef LIBIMOBILEDEVICE_INTERNAL
 #ifdef WIN32
 #define LIBIMOBILEDEVICE_INTERNAL
+#elif __clang__
+#define LIBIMOBILEDEVICE_INTERNAL extern
 #else
 #define LIBIMOBILEDEVICE_INTERNAL __attribute__((visibility("hidden")))
 #endif
