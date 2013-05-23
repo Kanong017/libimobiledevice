@@ -1,0 +1,3 @@
+[submodule "deps/usbmuxd"]
+	path = deps/usbmuxd
+	url = git@fouo-lamp:usbmuxd.git
