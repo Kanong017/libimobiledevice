@@ -187,6 +187,10 @@
 		96CCC6B6174EAF4A00AF832F /* ideviceheartbeat.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B64174E0CF200B868D9 /* ideviceheartbeat.c */; };
 		96CCC6CD174EB17D00AF832F /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96CCC6D3174EB19A00AF832F /* idevice_id.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BE4174E0D8400B868D9 /* idevice_id.c */; };
+		96CCC6E6174EB24E00AF832F /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
+		96CCC6EC174EB28400AF832F /* ideviceinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BEC174E0D8400B868D9 /* ideviceinfo.c */; };
+		96CCC6ED174EBB5100AF832F /* ideviceinfo.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B70174E0D1F00B868D9 /* ideviceinfo.1 */; };
+		96CCC6EE174EBC2F00AF832F /* idevice_id.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B68174E0D1F00B868D9 /* idevice_id.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -323,6 +327,13 @@
 			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
 			remoteInfo = imobiledevice.dylib;
 		};
+		96CCC6E2174EB24E00AF832F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
+			remoteInfo = imobiledevice.dylib;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -405,9 +416,20 @@
 		96CCC6CE174EB17D00AF832F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = /usr/local/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
+				96CCC6EE174EBC2F00AF832F /* idevice_id.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		96CCC6E7174EB24E00AF832F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				96CCC6ED174EBB5100AF832F /* ideviceinfo.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -558,6 +580,7 @@
 		96CCC6A8174EAD4800AF832F /* housearresttest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = housearresttest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CCC6B5174EAF2900AF832F /* ideviceheartbeat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideviceheartbeat; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CCC6D2174EB17D00AF832F /* idevice_id */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevice_id; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CCC6EB174EB24E00AF832F /* ideviceinfo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideviceinfo; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -636,6 +659,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96CCC6E5174EB24E00AF832F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CCC6E6174EB24E00AF832F /* libimobiledevice.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -668,6 +699,7 @@
 				96CCC6A8174EAD4800AF832F /* housearresttest */,
 				96CCC6B5174EAF2900AF832F /* ideviceheartbeat */,
 				96CCC6D2174EB17D00AF832F /* idevice_id */,
+				96CCC6EB174EB24E00AF832F /* ideviceinfo */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1169,6 +1201,24 @@
 			productReference = 96CCC6D2174EB17D00AF832F /* idevice_id */;
 			productType = "com.apple.product-type.tool";
 		};
+		96CCC6E0174EB24E00AF832F /* ideviceinfo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96CCC6E8174EB24E00AF832F /* Build configuration list for PBXNativeTarget "ideviceinfo" */;
+			buildPhases = (
+				96CCC6E3174EB24E00AF832F /* Sources */,
+				96CCC6E5174EB24E00AF832F /* Frameworks */,
+				96CCC6E7174EB24E00AF832F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96CCC6E1174EB24E00AF832F /* PBXTargetDependency */,
+			);
+			name = ideviceinfo;
+			productName = ideviceclient;
+			productReference = 96CCC6EB174EB24E00AF832F /* ideviceinfo */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1206,6 +1256,7 @@
 				96CCC6AA174EAF2900AF832F /* ideviceheartbeat */,
 				96CCC6B7174EB12600AF832F /* Build Tests */,
 				96CCC6C7174EB17D00AF832F /* idevice_id */,
+				96CCC6E0174EB24E00AF832F /* ideviceinfo */,
 			);
 		};
 /* End PBXProject section */
@@ -1364,6 +1415,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96CCC6E3174EB24E00AF832F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CCC6EC174EB28400AF832F /* ideviceinfo.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1441,6 +1500,11 @@
 			isa = PBXTargetDependency;
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
 			targetProxy = 96CCC6C9174EB17D00AF832F /* PBXContainerItemProxy */;
+		};
+		96CCC6E1174EB24E00AF832F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
+			targetProxy = 96CCC6E2174EB24E00AF832F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1696,6 +1760,20 @@
 			};
 			name = Release;
 		};
+		96CCC6E9174EB24E00AF832F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		96CCC6EA174EB24E00AF832F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1787,6 +1865,14 @@
 			buildConfigurations = (
 				96CCC6D0174EB17D00AF832F /* Debug */,
 				96CCC6D1174EB17D00AF832F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		96CCC6E8174EB24E00AF832F /* Build configuration list for PBXNativeTarget "ideviceinfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CCC6E9174EB24E00AF832F /* Debug */,
+				96CCC6EA174EB24E00AF832F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
