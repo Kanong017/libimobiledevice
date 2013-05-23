@@ -405,6 +405,9 @@ plist_t plist_get_parent(plist_t node)
  */
 plist_type plist_get_node_type(plist_t node)
 {
+	if (!node)
+		return PLIST_NONE;
+	
 	CFTypeID type = CFGetTypeID(node);
 
 	if (type == CFArrayGetTypeID())
@@ -428,11 +431,22 @@ plist_type plist_get_node_type(plist_t node)
 		if ( numType == kCFNumberDoubleType)
 			return PLIST_REAL;
 
-		else if (numType == kCFNumberLongType || numType == kCFNumberLongLongType)
-			return PLIST_UINT;
-
-		else
-			return PLIST_NONE;
+		else {
+			switch (numType) {
+				case kCFNumberSInt8Type:
+				case kCFNumberSInt16Type:
+				case kCFNumberSInt32Type:
+				case kCFNumberSInt64Type:
+				case kCFNumberCharType:
+				case kCFNumberShortType:
+				case kCFNumberIntType:
+					return PLIST_UINT;
+					break;
+				default:
+					return PLIST_NONE;
+					break;
+			}
+		}
 	}
 	return PLIST_NONE;
 }
