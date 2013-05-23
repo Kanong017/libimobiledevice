@@ -51,3 +51,5 @@ tools/ideviceimagemounter
 tools/idevicescreenshot
 cython/.libs/*
 cython/*.c
+.DS_Store
+xcuserdata
