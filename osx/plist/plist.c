@@ -137,7 +137,15 @@ plist_t plist_new_data(const char *val, uint64_t length)
  */
 plist_t plist_new_date(int32_t sec, int32_t usec)
 {
-	return NULL;
+//	typedef double CFTimeInterval;
+//	typedef CFTimeInterval CFAbsoluteTime;
+//	/* absolute time is the time interval since the reference date */
+//	/* the reference date (epoch) is 00:00:00 1 January 2001. */
+
+	CFAbsoluteTime abstime = (CFAbsoluteTime) sec + (CFAbsoluteTime) usec / 100000.0;
+	abstime -= 978307200.0;
+
+	return CFDateCreate(kCFAllocatorDefault, abstime);
 }
 
 /**
@@ -426,27 +434,32 @@ plist_type plist_get_node_type(plist_t node)
 	else if (type == CFBooleanGetTypeID())
 		return PLIST_BOOLEAN;
 
+	else if (type == CFDateGetTypeID())
+		return PLIST_DATE;
+
 	else if (type == CFNumberGetTypeID()) {
 
 		CFTypeID numType = CFNumberGetType(node);
-		if ( numType == kCFNumberDoubleType)
-			return PLIST_REAL;
 
-		else {
-			switch (numType) {
-				case kCFNumberSInt8Type:
-				case kCFNumberSInt16Type:
-				case kCFNumberSInt32Type:
-				case kCFNumberSInt64Type:
-				case kCFNumberCharType:
-				case kCFNumberShortType:
-				case kCFNumberIntType:
-					return PLIST_UINT;
-					break;
-				default:
-					return PLIST_NONE;
-					break;
-			}
+		switch (numType) {
+			case kCFNumberFloat32Type:
+			case kCFNumberFloat64Type:
+			case kCFNumberFloatType:
+			case kCFNumberDoubleType:
+				return PLIST_REAL;
+				break;
+			case kCFNumberSInt8Type:
+			case kCFNumberSInt16Type:
+			case kCFNumberSInt32Type:
+			case kCFNumberSInt64Type:
+			case kCFNumberCharType:
+			case kCFNumberShortType:
+			case kCFNumberIntType:
+				return PLIST_UINT;
+				break;
+			default:
+				return PLIST_NONE;
+				break;
 		}
 	}
 	return PLIST_NONE;
@@ -542,7 +555,14 @@ void plist_get_data_val(plist_t node, char **val, uint64_t * length)
  */
 void plist_get_date_val(plist_t node, int32_t * sec, int32_t * usec)
 {
-	assert("Not Implemented" == NULL);
+	assert(CFGetTypeID(node) == CFDateGetTypeID());
+
+	CFAbsoluteTime abstime = CFDateGetAbsoluteTime((CFDateRef) node);
+	abstime += 978307200.0;
+
+	*sec = (int32_t) abstime;
+	abstime = fabs(abstime);
+	*usec = (int32_t) ((abstime - floor(abstime)) * 1000000);
 }
 
 
