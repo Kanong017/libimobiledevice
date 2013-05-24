@@ -699,10 +699,10 @@ void plist_to_bin(plist_t plist, char **plist_bin, uint32_t * length)
 
 	CFDataRef data = CFPropertyListCreateData(kCFAllocatorDefault, plist, kCFPropertyListBinaryFormat_v1_0, 0, NULL);
 	if (data) {
-		*length = CFDataGetLength(data);
+		*length = (uint32_t) CFDataGetLength(data);
 		*plist_bin = malloc(*length);
 		if (*plist_bin)
-			CFDataGetBytes(data, CFRangeMake(0, *length), (UInt8 *) plist_bin);
+			CFDataGetBytes(data, CFRangeMake(0, *length), (UInt8 *) *plist_bin);
 		else
 			*length = 0;
 		
