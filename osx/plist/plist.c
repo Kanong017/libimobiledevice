@@ -688,18 +688,22 @@ void plist_set_date_val(plist_t node, int32_t sec, int32_t usec)
  */
 void plist_to_xml(plist_t plist, char **plist_xml, uint32_t * length)
 {
+	UInt8 *data;
+	CFIndex dataLen;
+
 	*plist_xml = NULL;
 	*length = 0;
 
 	CFDataRef xmlData = CFPropertyListCreateXMLData(kCFAllocatorDefault, plist);
 	if (xmlData) {
-		*length = CFDataGetLength(xmlData);
-		*plist_xml = malloc(*length);
-		if (*plist_xml)
-			CFDataGetBytes(xmlData, CFRangeMake(0, *length), (UInt8 *) *plist_xml);
-		else
-			*length = 0;
-		
+		dataLen = CFDataGetLength(xmlData);
+		data = malloc(dataLen + 1);
+		if (data) {
+			CFDataGetBytes(xmlData, CFRangeMake(0, dataLen), data);
+			data[dataLen] = 0;
+			*plist_xml = (char *)data;
+			*length = dataLen;
+		}
 		CFRelease(xmlData);
 	}
 }
