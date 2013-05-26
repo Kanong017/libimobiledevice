@@ -23,6 +23,24 @@
 			name = "Build Tests";
 			productName = "Build Tests";
 		};
+		96F0F6151752223B0014879C /* Build Tools */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 96F0F6161752223C0014879C /* Build configuration list for PBXAggregateTarget "Build Tools" */;
+			buildPhases = (
+			);
+			dependencies = (
+				96F0F61A1752225B0014879C /* PBXTargetDependency */,
+				96F0F61C1752225B0014879C /* PBXTargetDependency */,
+				96F0F61E1752225B0014879C /* PBXTargetDependency */,
+				96F0F6201752225B0014879C /* PBXTargetDependency */,
+				96F0F6221752225B0014879C /* PBXTargetDependency */,
+				96F0F6241752225B0014879C /* PBXTargetDependency */,
+				96F0F6261752225B0014879C /* PBXTargetDependency */,
+				96F0F6281752225B0014879C /* PBXTargetDependency */,
+			);
+			name = "Build Tools";
+			productName = "Build Tools";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -396,6 +414,62 @@
 			proxyType = 1;
 			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
 			remoteInfo = imobiledevice.dylib;
+		};
+		96F0F6191752225B0014879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC6C7174EB17D00AF832F;
+			remoteInfo = idevice_id;
+		};
+		96F0F61B1752225B0014879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC6E0174EB24E00AF832F;
+			remoteInfo = ideviceinfo;
+		};
+		96F0F61D1752225B0014879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC6EF174EBC5B00AF832F;
+			remoteInfo = ideviceenterrecovery;
+		};
+		96F0F61F1752225B0014879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC6FE174EBDCC00AF832F;
+			remoteInfo = idevicesyslog;
+		};
+		96F0F6211752225B0014879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC70D174EC00100AF832F;
+			remoteInfo = idevicediagnostics;
+		};
+		96F0F6231752225B0014879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9609CAE6174EF50100E744BE;
+			remoteInfo = idevicepair;
+		};
+		96F0F6251752225B0014879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96F0F5EE174EFFAC0014879C;
+			remoteInfo = idevicebackup;
+		};
+		96F0F6271752225B0014879C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96F0F602174F01420014879C;
+			remoteInfo = idevicebackup2;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1565,6 +1639,7 @@
 				9609CAE6174EF50100E744BE /* idevicepair */,
 				96F0F5EE174EFFAC0014879C /* idevicebackup */,
 				96F0F602174F01420014879C /* idevicebackup2 */,
+				96F0F6151752223B0014879C /* Build Tools */,
 			);
 		};
 /* End PBXProject section */
@@ -1891,6 +1966,46 @@
 			isa = PBXTargetDependency;
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
 			targetProxy = 96F0F604174F01420014879C /* PBXContainerItemProxy */;
+		};
+		96F0F61A1752225B0014879C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC6C7174EB17D00AF832F /* idevice_id */;
+			targetProxy = 96F0F6191752225B0014879C /* PBXContainerItemProxy */;
+		};
+		96F0F61C1752225B0014879C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC6E0174EB24E00AF832F /* ideviceinfo */;
+			targetProxy = 96F0F61B1752225B0014879C /* PBXContainerItemProxy */;
+		};
+		96F0F61E1752225B0014879C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC6EF174EBC5B00AF832F /* ideviceenterrecovery */;
+			targetProxy = 96F0F61D1752225B0014879C /* PBXContainerItemProxy */;
+		};
+		96F0F6201752225B0014879C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC6FE174EBDCC00AF832F /* idevicesyslog */;
+			targetProxy = 96F0F61F1752225B0014879C /* PBXContainerItemProxy */;
+		};
+		96F0F6221752225B0014879C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC70D174EC00100AF832F /* idevicediagnostics */;
+			targetProxy = 96F0F6211752225B0014879C /* PBXContainerItemProxy */;
+		};
+		96F0F6241752225B0014879C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9609CAE6174EF50100E744BE /* idevicepair */;
+			targetProxy = 96F0F6231752225B0014879C /* PBXContainerItemProxy */;
+		};
+		96F0F6261752225B0014879C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96F0F5EE174EFFAC0014879C /* idevicebackup */;
+			targetProxy = 96F0F6251752225B0014879C /* PBXContainerItemProxy */;
+		};
+		96F0F6281752225B0014879C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96F0F602174F01420014879C /* idevicebackup2 */;
+			targetProxy = 96F0F6271752225B0014879C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2268,6 +2383,20 @@
 			};
 			name = Release;
 		};
+		96F0F6171752223C0014879C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		96F0F6181752223C0014879C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2432,6 +2561,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		96F0F6161752223C0014879C /* Build configuration list for PBXAggregateTarget "Build Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96F0F6171752223C0014879C /* Debug */,
+				96F0F6181752223C0014879C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
