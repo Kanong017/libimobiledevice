@@ -208,7 +208,7 @@ plist_t plist_array_get_item(plist_t node, uint32_t n)
  */
 uint32_t plist_array_get_item_index(plist_t node)
 {
-//	return CFArrayGetFirstIndexOfValue(<#CFArrayRef theArray#>, <#CFRange range#>, <#const void *value#>)
+//	return CFArrayGetFirstIndexOfValue(CFArrayRef theArray, CFRange range, const void *value)
 	assert("Not Implemented" == NULL);
 	return UINT32_MAX;
 }
@@ -283,14 +283,41 @@ uint32_t plist_dict_get_size(plist_t node)
 
 /**
  * Create iterator of a #PLIST_DICT node.
- * The allocated iterator shoult be freed with tandard free function
+ * The allocated iterator should be freed with standard free function
  *
  * @param node the node of type #PLIST_DICT
  * @param iter iterator of the #PLIST_DICT node
  */
 void plist_dict_new_iter(plist_t node, plist_dict_iter *iter)
 {
-	assert("Not Implemented" == NULL);
+	assert(CFGetTypeID(node) == CFDictionaryGetTypeID());
+
+	struct {
+		CFIndex index;
+		CFIndex count;
+		const void * pairs[][2];
+	} *myiter;
+
+	CFIndex count = CFDictionaryGetCount(node);
+
+	myiter = malloc(sizeof(CFIndex) + count * 2 * sizeof(void *));
+	myiter->count = count;
+	myiter->index = 0;
+
+	const void **keys = malloc(count * sizeof(void *));
+	const void **values = malloc(count * sizeof(void *));
+
+	CFDictionaryGetKeysAndValues(node, keys, values);
+
+	for (int i = 0; i < count; i++) {
+		myiter->pairs[i][0] = keys[i];
+		myiter->pairs[i][1] = values[i];
+	}
+
+	free(keys);
+	free(values);
+
+	*iter = myiter;
 }
 
 /**
@@ -303,7 +330,33 @@ void plist_dict_new_iter(plist_t node, plist_dict_iter *iter)
  */
 void plist_dict_next_item(plist_t node, plist_dict_iter iter, char **key, plist_t *val)
 {
-	assert("Not Implemented" == NULL);
+	assert(CFGetTypeID(node) == CFDictionaryGetTypeID());
+
+	struct {
+		CFIndex index;
+		CFIndex count;
+		const void * pairs[][2];
+	} * myiter;
+
+	myiter = iter;
+
+	if (myiter->index < myiter->count) {
+		if (key) {
+			CFStringRef keyRef = myiter->pairs[myiter->index][0];
+			CFIndex maxSize = CFStringGetMaximumSizeForEncoding(CFStringGetLength(keyRef), kCFStringEncodingUTF8);
+			char *keyData = malloc(++maxSize);
+			CFStringGetCString(keyRef, keyData, maxSize, kCFStringEncodingUTF8);
+			*key = keyData;
+		}
+		if (val)
+			*val = myiter->pairs[myiter->index][1];
+
+		myiter->index += 1;
+	}
+	else {
+		if (key) *key = NULL;
+		if (val) *val = NULL;
+	}
 }
 
 /**
