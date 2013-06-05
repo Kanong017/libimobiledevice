@@ -52,6 +52,12 @@
 		9609CAEC174EF50100E744BE /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9609CAF3174EF51F00E744BE /* idevicepair.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B71174E0D1F00B868D9 /* idevicepair.1 */; };
 		9609CAF4174EF52D00E744BE /* idevicepair.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BED174E0D8400B868D9 /* idevicepair.c */; };
+		96612987175EE0A2005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96612991175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
+		96612992175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
+		96612993175EE163005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612990175EE163005AD392 /* syslog_relay.h */; };
+		96612994175EE163005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612990175EE163005AD392 /* syslog_relay.h */; };
+		96612995175EE1BC005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		969BA0201755F34500339FF1 /* libusbmuxd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B88C12174E1AC100B868D9 /* libusbmuxd.a */; };
 		96B88B41174E0CAD00B868D9 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B39174E0CAD00B868D9 /* debug.c */; };
 		96B88B42174E0CAD00B868D9 /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B3A174E0CAD00B868D9 /* debug.h */; };
@@ -73,7 +79,7 @@
 		96B88BC1174E0D6400B868D9 /* heartbeat.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B97174E0D6400B868D9 /* heartbeat.h */; };
 		96B88BC2174E0D6400B868D9 /* house_arrest.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B98174E0D6400B868D9 /* house_arrest.c */; };
 		96B88BC3174E0D6400B868D9 /* house_arrest.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B99174E0D6400B868D9 /* house_arrest.h */; };
-		96B88BC4174E0D6400B868D9 /* idevice.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B9A174E0D6400B868D9 /* idevice.c */; };
+		96B88BC4174E0D6400B868D9 /* idevice.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B9A174E0D6400B868D9 /* idevice.c */; settings = {COMPILER_FLAGS = "\"-I$(SRCROOT)/deps/usbmuxd/libusbmuxd\""; }; };
 		96B88BC5174E0D6400B868D9 /* idevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B9B174E0D6400B868D9 /* idevice.h */; };
 		96B88BC6174E0D6400B868D9 /* installation_proxy.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B9C174E0D6400B868D9 /* installation_proxy.c */; };
 		96B88BC7174E0D6400B868D9 /* installation_proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B9D174E0D6400B868D9 /* installation_proxy.h */; };
@@ -257,6 +263,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
 			remoteInfo = imobiledevice.dylib;
+		};
+		9661298D175EE0A2005AD392 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96C86655175C42200061472B;
+			remoteInfo = iproxyx;
 		};
 		969BA0211755F35700339FF1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -750,6 +763,9 @@
 
 /* Begin PBXFileReference section */
 		9609CAF2174EF50100E744BE /* idevicepair */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicepair; sourceTree = BUILT_PRODUCTS_DIR; };
+		96612986175EE0A2005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
+		9661298F175EE163005AD392 /* syslog_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syslog_relay.c; sourceTree = "<group>"; };
+		96612990175EE163005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
 		96B88B30174E0B9900B868D9 /* libimobiledevice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimobiledevice.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B88B38174E0CAD00B868D9 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		96B88B39174E0CAD00B868D9 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
@@ -1237,6 +1253,7 @@
 				96B88B88174E0D4A00B868D9 /* restore.h */,
 				96B88B89174E0D4A00B868D9 /* sbservices.h */,
 				96B88B8A174E0D4A00B868D9 /* screenshotr.h */,
+				96612986175EE0A2005AD392 /* syslog_relay.h */,
 				96B88B8B174E0D4A00B868D9 /* webinspector.h */,
 			);
 			path = libimobiledevice;
@@ -1286,6 +1303,8 @@
 				96B88BB3174E0D6400B868D9 /* screenshotr.h */,
 				96B88BB4174E0D6400B868D9 /* service.c */,
 				96B88BB5174E0D6400B868D9 /* service.h */,
+				9661298F175EE163005AD392 /* syslog_relay.c */,
+				96612990175EE163005AD392 /* syslog_relay.h */,
 				96B88BB6174E0D6400B868D9 /* webinspector.c */,
 				96B88BB7174E0D6400B868D9 /* webinspector.h */,
 			);
@@ -1337,6 +1356,7 @@
 				96B88C14174E1AC100B868D9 /* libusbmuxd.dylib */,
 				96B88C16174E1AC100B868D9 /* usbmuxd-iphat */,
 				96B88C18174E1AC100B868D9 /* iproxy */,
+				9661298E175EE0A2005AD392 /* iproxyx */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1377,6 +1397,7 @@
 				96B88BFF174E109900B868D9 /* restore.h in Headers */,
 				96B88C00174E109900B868D9 /* sbservices.h in Headers */,
 				96B88C01174E109900B868D9 /* screenshotr.h in Headers */,
+				96612995175EE1BC005AD392 /* syslog_relay.h in Headers */,
 				96B88C02174E109900B868D9 /* webinspector.h in Headers */,
 				96B88C08174E160E00B868D9 /* plist.h in Headers */,
 				96B88B42174E0CAD00B868D9 /* debug.h in Headers */,
@@ -1404,6 +1425,7 @@
 				96B88BDD174E0D6400B868D9 /* screenshotr.h in Headers */,
 				96B88BDF174E0D6400B868D9 /* service.h in Headers */,
 				96B88BE1174E0D6400B868D9 /* webinspector.h in Headers */,
+				96612993175EE163005AD392 /* syslog_relay.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1428,6 +1450,7 @@
 				96CCC62F174E4B6400AF832F /* restore.h in Headers */,
 				96CCC630174E4B6400AF832F /* sbservices.h in Headers */,
 				96CCC631174E4B6400AF832F /* screenshotr.h in Headers */,
+				96612987175EE0A2005AD392 /* syslog_relay.h in Headers */,
 				96CCC632174E4B6400AF832F /* webinspector.h in Headers */,
 				96CCC64C174E4BDE00AF832F /* plist.h in Headers */,
 				96F0F611174F02360014879C /* endianness.h in Headers */,
@@ -1456,6 +1479,7 @@
 				96CCC649174E4BC000AF832F /* screenshotr.h in Headers */,
 				96CCC64A174E4BC000AF832F /* service.h in Headers */,
 				96CCC64B174E4BC000AF832F /* webinspector.h in Headers */,
+				96612994175EE163005AD392 /* syslog_relay.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1946,6 +1970,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		9661298E175EE0A2005AD392 /* iproxyx */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = iproxyx;
+			remoteRef = 9661298D175EE0A2005AD392 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		96B88C12174E1AC100B868D9 /* libusbmuxd.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -2044,6 +2075,7 @@
 				96B88BDA174E0D6400B868D9 /* sbservices.c in Sources */,
 				96B88BDC174E0D6400B868D9 /* screenshotr.c in Sources */,
 				96B88BDE174E0D6400B868D9 /* service.c in Sources */,
+				96612991175EE163005AD392 /* syslog_relay.c in Sources */,
 				96B88BE0174E0D6400B868D9 /* webinspector.c in Sources */,
 				96B88C07174E160E00B868D9 /* plist.c in Sources */,
 			);
@@ -2077,6 +2109,7 @@
 				96CCC61C174E4B2B00AF832F /* sbservices.c in Sources */,
 				96CCC61D174E4B2B00AF832F /* screenshotr.c in Sources */,
 				96CCC61E174E4B2B00AF832F /* service.c in Sources */,
+				96612992175EE163005AD392 /* syslog_relay.c in Sources */,
 				96CCC61F174E4B2B00AF832F /* webinspector.c in Sources */,
 				96CCC620174E4B2B00AF832F /* plist.c in Sources */,
 			);
