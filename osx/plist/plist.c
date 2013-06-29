@@ -399,7 +399,8 @@ plist_t plist_dict_get_item(plist_t node, const char* key)
  */
 void plist_dict_set_item(plist_t node, const char* key, plist_t item)
 {
-	CFStringRef keyRef = CFStringCreateWithBytesNoCopy(kCFAllocatorDefault, (UInt8 *)key, strlen(key), kCFStringEncodingUTF8, FALSE, kCFAllocatorNull);
+	// Do not use "...NoCopy" because the key is added to the node
+	CFStringRef keyRef = CFStringCreateWithBytes(kCFAllocatorDefault, (UInt8 *)key, strlen(key), kCFStringEncodingUTF8, FALSE);
 	if (keyRef) {
 		CFDictionarySetValue((CFMutableDictionaryRef) node, keyRef, item);
 		CFRelease(keyRef);
@@ -416,7 +417,8 @@ void plist_dict_set_item(plist_t node, const char* key, plist_t item)
  */
 void plist_dict_insert_item(plist_t node, const char* key, plist_t item)
 {
-	CFStringRef keyRef = CFStringCreateWithBytesNoCopy(kCFAllocatorDefault, (UInt8 *)key, strlen(key), kCFStringEncodingUTF8, FALSE, kCFAllocatorNull);
+	// Do not use "...NoCopy" because the key is added to the node
+	CFStringRef keyRef = CFStringCreateWithBytes(kCFAllocatorDefault, (UInt8 *)key, strlen(key), kCFStringEncodingUTF8, FALSE);
 	if (keyRef) {
 		assert(CFDictionaryGetValue(node, keyRef) == NULL);
 		CFDictionarySetValue((CFMutableDictionaryRef) node, keyRef, item);
