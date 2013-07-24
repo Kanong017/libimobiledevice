@@ -1356,7 +1356,7 @@
 				96B88C14174E1AC100B868D9 /* libusbmuxd.dylib */,
 				96B88C16174E1AC100B868D9 /* usbmuxd-iphat */,
 				96B88C18174E1AC100B868D9 /* iproxy */,
-				9661298E175EE0A2005AD392 /* iproxyx */,
+				9661298E175EE0A2005AD392 /* iproxy-osx */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1970,10 +1970,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9661298E175EE0A2005AD392 /* iproxyx */ = {
+		9661298E175EE0A2005AD392 /* iproxy-osx */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
-			path = iproxyx;
+			path = "iproxy-osx";
 			remoteRef = 9661298D175EE0A2005AD392 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
