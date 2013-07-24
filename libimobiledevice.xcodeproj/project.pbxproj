@@ -2512,11 +2512,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
+				HEADER_SEARCH_PATHS = "\"$(CONFIGURATION_BUILD_DIR)/usr/local/include\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 			};
 			name = Debug;
 		};
@@ -2541,10 +2541,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(DSTROOT)/usr/local/include";
+				HEADER_SEARCH_PATHS = "\"$(DSTROOT)/usr/local/include\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 			};
 			name = Release;
 		};
@@ -2564,7 +2564,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/include";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Debug;
 		};
@@ -2583,7 +2583,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/include";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Release;
 		};
@@ -2604,7 +2604,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/include";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Debug;
 		};
@@ -2624,7 +2624,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/include";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Release;
 		};
