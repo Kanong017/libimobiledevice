@@ -2551,6 +2551,8 @@
 		96B88B35174E0B9900B868D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
+				DYLIB_CURRENT_VERSION = 1.1.6;
 				EXECUTABLE_EXTENSION = "";
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = "";
@@ -2571,6 +2573,8 @@
 		96B88B36174E0B9900B868D9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
+				DYLIB_CURRENT_VERSION = 1.1.6;
 				EXECUTABLE_EXTENSION = "";
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = "";
@@ -2590,6 +2594,8 @@
 		96CCC600174E493200AF832F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
+				DYLIB_CURRENT_VERSION = 1.1.6;
 				EXECUTABLE_EXTENSION = "";
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = "";
@@ -2611,6 +2617,8 @@
 		96CCC601174E493200AF832F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
+				DYLIB_CURRENT_VERSION = 1.1.6;
 				EXECUTABLE_EXTENSION = "";
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = "";
