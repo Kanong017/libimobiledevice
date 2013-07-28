@@ -601,6 +601,12 @@ int main(int argc, char **argv)
 						fin = FIN_TERM;
 						break;
 
+					case 'T':
+						/* Received when app is killed from tray. */
+						rc = fromhex(in[1]) * 16 + fromhex(in[2]);
+						fin = FIN_TERM;
+						break;
+
 					case 'O':
 						/* output */
 						console_output = g_string_new("");
