@@ -42,6 +42,8 @@
 				96F0F6281752225B0014879C /* PBXTargetDependency */,
 				96F0F680175231DC0014879C /* PBXTargetDependency */,
 				96F0F692175233420014879C /* PBXTargetDependency */,
+				96A8D97517A4A9DE006E38E0 /* PBXTargetDependency */,
+				96A8D97717A4A9DE006E38E0 /* PBXTargetDependency */,
 			);
 			name = BuildTools;
 			productName = BuildTools;
@@ -65,6 +67,8 @@
 		96A8D95717A14218006E38E0 /* gstring.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D95417A14218006E38E0 /* gstring.c */; };
 		96A8D95817A14218006E38E0 /* gstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 96A8D95517A14218006E38E0 /* gstring.h */; };
 		96A8D95917A14231006E38E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5F1174E459600AF832F /* CoreFoundation.framework */; };
+		96A8D96E17A4A9B5006E38E0 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
+		96A8D97817A4AA1F006E38E0 /* afccl.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D96217A4A902006E38E0 /* afccl.c */; };
 		96B88B41174E0CAD00B868D9 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B39174E0CAD00B868D9 /* debug.c */; };
 		96B88B42174E0CAD00B868D9 /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B3A174E0CAD00B868D9 /* debug.h */; };
 		96B88B43174E0CAD00B868D9 /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B3B174E0CAD00B868D9 /* socket.c */; };
@@ -290,6 +294,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
 			remoteInfo = imobiledevice.dylib;
+		};
+		96A8D96517A4A9B5006E38E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
+			remoteInfo = imobiledevice.dylib;
+		};
+		96A8D97417A4A9DE006E38E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96A8D94417A12DF6006E38E0;
+			remoteInfo = ideviceexec;
+		};
+		96A8D97617A4A9DE006E38E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96A8D96317A4A9B5006E38E0;
+			remoteInfo = afccl;
 		};
 		96B88C11174E1AC100B868D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -607,6 +632,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		96A8D96F17A4A9B5006E38E0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		96CCC65D174E7D6800AF832F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -793,6 +827,8 @@
 		96A8D95317A14218006E38E0 /* glib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glib.h; sourceTree = "<group>"; };
 		96A8D95417A14218006E38E0 /* gstring.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gstring.c; sourceTree = "<group>"; };
 		96A8D95517A14218006E38E0 /* gstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gstring.h; sourceTree = "<group>"; };
+		96A8D96217A4A902006E38E0 /* afccl.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = afccl.c; sourceTree = "<group>"; };
+		96A8D97317A4A9B5006E38E0 /* afccl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = afccl; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B88B30174E0B9900B868D9 /* libimobiledevice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimobiledevice.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B88B38174E0CAD00B868D9 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		96B88B39174E0CAD00B868D9 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
@@ -968,6 +1004,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96A8D96C17A4A9B5006E38E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A8D96E17A4A9B5006E38E0 /* libimobiledevice.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96B88B2D174E0B9900B868D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1135,6 +1179,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96A8D95C17A4A8CD006E38E0 /* afccl */ = {
+			isa = PBXGroup;
+			children = (
+				96A8D96217A4A902006E38E0 /* afccl.c */,
+			);
+			path = afccl;
+			sourceTree = "<group>";
+		};
 		96B88B27174E0B9900B868D9 = {
 			isa = PBXGroup;
 			children = (
@@ -1177,6 +1229,7 @@
 				96F0F67C175231690014879C /* ideviceprovision */,
 				96F0F68E1752322C0014879C /* idevicescreenshot */,
 				96A8D95117A12DF6006E38E0 /* ideviceexec */,
+				96A8D97317A4A9B5006E38E0 /* afccl */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1351,6 +1404,7 @@
 		96B88BE2174E0D8400B868D9 /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				96A8D95C17A4A8CD006E38E0 /* afccl */,
 				96B88BE3174E0D8400B868D9 /* Makefile.am */,
 				96B88BE4174E0D8400B868D9 /* idevice_id.c */,
 				96B88BE5174E0D8400B868D9 /* idevicebackup.c */,
@@ -1423,6 +1477,13 @@
 			files = (
 				96A8D95617A14218006E38E0 /* glib.h in Headers */,
 				96A8D95817A14218006E38E0 /* gstring.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96A8D96617A4A9B5006E38E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1614,6 +1675,25 @@
 			name = ideviceexec;
 			productName = ideviceclient;
 			productReference = 96A8D95117A12DF6006E38E0 /* ideviceexec */;
+			productType = "com.apple.product-type.tool";
+		};
+		96A8D96317A4A9B5006E38E0 /* afccl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96A8D97017A4A9B5006E38E0 /* Build configuration list for PBXNativeTarget "afccl" */;
+			buildPhases = (
+				96A8D96617A4A9B5006E38E0 /* Headers */,
+				96A8D96917A4A9B5006E38E0 /* Sources */,
+				96A8D96C17A4A9B5006E38E0 /* Frameworks */,
+				96A8D96F17A4A9B5006E38E0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96A8D96417A4A9B5006E38E0 /* PBXTargetDependency */,
+			);
+			name = afccl;
+			productName = ideviceclient;
+			productReference = 96A8D97317A4A9B5006E38E0 /* afccl */;
 			productType = "com.apple.product-type.tool";
 		};
 		96B88B2F174E0B9900B868D9 /* imobiledevice.a */ = {
@@ -1990,7 +2070,7 @@
 		96B88B28174E0B9900B868D9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "FBI CEAU";
 			};
 			buildConfigurationList = 96B88B2B174E0B9900B868D9 /* Build configuration list for PBXProject "libimobiledevice" */;
@@ -2034,6 +2114,7 @@
 				96F0F66F175231690014879C /* ideviceprovision */,
 				96F0F6811752322C0014879C /* idevicescreenshot */,
 				96A8D94417A12DF6006E38E0 /* ideviceexec */,
+				96A8D96317A4A9B5006E38E0 /* afccl */,
 				96F0F6151752223B0014879C /* BuildTools */,
 			);
 		};
@@ -2123,6 +2204,14 @@
 			files = (
 				96A8D95717A14218006E38E0 /* gstring.c in Sources */,
 				96A8D95217A12E5B006E38E0 /* ideviceexec.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96A8D96917A4A9B5006E38E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A8D97817A4AA1F006E38E0 /* afccl.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2356,6 +2445,21 @@
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
 			targetProxy = 96A8D94617A12DF6006E38E0 /* PBXContainerItemProxy */;
 		};
+		96A8D96417A4A9B5006E38E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
+			targetProxy = 96A8D96517A4A9B5006E38E0 /* PBXContainerItemProxy */;
+		};
+		96A8D97517A4A9DE006E38E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96A8D94417A12DF6006E38E0 /* ideviceexec */;
+			targetProxy = 96A8D97417A4A9DE006E38E0 /* PBXContainerItemProxy */;
+		};
+		96A8D97717A4A9DE006E38E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96A8D96317A4A9B5006E38E0 /* afccl */;
+			targetProxy = 96A8D97617A4A9DE006E38E0 /* PBXContainerItemProxy */;
+		};
 		96B88C1A174E1B2D00B868D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = libusbmuxd.a;
@@ -2582,6 +2686,22 @@
 			buildSettings = {
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = ideviceexec;
+			};
+			name = Release;
+		};
+		96A8D97117A4A9B5006E38E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
+				PRODUCT_NAME = afccl;
+			};
+			name = Debug;
+		};
+		96A8D97217A4A9B5006E38E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
+				PRODUCT_NAME = afccl;
 			};
 			name = Release;
 		};
@@ -3071,6 +3191,15 @@
 			buildConfigurations = (
 				96A8D94F17A12DF6006E38E0 /* Debug */,
 				96A8D95017A12DF6006E38E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96A8D97017A4A9B5006E38E0 /* Build configuration list for PBXNativeTarget "afccl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96A8D97117A4A9B5006E38E0 /* Debug */,
+				96A8D97217A4A9B5006E38E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
