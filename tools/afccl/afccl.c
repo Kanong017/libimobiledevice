@@ -308,7 +308,47 @@ static afc_error_t cmd_stat(int argc, const char *argv[])
 
 static afc_error_t cmd_cat(int argc, const char *argv[])
 {
-	return AFC_E_INVALID_ARG;
+	afc_error_t result;
+	uint64_t handle, size;
+	char **infolist;
+	uint32_t readsize;
+	char buffer[0x1000];
+
+	if (argc != 1) {
+		warnx("usage: cat <file>");
+		return -1;
+	}
+
+	result = afc_get_file_info(afc, argv[0], &infolist);
+	if (result != AFC_E_SUCCESS) {
+		afc_warn(result, "%s", argv[0]);
+		return result;
+	}
+	size = atoll(infolist[1]);
+	for (int i = 0; infolist[i] != NULL; i++)
+		free(infolist[i]);
+	free(infolist);
+
+	result = afc_file_open(afc, argv[0], AFC_FOPEN_RDONLY, &handle);
+	if (result != AFC_E_SUCCESS) {
+		afc_warn(result, "%s", argv[0]);
+		return result;
+	}
+
+	for (int i = 0; i < size; ) {
+		result = afc_file_read(afc, handle, buffer, sizeof(buffer), &readsize);
+		if (result != AFC_E_SUCCESS) {
+			afc_warn(result, "%s", argv[0]);
+			afc_file_close(afc, handle);
+			return result;
+		}
+		fwrite(buffer, 1, readsize, stdout);
+		i += readsize;
+	}
+
+	afc_file_close(afc, handle);
+
+	return AFC_E_SUCCESS;
 }
 
 static afc_error_t cmd_cp(int argc, const char *argv[])
