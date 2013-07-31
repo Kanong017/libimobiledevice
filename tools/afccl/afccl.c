@@ -370,9 +370,6 @@ static afc_error_t cmd_cp(int argc, const char *argv[])
 
 static int str_to_cmd(const char *str)
 {
-	//	char *cmds[] = { "ls", "mkdir", "ln", "rm", "mv", "cp", "cat", "stat", NULL };
-
-
 	if (!strcmp(str, "ls"))
 		return CMD_LS;
 	else if (!strcmp(str, "mkdir"))
@@ -437,6 +434,9 @@ static void print_usage(int argc, const char **argv)
 {
 	char *name = NULL;
 
+	// TODO: document commands and options
+	// 		see usage for idevicebackup2 for a complex example with commands that take options
+
 	name = strrchr(argv[0], '/');
 	printf("Usage: %s [OPTIONS] [<cmd> [CMDOPTIONS]]\n", (name ? name + 1: argv[0]));
 	printf("AFC command line utility.\n\n");
@@ -446,38 +446,6 @@ static void print_usage(int argc, const char **argv)
 	printf("  -h, --help\t\tprints usage information\n");
 	printf("\n");
 }
-
-//static void print_usage(int argc, char **argv)
-//{
-//	char *name = NULL;
-//	name = strrchr(argv[0], '/');
-//	printf("Usage: %s [OPTIONS] CMD [CMDOPTIONS] DIRECTORY\n", (name ? name + 1: argv[0]));
-//	printf("Create or restore backup from the current or specified directory.\n\n");
-//	printf("commands:\n");
-//	printf("  backup\tcreate backup for the device\n");
-//	printf("  restore\trestore last backup to the device\n");
-//	printf("    --system\t\trestore system files, too.\n");
-//	printf("    --reboot\t\treboot the system when done.\n");
-//	printf("    --copy\t\tcreate a copy of backup folder before restoring.\n");
-//	printf("    --settings\t\trestore device settings from the backup.\n");
-//	printf("    --remove\t\tremove items which are not being restored\n");
-//	printf("    --password PWD\tsupply the password of the source backup\n");
-//	printf("  info\t\tshow details about last completed backup of device\n");
-//	printf("  list\t\tlist files of last completed backup in CSV format\n");
-//	printf("  unback\tunpack a completed backup in DIRECTORY/_unback_/\n");
-//	printf("  encryption on|off [PWD]\tenable or disable backup encryption\n");
-//	printf("    NOTE: password will be requested in interactive mode if omitted\n");
-//	printf("  changepw [OLD NEW]  change backup password on target device\n");
-//	printf("    NOTE: passwords will be requested in interactive mode if omitted\n");
-//	printf("\n");
-//	printf("options:\n");
-//	printf("  -d, --debug\t\tenable communication debugging\n");
-//	printf("  -u, --udid UDID\ttarget specific device by its 40-digit device UDID\n");
-//	printf("  -s, --source UDID\tuse backup data from device specified by UDID\n");
-//	printf("  -i, --interactive\trequest passwords interactively\n");
-//	printf("  -h, --help\t\tprints usage information\n");
-//	printf("\n");
-//}
 
 int main(int argc, const char **argv)
 {
@@ -569,8 +537,6 @@ int main(int argc, const char **argv)
 	}
 
 	result = do_cmd(cmd, argc, argv);
-//	if (result != AFC_E_SUCCESS)
-//		afc_warn(result, cmdstr);
 
 	afc_client_free(afc);
 
