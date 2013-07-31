@@ -27,7 +27,7 @@
 #include <libimobiledevice/afc.h>
 
 #define CMD_INTERACTIVE 0
-//#define CMD_CD 1
+#define CMD_CD 1
 //#define CMD_PWD 2
 #define CMD_LS 3
 #define CMD_MKDIR 4
@@ -125,7 +125,9 @@ void afc_warn(afc_error_t err, const char *fmt, ...)
 
 static int cmd_cd(const char *path)
 {
+	afc_error_t result;
 	char *realpath;
+	char **infolist;
 
 	if (!path)
 		return AFC_E_INVALID_ARG;
@@ -138,7 +140,15 @@ static int cmd_cd(const char *path)
 			return -1;
 		}
 	}
-	// TODO: confirm new path exists and is a directory
+
+	result = afc_get_file_info(afc, realpath, &infolist);
+	if (result != AFC_E_SUCCESS) {
+		afc_warn(result, "%s", path);
+		return result;
+	}
+	for (int i = 0; infolist[i] != NULL; i++)
+		free(infolist[i]);
+	free(infolist);
 
 	free(cwd);
 	cwd = strdup(realpath);
@@ -370,7 +380,9 @@ static afc_error_t cmd_cp(int argc, const char *argv[])
 
 static int str_to_cmd(const char *str)
 {
-	if (!strcmp(str, "ls"))
+	if (!strcmp(str, "cd"))
+		return CMD_CD;
+	else if (!strcmp(str, "ls"))
 		return CMD_LS;
 	else if (!strcmp(str, "mkdir"))
 		return CMD_MKDIR;
@@ -400,6 +412,8 @@ static int do_cmd(int cmd, int argc, const char *argv[])
 	switch (cmd) {
 		case CMD_INTERACTIVE:
 			return cmd_loop(argc, argv);
+		case CMD_CD:
+			return cmd_cd(argv[0]);
 		case CMD_LS:
 			return cmd_ls(argc, argv);
 			break;
