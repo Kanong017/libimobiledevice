@@ -290,18 +290,30 @@ static afc_error_t cmd_stat(int argc, const char *argv[])
 	afc_error_t result;
 	char **infolist = NULL;
 
-	result = afc_get_file_info(afc, argv[0], &infolist);
-	if (result != AFC_E_SUCCESS) {
-		afc_warn(result, "%s", argv[0]);
-		return result;
+	if (argc < 1) {
+		warnx("usage: stat <file> ...");
+		return -1;
 	}
-	for (int i = 0; infolist[i] != NULL; i++) {
-		printf("%14s ", infolist[i]);
-		free(infolist[i]);
-		printf("%s\n", infolist[++i]);
-		free(infolist[i]);
+
+	for (int i = 0; i < argc; i++) {
+
+		printf("%s:\n", argv[i]);
+
+		result = afc_get_file_info(afc, argv[i], &infolist);
+		if (result != AFC_E_SUCCESS) {
+			afc_warn(result, "%s", argv[i]);
+			return result;
+		}
+		for (int j = 0; infolist[j] != NULL; j++) {
+			printf("%14s ", infolist[j]);
+			free(infolist[j]);
+			printf("%s\n", infolist[++j]);
+			free(infolist[j]);
+		}
+		free(infolist);
+
+		putc('\n', stdout);
 	}
-	free(infolist);
 
 	return AFC_E_SUCCESS;
 }
