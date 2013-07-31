@@ -135,7 +135,7 @@ static int cmd_cd(const char *path)
 	if (path[0] == '/')
 		realpath = strdup(path);
 	else {
-		if (asprintf(&realpath, "%s/%s", cwd, path) == -1) {
+		if (asprintf(&realpath, "%s/%s", (strcmp(cwd, "/")) ? cwd : "", path) == -1) {
 			warn("asprintf");
 			return -1;
 		}
