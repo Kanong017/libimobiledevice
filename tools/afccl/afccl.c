@@ -203,8 +203,10 @@ static afc_error_t cmd_ls(int argc, const char *argv[])
 
 	for (int i = 0; list[i]; i++) {
 		printf("%s\n", list[i]);
-		// TODO: fix leak
+		free(list[i]);
 	}
+	free(list);
+	
 	return AFC_E_SUCCESS;
 }
 
