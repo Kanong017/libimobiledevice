@@ -123,27 +123,41 @@ void afc_warn(afc_error_t err, const char *fmt, ...)
 	free(newfmt);
 }
 
+static char *build_absolute_path(const char *inpath)
+{
+	char *path;
+
+	if (inpath[0] == '/')
+		path = strdup(inpath);
+	else {
+		if (asprintf(&path, "%s/%s", (strcmp(cwd, "/")) ? cwd : "", inpath) == -1) {
+			warn("asprintf");
+			return NULL;
+		}
+	}
+	for (int i = strlen(path); i > 1 && path[i] == '/'; i--)
+		path[i] = 0;
+
+	return path;
+}
+
 static int cmd_cd(const char *path)
 {
 	afc_error_t result;
-	char *realpath;
+	char *newpath;
 	char **infolist;
 
 	if (!path)
 		return AFC_E_INVALID_ARG;
 
-	if (path[0] == '/')
-		realpath = strdup(path);
-	else {
-		if (asprintf(&realpath, "%s/%s", (strcmp(cwd, "/")) ? cwd : "", path) == -1) {
-			warn("asprintf");
-			return -1;
-		}
-	}
+	newpath = build_absolute_path(path);
+	if (!newpath)
+		return AFC_E_INTERNAL_ERROR;
 
-	result = afc_get_file_info(afc, realpath, &infolist);
+	result = afc_get_file_info(afc, newpath, &infolist);
 	if (result != AFC_E_SUCCESS) {
 		afc_warn(result, "%s", path);
+		free(newpath);
 		return result;
 	}
 	for (int i = 0; infolist[i] != NULL; i++)
@@ -151,7 +165,7 @@ static int cmd_cd(const char *path)
 	free(infolist);
 
 	free(cwd);
-	cwd = strdup(realpath);
+	cwd = newpath;
 
 	return 0;
 }
@@ -172,11 +186,9 @@ static afc_error_t cmd_ls(int argc, const char *argv[])
 		path = strdup(cwd);
 	}
 	else if (argc == 1) {
-		if (argv[0][0] == '/')
-			path = strdup(argv[0]);
-		else
-			if (asprintf(&path, "%s/%s", (strcmp(cwd, "/")) ? cwd : "", argv[0]) == -1)
-				return AFC_E_UNKNOWN_ERROR;
+		path = build_absolute_path(argv[0]);
+		if (!path)
+			return AFC_E_INTERNAL_ERROR;
 	}
 	else {
 		warnx("usage: ls [<dir>]");
@@ -185,12 +197,13 @@ static afc_error_t cmd_ls(int argc, const char *argv[])
 
 	result = afc_read_directory(afc, path, &list);
 	if (result != AFC_E_SUCCESS) {
-		afc_warn(result, "%s", path);
+		afc_warn(result, "%s", argc == 1 ? argv[0] : cwd);
 		return result;
 	}
 
 	for (int i = 0; list[i]; i++) {
 		printf("%s\n", list[i]);
+		// TODO: fix leak
 	}
 	return AFC_E_SUCCESS;
 }
@@ -215,7 +228,7 @@ static afc_error_t cmd_ln(int argc, const char *argv[])
 	afc_error_t result;
 	int type = AFC_HARDLINK;
 	char **infolist = NULL;
-	char *path = NULL;
+	char *target_path = NULL;
 
 	if (argc == 3 && !strcmp("-s", argv[0])) {
 		type = AFC_SYMLINK;
@@ -226,14 +239,14 @@ static afc_error_t cmd_ln(int argc, const char *argv[])
 		warnx("usage: ln [-s] <source> <target>");
 		return AFC_E_INVALID_ARG;
 	}
+
+	target_path = build_absolute_path(argv[1]);
+	if (!target_path)
+		return AFC_E_INTERNAL_ERROR;
+
 	if (type == AFC_HARDLINK) {
-		if (argv[0][0] != '/')
-			asprintf(&path, "%s/%s", (strcmp(cwd, "/")) ? cwd : "", argv[0]);
-		else
-			path = strdup(argv[0]);
 
 		result = afc_get_file_info(afc, argv[0], &infolist);
-		free(path);
 		if (result == AFC_E_SUCCESS) {
 			for (int i = 0; infolist[i] != NULL; i++)
 				free(infolist[i]);
@@ -241,11 +254,12 @@ static afc_error_t cmd_ln(int argc, const char *argv[])
 		}
 		else {
 			afc_warn(result, "%s", argv[0]);
+			free(target_path);
 			return result;
 		}
 	}
 
-	result = afc_make_link(afc, type, argv[0], argv[1]);
+	result = afc_make_link(afc, type, argv[0], target_path);
 	if (result != AFC_E_SUCCESS)
 		afc_warn(result, "afc_make_link");
 
@@ -261,16 +275,10 @@ static afc_error_t cmd_rm(int argc, const char *argv[])
 		warnx("usage: rm <file>");
 		return AFC_E_INVALID_ARG;
 	}
-	if (argv[0][0] == '/') {
-		path = strdup(argv[0]);
-	}
-	else {
-		result = asprintf(&path, "%s/%s", (strcmp(cwd, "/")) ? cwd : "", argv[0]);
-		if (result == -1) {
-			warn("asprintf");
-			return AFC_E_UNKNOWN_ERROR;
-		}
-	}
+	path = build_absolute_path(argv[0]);
+	if (!path)
+		return AFC_E_INTERNAL_ERROR;
+
 	result = afc_remove_path(afc, path);
 	free(path);
 
