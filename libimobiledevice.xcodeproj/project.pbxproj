@@ -2613,6 +2613,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CONFIGURATION_BUILD_DIR)/usr/local/include\"";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -2642,6 +2643,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(DSTROOT)/usr/local/include\"";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
@@ -2707,6 +2709,7 @@
 					HAVE_LANGINFO_CODESET,
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				INSTALL_PATH = "@rpath";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
@@ -2729,6 +2732,7 @@
 					HAVE_LANGINFO_CODESET,
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				INSTALL_PATH = "@rpath";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
