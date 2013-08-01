@@ -25,10 +25,12 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <libimobiledevice/afc.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 #define CMD_INTERACTIVE 0
 #define CMD_CD 1
-//#define CMD_PWD 2
+#define CMD_PWD 2
 #define CMD_LS 3
 #define CMD_MKDIR 4
 #define CMD_LN 5
@@ -37,9 +39,14 @@
 #define CMD_CP 8
 #define CMD_CAT 9
 #define CMD_STAT 10
+#define CMD_QUIT 98
+#define CMD_UNKNOWN 99
+
 
 afc_client_t afc = NULL;
 char *cwd;
+
+static int do_cmd(int cmd, int argc, const char *argv[]);
 
 char *afc_strerror(afc_error_t err)
 {
@@ -206,7 +213,7 @@ static afc_error_t cmd_ls(int argc, const char *argv[])
 		free(list[i]);
 	}
 	free(list);
-	
+
 	return AFC_E_SUCCESS;
 }
 
@@ -309,6 +316,7 @@ static afc_error_t cmd_stat(int argc, const char *argv[])
 {
 	afc_error_t result;
 	char **infolist = NULL;
+	char *path;
 
 	if (argc < 1) {
 		warnx("usage: stat <file> ...");
@@ -317,13 +325,17 @@ static afc_error_t cmd_stat(int argc, const char *argv[])
 
 	for (int i = 0; i < argc; i++) {
 
-		printf("%s:\n", argv[i]);
+		path = build_absolute_path(argv[0]);
+		result = afc_get_file_info(afc, path, &infolist);
+		free(path);
 
-		result = afc_get_file_info(afc, argv[i], &infolist);
 		if (result != AFC_E_SUCCESS) {
 			afc_warn(result, "%s", argv[i]);
 			return result;
 		}
+
+		printf("%s:\n", argv[i]);
+
 		for (int j = 0; infolist[j] != NULL; j++) {
 			printf("%14s ", infolist[j]);
 			free(infolist[j]);
@@ -390,8 +402,12 @@ static afc_error_t cmd_cp(int argc, const char *argv[])
 
 static int str_to_cmd(const char *str)
 {
-	if (!strcmp(str, "cd"))
+	if (!strcmp(str, "-"))
+		return CMD_INTERACTIVE;
+	else if (!strcmp(str, "cd"))
 		return CMD_CD;
+	else if (!strcmp(str, "pwd"))
+		return CMD_PWD;
 	else if (!strcmp(str, "ls"))
 		return CMD_LS;
 	else if (!strcmp(str, "mkdir"))
@@ -408,22 +424,155 @@ static int str_to_cmd(const char *str)
 		return CMD_CAT;
 	else if (!strcmp(str, "stat"))
 		return CMD_STAT;
+	else if (!strcmp(str, "quit"))
+		return CMD_QUIT;
 
-	return CMD_INTERACTIVE;
+	return CMD_UNKNOWN;
 }
 
-static int cmd_loop(int argc, const char *argv[])
+#define PARSER_IDLE     0
+#define PARSER_IN_QUOTE 1
+#define PARSER_IN_WORD  2
+
+static int tokenize_command_line(char *input, int *out_argc, char **out_argv[])
 {
-	return AFC_E_INVALID_ARG;
+
+	int argc = 0;
+	char **argv, *pout;
+	const char *p, *pmax;
+	int state = PARSER_IDLE;
+
+	if (!input || strlen(input) == 0) {
+		*out_argc = 0;
+		*out_argv = NULL;
+		return 0;
+	}
+
+	p = pout = input;
+	pmax = input + strlen(input);
+
+	argv = malloc(sizeof(char *));
+
+	while (p < pmax) {
+
+		switch (state) {
+
+			case PARSER_IDLE:
+				if (isspace(*p)) {
+					p++;
+					continue;
+				}
+				state = PARSER_IN_WORD;
+				argv[argc++] = pout;
+				argv = realloc(argv, (argc + 1) * sizeof(char *));
+				argv[argc] = NULL;
+				break;
+
+			case PARSER_IN_WORD:
+				if (isspace(*p)) {
+					*pout = 0;
+					pout++;
+					p++;
+					state = PARSER_IDLE;
+				}
+				else {
+					if (*p == '"') {
+						state = PARSER_IN_QUOTE;
+						p++;
+						continue;
+					}
+					if (*p == '\\')
+						p++;
+					*pout = *p;
+					pout++;
+					p++;
+					if (p >= pmax) {
+						state = PARSER_IDLE;
+						*pout = 0;
+					}
+				}
+				break;
+
+			case PARSER_IN_QUOTE:
+				if (*p == '"') {
+					state = PARSER_IN_WORD;
+					p++;
+					continue;
+				}
+				if (*p == '\\' && *(p + 1) == '"')
+					p++;
+				*pout = *p;
+				p++;
+				pout++;
+				break;
+
+			default:
+				break;
+		}
+	}
+
+	if (state == PARSER_IN_QUOTE) {
+		free(argv);
+		warnx("quote mismatch");
+		return -1;
+	}
+
+	*out_argc = argc;
+	*out_argv = argv;
+	return 0;
+}
+
+static int cmd_loop(int in_argc, const char *in_argv[])
+{
+	int result, argc;
+	char *input, **argv;
+	int quit = 0;
+
+	read_history("~/.afccl");
+
+//	input = strdup(in_argv[0]);
+
+	while (!quit) {
+
+		input = readline("> ");
+
+		if ((tokenize_command_line(input, &argc, &argv) == -1) || argc < 1)
+			continue;
+
+		int cmd = str_to_cmd(argv[0]);
+		if (cmd == CMD_UNKNOWN || CMD_INTERACTIVE) {
+			warnx("'%s': unknown command", argv[0]);
+			free(argv);
+			continue;
+		}
+		free(input);
+
+		do_cmd(cmd, --argc, (const char **) ++argv);
+
+		free(--argv);
+
+		//	printf("argc: %d\n", argc);
+		//	for (int i = 0; i < argc; i++) {
+		//		printf("%2d: %s\n", i, argv[i]);
+		//	}
+	}
+
+	return AFC_E_SUCCESS;
 }
 
 static int do_cmd(int cmd, int argc, const char *argv[])
 {
 	switch (cmd) {
 		case CMD_INTERACTIVE:
+		case CMD_UNKNOWN:
 			return cmd_loop(argc, argv);
+			break;
 		case CMD_CD:
 			return cmd_cd(argv[0]);
+			break;
+		case CMD_PWD:
+			return cmd_pwd();
+			break;
 		case CMD_LS:
 			return cmd_ls(argc, argv);
 			break;
@@ -447,6 +596,9 @@ static int do_cmd(int cmd, int argc, const char *argv[])
 			break;
 		case CMD_STAT:
 			return cmd_stat(argc, argv);
+			break;
+		case CMD_QUIT:
+			exit(EXIT_SUCCESS);
 			break;
 		default:
 			return -1;
@@ -509,7 +661,7 @@ int main(int argc, const char **argv)
 			print_usage(argc, argv);
 			exit(EXIT_SUCCESS);
 		}
-		else if ((cmd = str_to_cmd(argv[i])) != CMD_INTERACTIVE) {
+		else if ((cmd = str_to_cmd(argv[i])) != CMD_UNKNOWN) {
 			cmdstr = argv[i];
 			i++;
 			break;

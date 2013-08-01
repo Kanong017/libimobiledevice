@@ -240,6 +240,7 @@
 		96CCC713174EC00100AF832F /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96CCC71A174EC04000AF832F /* idevicediagnostics.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B6D174E0D1F00B868D9 /* idevicediagnostics.1 */; };
 		96CCC71B174EC05100AF832F /* idevicediagnostics.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BE9174E0D8400B868D9 /* idevicediagnostics.c */; };
+		96EF04CA17AA96EA00253A04 /* libreadline.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC68D174EAAEA00AF832F /* libreadline.dylib */; };
 		96F0F5F4174EFFAC0014879C /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96F0F5FE174EFFFB0014879C /* idevicebackup.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B69174E0D1F00B868D9 /* idevicebackup.1 */; };
 		96F0F600174F00A90014879C /* idevicebackup.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BE5174E0D8400B868D9 /* idevicebackup.c */; };
@@ -1008,6 +1009,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96EF04CA17AA96EA00253A04 /* libreadline.dylib in Frameworks */,
 				96A8D96E17A4A9B5006E38E0 /* libimobiledevice.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
