@@ -236,7 +236,7 @@ static afc_error_t cmd_ln(int argc, const char *argv[])
 {
 	afc_error_t result;
 	int type = AFC_HARDLINK;
-	char **infolist = NULL;
+	char *source_path = NULL;
 	char *target_path = NULL;
 
 	if (argc == 3 && !strcmp("-s", argv[0])) {
@@ -249,29 +249,29 @@ static afc_error_t cmd_ln(int argc, const char *argv[])
 		return AFC_E_INVALID_ARG;
 	}
 
+	if (type == AFC_HARDLINK)
+		source_path = build_absolute_path(argv[0]);
+	else
+		source_path = strdup(argv[0]);
+
 	target_path = build_absolute_path(argv[1]);
-	if (!target_path)
+
+	if (!source_path || !target_path) {
+		free(source_path);
+		free(target_path);
 		return AFC_E_INTERNAL_ERROR;
-
-	if (type == AFC_HARDLINK) {
-
-		result = afc_get_file_info(afc, argv[0], &infolist);
-		if (result == AFC_E_SUCCESS) {
-			for (int i = 0; infolist[i] != NULL; i++)
-				free(infolist[i]);
-			free(infolist);
-		}
-		else {
-			afc_warn(result, "%s", argv[0]);
-			free(target_path);
-			return result;
-		}
 	}
-//	warnx("%s: %s -> %s\n", type == AFC_HARDLINK ? "hard link" : "sym link", argv[0], target_path);
 
-	result = afc_make_link(afc, type, argv[0], target_path);
-	if (result != AFC_E_SUCCESS)
+//	warnx("%s: %s -> %s\n", type == AFC_HARDLINK ? "hard link" : "sym link", source_path, target_path);
+
+	result = afc_make_link(afc, type, source_path, target_path);
+	if (result == AFC_E_OBJECT_NOT_FOUND)
+		afc_warn(result, "%s", argv[0]);
+	else if (result != AFC_E_SUCCESS)
 		afc_warn(result, "afc_make_link");
+
+	free(source_path);
+	free(target_path);
 
 	return result;
 }
