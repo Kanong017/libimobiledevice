@@ -523,19 +523,44 @@ static int tokenize_command_line(char *input, int *out_argc, char **out_argv[])
 	return 0;
 }
 
+char *load_history(void)
+{
+	char *homedir, *path = NULL;
+
+	homedir = getenv("HOME");
+	if (homedir) {
+		if (asprintf(&path, "%s/%s", homedir, ".afccl") == -1) {
+			warn("%s: %s", __func__, "asprintf");
+		}
+		read_history(path);
+	}
+	else {
+		warnx("HOME environment variable not found");
+	}
+	return path;
+}
+
+void append_history(char *path, char *cmd)
+{
+	if (!path || !cmd) return;
+
+	add_history(cmd);
+	write_history(path);
+}
+
 static int cmd_loop(int in_argc, const char *in_argv[])
 {
 	int argc;
 	char *input, **argv;
 	int quit = 0;
+	char *history_path;
 
-	read_history("~/.afccl");
-
-//	input = strdup(in_argv[0]);
+	history_path = load_history();
 
 	while (!quit) {
 
 		input = readline("> ");
+		append_history(history_path, input);
 
 		if ((tokenize_command_line(input, &argc, &argv) == -1) || argc < 1) {
 			free(input);
