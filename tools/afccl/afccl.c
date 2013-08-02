@@ -267,6 +267,7 @@ static afc_error_t cmd_ln(int argc, const char *argv[])
 			return result;
 		}
 	}
+//	warnx("%s: %s -> %s\n", type == AFC_HARDLINK ? "hard link" : "sym link", argv[0], target_path);
 
 	result = afc_make_link(afc, type, argv[0], target_path);
 	if (result != AFC_E_SUCCESS)
@@ -524,7 +525,7 @@ static int tokenize_command_line(char *input, int *out_argc, char **out_argv[])
 
 static int cmd_loop(int in_argc, const char *in_argv[])
 {
-	int result, argc;
+	int argc;
 	char *input, **argv;
 	int quit = 0;
 
@@ -536,25 +537,23 @@ static int cmd_loop(int in_argc, const char *in_argv[])
 
 		input = readline("> ");
 
-		if ((tokenize_command_line(input, &argc, &argv) == -1) || argc < 1)
+		if ((tokenize_command_line(input, &argc, &argv) == -1) || argc < 1) {
+			free(input);
 			continue;
+		}
 
 		int cmd = str_to_cmd(argv[0]);
 		if (cmd == CMD_UNKNOWN || CMD_INTERACTIVE) {
 			warnx("'%s': unknown command", argv[0]);
 			free(argv);
+			free(input);
 			continue;
 		}
-		free(input);
 
 		do_cmd(cmd, --argc, (const char **) ++argv);
 
 		free(--argv);
-
-		//	printf("argc: %d\n", argc);
-		//	for (int i = 0; i < argc; i++) {
-		//		printf("%2d: %s\n", i, argv[i]);
-		//	}
+		free(input);
 	}
 
 	return AFC_E_SUCCESS;
