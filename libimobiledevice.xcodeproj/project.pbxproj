@@ -2831,7 +2831,7 @@
 					HAVE_LANGINFO_CODESET,
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				INSTALL_PATH = "@rpath";
+				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
@@ -2854,7 +2854,7 @@
 					HAVE_LANGINFO_CODESET,
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				INSTALL_PATH = "@rpath";
+				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
