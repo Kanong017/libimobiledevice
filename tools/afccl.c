@@ -456,12 +456,13 @@ static afc_error_t cmd_cat(int argc, const char *argv[])
 
 	afc_file_close(afc, handle);
 	free(path);
-	
+
 	return AFC_E_SUCCESS;
 }
 
 static afc_error_t cmd_cp(int argc, const char *argv[])
 {
+	warnx("%s not implemented", __func__);
 	return AFC_E_INVALID_ARG;
 }
 
