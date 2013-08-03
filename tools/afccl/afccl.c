@@ -187,8 +187,11 @@ static int cmd_cd(const char *path)
 	char *fullpath, *cleanpath;
 	char **infolist;
 
-	if (!path)
-		return AFC_E_INVALID_ARG;
+	if (!path) {
+		free(cwd);
+		cwd = strdup("/");
+		return 0;
+	}
 
 	if ((fullpath = build_absolute_path(path)) == NULL)
 		return AFC_E_INTERNAL_ERROR;
