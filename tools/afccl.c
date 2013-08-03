@@ -346,14 +346,25 @@ static afc_error_t cmd_rm(int argc, const char *argv[])
 static afc_error_t cmd_mv(int argc, const char *argv[])
 {
 	afc_error_t result;
+	char *source_path, *target_path;
 
 	if (argc != 2) {
 		warnx("usage: mv <source> <target>");
 		return -1;
 	}
-	result = afc_rename_path(afc, argv[0], argv[1]);
+	source_path = build_absolute_path(argv[0]);
+	target_path = build_absolute_path(argv[1]);
+	if (!source_path || !target_path) {
+		free(source_path);
+		free(target_path);
+		return AFC_E_INTERNAL_ERROR;
+	}
+
+	result = afc_rename_path(afc, source_path, target_path);
 	if (result != AFC_E_SUCCESS)
 		afc_warn(result, "rename %s", argv[0]);
+	free(source_path);
+	free(target_path);
 
 	return result;
 }
