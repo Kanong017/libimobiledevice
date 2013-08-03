@@ -1181,14 +1181,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		96A8D95C17A4A8CD006E38E0 /* afccl */ = {
-			isa = PBXGroup;
-			children = (
-				96A8D96217A4A902006E38E0 /* afccl.c */,
-			);
-			path = afccl;
-			sourceTree = "<group>";
-		};
 		96B88B27174E0B9900B868D9 = {
 			isa = PBXGroup;
 			children = (
@@ -1406,7 +1398,6 @@
 		96B88BE2174E0D8400B868D9 /* tools */ = {
 			isa = PBXGroup;
 			children = (
-				96A8D95C17A4A8CD006E38E0 /* afccl */,
 				96B88BE3174E0D8400B868D9 /* Makefile.am */,
 				96B88BE4174E0D8400B868D9 /* idevice_id.c */,
 				96B88BE5174E0D8400B868D9 /* idevicebackup.c */,
@@ -1422,6 +1413,7 @@
 				96B88BEF174E0D8400B868D9 /* idevicescreenshot.c */,
 				96B88BF0174E0D8400B868D9 /* idevicesyslog.c */,
 				96A8D93E17A12DD7006E38E0 /* ideviceexec.c */,
+				96A8D96217A4A902006E38E0 /* afccl.c */,
 			);
 			path = tools;
 			sourceTree = "<group>";
