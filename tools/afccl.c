@@ -271,7 +271,7 @@ static afc_error_t cmd_mkdir(int argc, const char *argv[])
 	if (result != AFC_E_SUCCESS)
 		afc_warn(result, "%s", path);
 	free(path);
-	
+
 	return result;
 }
 
@@ -322,23 +322,25 @@ static afc_error_t cmd_ln(int argc, const char *argv[])
 static afc_error_t cmd_rm(int argc, const char *argv[])
 {
 	int result;
+	int retval = AFC_E_SUCCESS;
 	char *path = NULL;
 
-	if (argc != 1) {
-		warnx("usage: rm <file>");
-		return AFC_E_INVALID_ARG;
+	for (int i = 0; i < argc; i++) {
+
+		path = build_absolute_path(argv[i]);
+		if (!path)
+			return AFC_E_INTERNAL_ERROR;
+
+		result = afc_remove_path(afc, path);
+		free(path);
+
+		if (result != AFC_E_SUCCESS) {
+			afc_warn(result, "%s", argv[i]);
+			retval = result;
+		}
 	}
-	path = build_absolute_path(argv[0]);
-	if (!path)
-		return AFC_E_INTERNAL_ERROR;
 
-	result = afc_remove_path(afc, path);
-	free(path);
-
-	if (result != AFC_E_SUCCESS)
-		afc_warn(result, "%s", argv[0]);
-
-	return result;
+	return retval;
 }
 
 static afc_error_t cmd_mv(int argc, const char *argv[])
