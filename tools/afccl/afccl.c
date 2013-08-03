@@ -148,23 +148,57 @@ static char *build_absolute_path(const char *inpath)
 	return path;
 }
 
+static char *cleanse_path(char *inpath)
+{
+	char *newpath;
+
+	// Remove "." and ".."
+	newpath = malloc(strlen(inpath));
+	memcpy(newpath, "/", 2);
+
+	char *token;
+	char *remainder = inpath;
+	while ((token = strsep(&remainder, "/"))) {
+		if (token[0] == 0 || !strcmp(token, ".")) {
+			continue;
+		}
+		else if (!strcmp(token, "..")) {
+			char *lastslash = strrchr(newpath, '/');
+			if (lastslash > newpath)
+				*lastslash = 0;
+			else
+				newpath[1] = 0;
+		}
+		else {
+			if (strlen(newpath) > 1)
+				strcat(newpath, "/");
+			strcat(newpath, token);
+		}
+	}
+	free(inpath);
+
+	return newpath;
+}
+
+
 static int cmd_cd(const char *path)
 {
 	afc_error_t result;
-	char *newpath;
+	char *fullpath, *cleanpath;
 	char **infolist;
 
 	if (!path)
 		return AFC_E_INVALID_ARG;
 
-	newpath = build_absolute_path(path);
-	if (!newpath)
+	if ((fullpath = build_absolute_path(path)) == NULL)
 		return AFC_E_INTERNAL_ERROR;
 
-	result = afc_get_file_info(afc, newpath, &infolist);
+	cleanpath = cleanse_path(fullpath);
+
+	result = afc_get_file_info(afc, cleanpath, &infolist);
 	if (result != AFC_E_SUCCESS) {
 		afc_warn(result, "%s", path);
-		free(newpath);
+		free(cleanpath);
 		return result;
 	}
 	for (int i = 0; infolist[i] != NULL; i++)
@@ -172,7 +206,7 @@ static int cmd_cd(const char *path)
 	free(infolist);
 
 	free(cwd);
-	cwd = newpath;
+	cwd = cleanpath;
 
 	return 0;
 }
