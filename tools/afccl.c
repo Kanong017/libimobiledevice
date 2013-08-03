@@ -410,6 +410,7 @@ static afc_error_t cmd_stat(int argc, const char *argv[])
 static afc_error_t cmd_cat(int argc, const char *argv[])
 {
 	afc_error_t result;
+	char *path;
 	uint64_t handle, size;
 	char **infolist;
 	uint32_t readsize;
@@ -420,9 +421,13 @@ static afc_error_t cmd_cat(int argc, const char *argv[])
 		return -1;
 	}
 
-	result = afc_get_file_info(afc, argv[0], &infolist);
+	if ((path = build_absolute_path(argv[0])) == NULL)
+		return AFC_E_INTERNAL_ERROR;
+
+	result = afc_get_file_info(afc, path, &infolist);
 	if (result != AFC_E_SUCCESS) {
 		afc_warn(result, "%s", argv[0]);
+		free(path);
 		return result;
 	}
 	size = atoll(infolist[1]);
@@ -430,9 +435,10 @@ static afc_error_t cmd_cat(int argc, const char *argv[])
 		free(infolist[i]);
 	free(infolist);
 
-	result = afc_file_open(afc, argv[0], AFC_FOPEN_RDONLY, &handle);
+	result = afc_file_open(afc, path, AFC_FOPEN_RDONLY, &handle);
 	if (result != AFC_E_SUCCESS) {
 		afc_warn(result, "%s", argv[0]);
+		free(path);
 		return result;
 	}
 
@@ -441,6 +447,7 @@ static afc_error_t cmd_cat(int argc, const char *argv[])
 		if (result != AFC_E_SUCCESS) {
 			afc_warn(result, "%s", argv[0]);
 			afc_file_close(afc, handle);
+			free(path);
 			return result;
 		}
 		fwrite(buffer, 1, readsize, stdout);
@@ -448,7 +455,8 @@ static afc_error_t cmd_cat(int argc, const char *argv[])
 	}
 
 	afc_file_close(afc, handle);
-
+	free(path);
+	
 	return AFC_E_SUCCESS;
 }
 
