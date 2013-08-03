@@ -257,15 +257,21 @@ static afc_error_t cmd_ls(int argc, const char *argv[])
 static afc_error_t cmd_mkdir(int argc, const char *argv[])
 {
 	afc_error_t result;
+	char *path;
 
 	if (argc != 1) {
 		warnx("usage: mkdir <dir>");
 		return AFC_E_INVALID_ARG;
 	}
-	result = afc_make_directory(afc, argv[0]);
-	if (result != AFC_E_SUCCESS)
-		afc_warn(result, "%s", argv[0]);
 
+	if ((path = build_absolute_path(argv[0])) == NULL)
+		return AFC_E_INTERNAL_ERROR;
+
+	result = afc_make_directory(afc, path);
+	if (result != AFC_E_SUCCESS)
+		afc_warn(result, "%s", path);
+	free(path);
+	
 	return result;
 }
 
