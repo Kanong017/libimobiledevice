@@ -46,6 +46,16 @@
 afc_client_t afc = NULL;
 char *cwd;
 
+static inline bool str_is_equal(const char *s1, const char *s2)
+{
+	return strcmp(s1, s2) == 0;
+}
+
+static inline bool str_has_prefix(const char *str, const char *prefix)
+{
+	return strstr(str, prefix) == str;
+}
+
 static int do_cmd(int cmd, int argc, const char *argv[]);
 
 char *afc_strerror(afc_error_t err)
@@ -137,7 +147,7 @@ static char *build_absolute_path(const char *inpath)
 	if (inpath[0] == '/')
 		path = strdup(inpath);
 	else {
-		if (asprintf(&path, "%s/%s", (strcmp(cwd, "/")) ? cwd : "", inpath) == -1) {
+		if (asprintf(&path, "%s/%s", str_is_equal(cwd, "/") ? "" : cwd, inpath) == -1) {
 			warn("asprintf");
 			return NULL;
 		}
@@ -159,10 +169,10 @@ static char *cleanse_path(char *inpath)
 	char *token;
 	char *remainder = inpath;
 	while ((token = strsep(&remainder, "/"))) {
-		if (token[0] == 0 || !strcmp(token, ".")) {
+		if (token[0] == 0 || str_is_equal(token, ".")) {
 			continue;
 		}
-		else if (!strcmp(token, "..")) {
+		else if (str_is_equal(token, "..")) {
 			char *lastslash = strrchr(newpath, '/');
 			if (lastslash > newpath)
 				*lastslash = 0;
@@ -282,7 +292,7 @@ static afc_error_t cmd_ln(int argc, const char *argv[])
 	char *source_path = NULL;
 	char *target_path = NULL;
 
-	if (argc == 3 && !strcmp("-s", argv[0])) {
+	if (argc == 3 && str_is_equal("-s", argv[0])) {
 		type = AFC_SYMLINK;
 		argc--;
 		argv++;
@@ -468,29 +478,29 @@ static afc_error_t cmd_cp(int argc, const char *argv[])
 
 static int str_to_cmd(const char *str)
 {
-	if (!strcmp(str, "-"))
+	if (str_is_equal(str, "-"))
 		return CMD_INTERACTIVE;
-	else if (!strcmp(str, "cd"))
+	else if (str_is_equal(str, "cd"))
 		return CMD_CD;
-	else if (!strcmp(str, "pwd"))
+	else if (str_is_equal(str, "pwd"))
 		return CMD_PWD;
-	else if (!strcmp(str, "ls"))
+	else if (str_is_equal(str, "ls"))
 		return CMD_LS;
-	else if (!strcmp(str, "mkdir"))
+	else if (str_is_equal(str, "mkdir"))
 		return CMD_MKDIR;
-	else if (!strcmp(str, "ln"))
+	else if (str_is_equal(str, "ln"))
 		return CMD_LN;
-	else if (!strcmp(str, "rm"))
+	else if (str_is_equal(str, "rm"))
 		return CMD_RM;
-	else if (!strcmp(str, "mv"))
+	else if (str_is_equal(str, "mv"))
 		return CMD_MV;
-	else if (!strcmp(str, "cp"))
+	else if (str_is_equal(str, "cp"))
 		return CMD_CP;
-	else if (!strcmp(str, "cat"))
+	else if (str_is_equal(str, "cat"))
 		return CMD_CAT;
-	else if (!strcmp(str, "stat"))
+	else if (str_is_equal(str, "stat"))
 		return CMD_STAT;
-	else if (!strcmp(str, "quit"))
+	else if (str_is_equal(str, "quit"))
 		return CMD_QUIT;
 
 	return CMD_UNKNOWN;
@@ -729,11 +739,11 @@ int main(int argc, const char **argv)
 
 	/* parse cmdline args */
 	for (i = 1; i < argc; i++) {
-		if (!strcmp(argv[i], "-d") || !strcmp(argv[i], "--debug")) {
+		if (str_is_equal(argv[i], "-d") || str_is_equal(argv[i], "--debug")) {
 			idevice_set_debug_level(1);
 			continue;
 		}
-		else if (!strcmp(argv[i], "-u") || !strcmp(argv[i], "--udid")) {
+		else if (str_is_equal(argv[i], "-u") || str_is_equal(argv[i], "--udid")) {
 			i++;
 			if (!argv[i] || (strlen(argv[i]) != 40)) {
 				print_usage(argc, argv);
@@ -742,11 +752,11 @@ int main(int argc, const char **argv)
 			udid = strdup(argv[i]);
 			continue;
 		}
-		else if (!strcmp(argv[i], "-2") || !strcmp(argv[i], "--afc2")) {
+		else if (str_is_equal(argv[i], "-2") || str_is_equal(argv[i], "--afc2")) {
 			service_name = "com.apple.afc2";
 			continue;
 		}
-		else if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {
+		else if (str_is_equal(argv[i], "-h") || str_is_equal(argv[i], "--help")) {
 			print_usage(argc, argv);
 			exit(EXIT_SUCCESS);
 		}
