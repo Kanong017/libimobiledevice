@@ -20,6 +20,7 @@
  */
 
 #include <err.h>
+#include <libgen.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
@@ -356,7 +357,10 @@ static afc_error_t cmd_rm(int argc, const char *argv[])
 static afc_error_t cmd_mv(int argc, const char *argv[])
 {
 	afc_error_t result;
+	const char *filename;
 	char *source_path, *target_path;
+	char **infolist;
+	bool target_is_dir;
 
 	if (argc != 2) {
 		warnx("usage: mv <source> <target>");
@@ -364,15 +368,39 @@ static afc_error_t cmd_mv(int argc, const char *argv[])
 	}
 	source_path = build_absolute_path(argv[0]);
 	target_path = build_absolute_path(argv[1]);
-	if (!source_path || !target_path) {
-		free(source_path);
-		free(target_path);
-		return AFC_E_INTERNAL_ERROR;
-	}
 
-	result = afc_rename_path(afc, source_path, target_path);
-	if (result != AFC_E_SUCCESS)
-		afc_warn(result, "rename %s", argv[0]);
+	if (source_path && target_path) {
+
+		result = afc_get_file_info(afc, target_path, &infolist);
+		if (result == AFC_E_SUCCESS) {
+			for (int i = 0; infolist[i] != NULL; i++) {
+				if (str_is_equal(infolist[i], "st_ifmt"))
+					target_is_dir = str_is_equal(infolist[i+1], "S_IFDIR");
+				free(infolist[i]);
+			}
+			free(infolist);
+
+			if (target_is_dir) {
+				filename = basename((char *) argv[0]);
+				target_path = realloc(target_path, strlen(filename) + 2);
+				strcat(target_path, "/");
+				strcat(target_path, filename);
+				result = AFC_E_SUCCESS;
+			}
+		}
+		else if (result == AFC_E_OBJECT_NOT_FOUND) {
+			result = AFC_E_SUCCESS;
+		}
+
+		if (result == AFC_E_SUCCESS) {
+			result = afc_rename_path(afc, source_path, target_path);
+			if (result != AFC_E_SUCCESS)
+				afc_warn(result, "rename %s", argv[0]);
+		}
+	}
+	else {
+		result = AFC_E_INTERNAL_ERROR;
+	}
 	free(source_path);
 	free(target_path);
 
