@@ -245,6 +245,8 @@ instproxy_error_t instproxy_browse(instproxy_client_t client, plist_t client_opt
 
 	if (res == INSTPROXY_E_SUCCESS) {
 		*result = apps_array;
+	} else {
+		plist_free(apps_array);
 	}
 
 leave_unlock:
@@ -808,6 +810,8 @@ instproxy_error_t instproxy_client_get_path_for_bundle_identifier(instproxy_clie
 	plist_array_append_item(return_attributes, plist_new_string("CFBundleExecutable"));
 	plist_array_append_item(return_attributes, plist_new_string("Path"));
 	instproxy_client_options_add(client_opts, "ReturnAttributes", return_attributes, NULL);
+	plist_free(return_attributes);
+	return_attributes = NULL;
 
 	// query device for list of apps
 	instproxy_error_t ierr = instproxy_browse(client, client_opts, &apps);
@@ -835,6 +839,8 @@ instproxy_error_t instproxy_client_get_path_for_bundle_identifier(instproxy_clie
 	}
 
 	if (!app_found) {
+		if (apps)
+			plist_free(apps);
 		*path = NULL;
 		return INSTPROXY_E_OP_FAILED;
 	}
@@ -869,6 +875,14 @@ instproxy_error_t instproxy_client_get_path_for_bundle_identifier(instproxy_clie
 	strcat(ret, exec_str);
 
 	*path = ret;
+
+	if (path_str) {
+		free(path_str);
+	}
+
+	if (exec_str) {
+		free(exec_str);
+	}
 
 	return INSTPROXY_E_SUCCESS;
 }
