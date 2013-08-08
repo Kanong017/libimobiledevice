@@ -60,6 +60,10 @@
 		96612993175EE163005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612990175EE163005AD392 /* syslog_relay.h */; };
 		96612994175EE163005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612990175EE163005AD392 /* syslog_relay.h */; };
 		96612995175EE1BC005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9661893917B2C5BC0074700A /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661893717B2C5BB0074700A /* utils.c */; };
+		9661893A17B2C5BC0074700A /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661893717B2C5BB0074700A /* utils.c */; };
+		9661893B17B2C5BC0074700A /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9661893817B2C5BB0074700A /* utils.h */; };
+		9661893C17B2C5BC0074700A /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9661893817B2C5BB0074700A /* utils.h */; };
 		969BA0201755F34500339FF1 /* libusbmuxd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B88C12174E1AC100B868D9 /* libusbmuxd.a */; };
 		96A8D94B17A12DF6006E38E0 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96A8D95217A12E5B006E38E0 /* ideviceexec.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D93E17A12DD7006E38E0 /* ideviceexec.c */; };
@@ -823,6 +827,8 @@
 		96612986175EE0A2005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
 		9661298F175EE163005AD392 /* syslog_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syslog_relay.c; sourceTree = "<group>"; };
 		96612990175EE163005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
+		9661893717B2C5BB0074700A /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
+		9661893817B2C5BB0074700A /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
 		96A8D93E17A12DD7006E38E0 /* ideviceexec.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ideviceexec.c; sourceTree = "<group>"; };
 		96A8D95117A12DF6006E38E0 /* ideviceexec */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideviceexec; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A8D95317A14218006E38E0 /* glib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glib.h; sourceTree = "<group>"; };
@@ -1240,6 +1246,8 @@
 				96B88B3E174E0CAD00B868D9 /* thread.h */,
 				96B88B3F174E0CAD00B868D9 /* userpref.c */,
 				96B88B40174E0CAD00B868D9 /* userpref.h */,
+				9661893717B2C5BB0074700A /* utils.c */,
+				9661893817B2C5BB0074700A /* utils.h */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1495,6 +1503,7 @@
 				96B88BF8174E109900B868D9 /* lockdown.h in Headers */,
 				96B88BF9174E109900B868D9 /* misagent.h in Headers */,
 				96B88BFA174E109900B868D9 /* mobile_image_mounter.h in Headers */,
+				9661893B17B2C5BC0074700A /* utils.h in Headers */,
 				96B88BFB174E109900B868D9 /* mobilebackup.h in Headers */,
 				96B88BFC174E109900B868D9 /* mobilebackup2.h in Headers */,
 				96B88BFD174E109900B868D9 /* mobilesync.h in Headers */,
@@ -1568,6 +1577,7 @@
 				96CCC639174E4BC000AF832F /* diagnostics_relay.h in Headers */,
 				96CCC63A174E4BC000AF832F /* file_relay.h in Headers */,
 				96CCC63B174E4BC000AF832F /* heartbeat.h in Headers */,
+				9661893C17B2C5BC0074700A /* utils.h in Headers */,
 				96CCC63C174E4BC000AF832F /* house_arrest.h in Headers */,
 				96CCC63D174E4BC000AF832F /* idevice.h in Headers */,
 				96CCC63E174E4BC000AF832F /* installation_proxy.h in Headers */,
@@ -2214,6 +2224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B88B41174E0CAD00B868D9 /* debug.c in Sources */,
+				9661893917B2C5BC0074700A /* utils.c in Sources */,
 				96B88B43174E0CAD00B868D9 /* socket.c in Sources */,
 				96B88B45174E0CAD00B868D9 /* thread.c in Sources */,
 				96B88B47174E0CAD00B868D9 /* userpref.c in Sources */,
@@ -2248,6 +2259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CCC607174E4B2B00AF832F /* debug.c in Sources */,
+				9661893A17B2C5BC0074700A /* utils.c in Sources */,
 				96CCC608174E4B2B00AF832F /* socket.c in Sources */,
 				96CCC609174E4B2B00AF832F /* thread.c in Sources */,
 				96CCC60A174E4B2B00AF832F /* userpref.c in Sources */,
@@ -2778,6 +2790,7 @@
 					HAVE_VASPRINTF,
 					HAVE_ASPRINTF,
 					HAVE_LANGINFO_CODESET,
+					HAVE_STPCPY,
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2799,6 +2812,7 @@
 					HAVE_VASPRINTF,
 					HAVE_ASPRINTF,
 					HAVE_LANGINFO_CODESET,
+					HAVE_STPCPY,
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2821,6 +2835,7 @@
 					HAVE_VASPRINTF,
 					HAVE_ASPRINTF,
 					HAVE_LANGINFO_CODESET,
+					HAVE_STPCPY,
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
@@ -2844,6 +2859,7 @@
 					HAVE_VASPRINTF,
 					HAVE_ASPRINTF,
 					HAVE_LANGINFO_CODESET,
+					HAVE_STPCPY,
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
