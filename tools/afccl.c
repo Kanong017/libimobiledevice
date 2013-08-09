@@ -330,11 +330,121 @@ static afc_error_t cmd_ln(int argc, const char *argv[])
 	return result;
 }
 
+static void infolist_free(char **infolist)
+{
+	for (int j = 0; infolist[j] != NULL; j++)
+		free(infolist[j]);
+
+	free(infolist);
+}
+
+static char * infolist_get_value(char **infolist, char *property)
+{
+	char *value = NULL;
+
+	for (int j = 0; infolist[j] != NULL; j += 2)
+	{
+		if (str_is_equal(property, infolist[j])) {
+			value = infolist[j+1];
+			break;
+		}
+	}
+	return value;
+}
+
+
+static afc_error_t is_directory(char *path, bool *is_dir)
+{
+	afc_error_t result;
+	char **infolist = NULL;
+	char *value;
+
+	result = afc_get_file_info(afc, path, &infolist);
+
+	if (result != AFC_E_SUCCESS) {
+		if (result != AFC_E_OBJECT_NOT_FOUND)
+			afc_warn(result, "%s: stat failed: %s", __func__, path);
+		return result;
+	}
+
+	if ((value = infolist_get_value(infolist, "st_ifmt")))
+		*is_dir = str_is_equal(value, "S_IFDIR");
+
+	infolist_free(infolist);
+
+	return result;
+}
+
+static afc_error_t remove_path(char *path, bool recurse)
+{
+	afc_error_t result;
+	char **infolist = NULL;
+	bool is_dir;
+
+	result = afc_get_file_info(afc, path, &infolist);
+
+	if (result != AFC_E_SUCCESS) {
+		if (result != AFC_E_OBJECT_NOT_FOUND)
+			afc_warn(result, "%s: stat failed: %s", __func__, path);
+		return result;
+	}
+
+	if (recurse && is_directory(path, &is_dir) == AFC_E_SUCCESS && is_dir) {
+		char **list = NULL;
+
+		result = afc_read_directory(afc, path, &list);
+		if (result != AFC_E_SUCCESS) {
+			afc_warn(result, "%s", path);
+			return result;
+		}
+
+		for (int i = 0; list[i] && result == AFC_E_SUCCESS; i++) {
+			if (str_is_equal(list[i], "."))
+				; // NOP
+			else if (str_is_equal(list[i], ".."))
+				; // NOP
+			else {
+				char *subdir_path;
+				if (asprintf(&subdir_path, "%s/%s", path, list[i]) > 0) {
+					result = remove_path(subdir_path, recurse);
+					free(subdir_path);
+				}
+				else {
+					warn("%s: %s", __func__, "asprintf");
+				}
+			}
+			free(list[i]);
+		}
+		free(list);
+	}
+
+	if (recurse)
+		printf("removing: %s\n", path);
+
+	result = afc_remove_path(afc, path);
+
+	if (result != AFC_E_SUCCESS)
+		afc_warn(result, "%s", path);
+
+	return result;
+}
+
+
 static afc_error_t cmd_rm(int argc, const char *argv[])
 {
-	int result;
-	int retval = AFC_E_SUCCESS;
+	afc_error_t result;
 	char *path = NULL;
+	bool recurse = false;
+
+	if (argc < 1) {
+		warnx("usage: rm [-r] <file> ...");
+		return AFC_E_INVALID_ARG;
+	}
+
+	if (argc > 1 && (recurse = str_is_equal("-r", argv[0]))) {
+		argc--;
+		argv++;
+	}
 
 	for (int i = 0; i < argc; i++) {
 
@@ -342,16 +452,14 @@ static afc_error_t cmd_rm(int argc, const char *argv[])
 		if (!path)
 			return AFC_E_INTERNAL_ERROR;
 
-		result = afc_remove_path(afc, path);
+		result = remove_path(path, recurse);
 		free(path);
-
-		if (result != AFC_E_SUCCESS) {
+		if (result == AFC_E_OBJECT_NOT_FOUND)
 			afc_warn(result, "%s", argv[i]);
-			retval = result;
-		}
+		return  result;
 	}
 
-	return retval;
+	return AFC_E_SUCCESS;
 }
 
 static afc_error_t cmd_mv(int argc, const char *argv[])
