@@ -51,6 +51,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		96093B4C181DA95900833F74 /* libusbmuxd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96093B4B181DA95900833F74 /* libusbmuxd.a */; };
 		9609CAEC174EF50100E744BE /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9609CAF3174EF51F00E744BE /* idevicepair.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B71174E0D1F00B868D9 /* idevicepair.1 */; };
 		9609CAF4174EF52D00E744BE /* idevicepair.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BED174E0D8400B868D9 /* idevicepair.c */; };
@@ -64,7 +65,6 @@
 		9661893A17B2C5BC0074700A /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661893717B2C5BB0074700A /* utils.c */; };
 		9661893B17B2C5BC0074700A /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9661893817B2C5BB0074700A /* utils.h */; };
 		9661893C17B2C5BC0074700A /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9661893817B2C5BB0074700A /* utils.h */; };
-		969BA0201755F34500339FF1 /* libusbmuxd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B88C12174E1AC100B868D9 /* libusbmuxd.a */; };
 		96A8D94B17A12DF6006E38E0 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96A8D95217A12E5B006E38E0 /* ideviceexec.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D93E17A12DD7006E38E0 /* ideviceexec.c */; };
 		96A8D95617A14218006E38E0 /* glib.h in Headers */ = {isa = PBXBuildFile; fileRef = 96A8D95317A14218006E38E0 /* glib.h */; };
@@ -279,20 +279,6 @@
 			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
 			remoteInfo = imobiledevice.dylib;
 		};
-		9661298D175EE0A2005AD392 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 96C86655175C42200061472B;
-			remoteInfo = iproxyx;
-		};
-		969BA0211755F35700339FF1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 96ED2EE411B83BF3003ED904;
-			remoteInfo = libusbmuxd.a;
-		};
 		96A8D94617A12DF6006E38E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
@@ -320,41 +306,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 96A8D96317A4A9B5006E38E0;
 			remoteInfo = afccl;
-		};
-		96B88C11174E1AC100B868D9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 96ED2EF011B83BF3003ED904;
-			remoteInfo = libusbmuxd.a;
-		};
-		96B88C13174E1AC100B868D9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1007CB0801007CB0801007CB;
-			remoteInfo = libusbmuxd.dylib;
-		};
-		96B88C15174E1AC100B868D9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1007DEBE01007DEBE01007DE;
-			remoteInfo = usbmuxd;
-		};
-		96B88C17174E1AC100B868D9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1007ED7E01007ED7E01007ED;
-			remoteInfo = iproxy;
-		};
-		96B88C19174E1B2D00B868D9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 96ED2EE411B83BF3003ED904;
-			remoteInfo = libusbmuxd.a;
 		};
 		96CCC66E174E83D500AF832F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -823,6 +774,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		96093B4B181DA95900833F74 /* libusbmuxd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libusbmuxd.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9609CAF2174EF50100E744BE /* idevicepair */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicepair; sourceTree = BUILT_PRODUCTS_DIR; };
 		96612986175EE0A2005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
 		9661298F175EE163005AD392 /* syslog_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syslog_relay.c; sourceTree = "<group>"; };
@@ -967,7 +919,6 @@
 		96B88BF0174E0D8400B868D9 /* idevicesyslog.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = idevicesyslog.c; sourceTree = "<group>"; };
 		96B88C05174E160E00B868D9 /* plist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = plist.c; sourceTree = "<group>"; };
 		96B88C06174E160E00B868D9 /* plist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plist.h; sourceTree = "<group>"; };
-		96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = usbmuxd.xcodeproj; path = deps/usbmuxd/usbmuxd.xcodeproj; sourceTree = "<group>"; };
 		96CCC5EE174E454400AF832F /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		96CCC5F1174E459600AF832F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		96CCC5FE174E493200AF832F /* libimobiledevice.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libimobiledevice.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1031,7 +982,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				969BA0201755F34500339FF1 /* libusbmuxd.a in Frameworks */,
+				96093B4C181DA95900833F74 /* libusbmuxd.a in Frameworks */,
 				96CCC64E174E4D7900AF832F /* libssl.dylib in Frameworks */,
 				96CCC605174E4AA100AF832F /* libcrypto.dylib in Frameworks */,
 				96CCC606174E4ABB00AF832F /* CoreFoundation.framework in Frameworks */,
@@ -1190,7 +1141,7 @@
 		96B88B27174E0B9900B868D9 = {
 			isa = PBXGroup;
 			children = (
-				96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */,
+				96093B4B181DA95900833F74 /* libusbmuxd.a */,
 				96B88B37174E0CAD00B868D9 /* common */,
 				96B88B49174E0CCA00B868D9 /* cython */,
 				96B88B5E174E0CF200B868D9 /* dev */,
@@ -1444,18 +1395,6 @@
 				96B88C06174E160E00B868D9 /* plist.h */,
 			);
 			path = plist;
-			sourceTree = "<group>";
-		};
-		96B88C0A174E1AC100B868D9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				96B88C12174E1AC100B868D9 /* libusbmuxd.a */,
-				96B88C14174E1AC100B868D9 /* libusbmuxd.dylib */,
-				96B88C16174E1AC100B868D9 /* usbmuxd-iphat */,
-				96B88C18174E1AC100B868D9 /* iproxy */,
-				9661298E175EE0A2005AD392 /* iproxy-osx */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		96CCC5F0174E455100AF832F /* Libraries and Frameworks */ = {
@@ -1712,7 +1651,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				96B88C1A174E1B2D00B868D9 /* PBXTargetDependency */,
 			);
 			name = imobiledevice.a;
 			productName = libimobiledevice;
@@ -1731,7 +1669,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				969BA0221755F35700339FF1 /* PBXTargetDependency */,
 			);
 			name = imobiledevice.dylib;
 			productName = imobiledevice.dylib;
@@ -2087,12 +2024,6 @@
 			mainGroup = 96B88B27174E0B9900B868D9;
 			productRefGroup = 96B88B31174E0B9900B868D9 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 96B88C0A174E1AC100B868D9 /* Products */;
-					ProjectRef = 96B88C09174E1AC100B868D9 /* usbmuxd.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				96B88B2F174E0B9900B868D9 /* imobiledevice.a */,
@@ -2123,44 +2054,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		9661298E175EE0A2005AD392 /* iproxy-osx */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "iproxy-osx";
-			remoteRef = 9661298D175EE0A2005AD392 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		96B88C12174E1AC100B868D9 /* libusbmuxd.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = libusbmuxd.a;
-			remoteRef = 96B88C11174E1AC100B868D9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		96B88C14174E1AC100B868D9 /* libusbmuxd.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = libusbmuxd.dylib;
-			remoteRef = 96B88C13174E1AC100B868D9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		96B88C16174E1AC100B868D9 /* usbmuxd-iphat */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "usbmuxd-iphat";
-			remoteRef = 96B88C15174E1AC100B868D9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		96B88C18174E1AC100B868D9 /* iproxy */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = iproxy;
-			remoteRef = 96B88C17174E1AC100B868D9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		96B2A23C17550B9E00E57604 /* Print Environment */ = {
@@ -2441,11 +2334,6 @@
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
 			targetProxy = 9609CAE8174EF50100E744BE /* PBXContainerItemProxy */;
 		};
-		969BA0221755F35700339FF1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = libusbmuxd.a;
-			targetProxy = 969BA0211755F35700339FF1 /* PBXContainerItemProxy */;
-		};
 		96A8D94517A12DF6006E38E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
@@ -2465,11 +2353,6 @@
 			isa = PBXTargetDependency;
 			target = 96A8D96317A4A9B5006E38E0 /* afccl */;
 			targetProxy = 96A8D97617A4A9DE006E38E0 /* PBXContainerItemProxy */;
-		};
-		96B88C1A174E1B2D00B868D9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = libusbmuxd.a;
-			targetProxy = 96B88C19174E1B2D00B868D9 /* PBXContainerItemProxy */;
 		};
 		96CCC66F174E83D500AF832F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
