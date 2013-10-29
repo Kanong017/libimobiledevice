@@ -51,7 +51,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		96093B4C181DA95900833F74 /* libusbmuxd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96093B4B181DA95900833F74 /* libusbmuxd.a */; };
 		9609CAEC174EF50100E744BE /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9609CAF3174EF51F00E744BE /* idevicepair.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B71174E0D1F00B868D9 /* idevicepair.1 */; };
 		9609CAF4174EF52D00E744BE /* idevicepair.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BED174E0D8400B868D9 /* idevicepair.c */; };
@@ -244,6 +243,7 @@
 		96CCC713174EC00100AF832F /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96CCC71A174EC04000AF832F /* idevicediagnostics.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B6D174E0D1F00B868D9 /* idevicediagnostics.1 */; };
 		96CCC71B174EC05100AF832F /* idevicediagnostics.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BE9174E0D8400B868D9 /* idevicediagnostics.c */; };
+		96D5575D181F590C00BA101B /* libusbmuxd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5575C181F590C00BA101B /* libusbmuxd.a */; };
 		96EF04CA17AA96EA00253A04 /* libreadline.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC68D174EAAEA00AF832F /* libreadline.dylib */; };
 		96F0F5F4174EFFAC0014879C /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96F0F5FE174EFFFB0014879C /* idevicebackup.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B69174E0D1F00B868D9 /* idevicebackup.1 */; };
@@ -774,7 +774,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		96093B4B181DA95900833F74 /* libusbmuxd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libusbmuxd.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9609CAF2174EF50100E744BE /* idevicepair */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicepair; sourceTree = BUILT_PRODUCTS_DIR; };
 		96612986175EE0A2005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
 		9661298F175EE163005AD392 /* syslog_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syslog_relay.c; sourceTree = "<group>"; };
@@ -935,6 +934,7 @@
 		96CCC6FB174EBC5B00AF832F /* ideviceenterrecovery */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideviceenterrecovery; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CCC70A174EBDCC00AF832F /* idevicesyslog */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicesyslog; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CCC719174EC00100AF832F /* idevicediagnostics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicediagnostics; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D5575C181F590C00BA101B /* libusbmuxd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libusbmuxd.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F0F5FA174EFFAC0014879C /* idevicebackup */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicebackup; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F0F60E174F01420014879C /* idevicebackup2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicebackup2; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F0F637175223B70014879C /* idevicedate */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicedate; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -982,7 +982,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96093B4C181DA95900833F74 /* libusbmuxd.a in Frameworks */,
+				96D5575D181F590C00BA101B /* libusbmuxd.a in Frameworks */,
 				96CCC64E174E4D7900AF832F /* libssl.dylib in Frameworks */,
 				96CCC605174E4AA100AF832F /* libcrypto.dylib in Frameworks */,
 				96CCC606174E4ABB00AF832F /* CoreFoundation.framework in Frameworks */,
@@ -1141,7 +1141,6 @@
 		96B88B27174E0B9900B868D9 = {
 			isa = PBXGroup;
 			children = (
-				96093B4B181DA95900833F74 /* libusbmuxd.a */,
 				96B88B37174E0CAD00B868D9 /* common */,
 				96B88B49174E0CCA00B868D9 /* cython */,
 				96B88B5E174E0CF200B868D9 /* dev */,
@@ -1404,6 +1403,7 @@
 				96CCC5EE174E454400AF832F /* libcrypto.dylib */,
 				96CCC64D174E4D7900AF832F /* libssl.dylib */,
 				96CCC68D174EAAEA00AF832F /* libreadline.dylib */,
+				96D5575C181F590C00BA101B /* libusbmuxd.a */,
 			);
 			name = "Libraries and Frameworks";
 			path = osx/plist;
@@ -2722,6 +2722,10 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/private/tmp/Xcode/DerivedData/libimobiledevice-ecytvzgboxrmaxdfgpkbsrxnmdbo/Build/Products/Debug",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
@@ -2746,6 +2750,10 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/private/tmp/Xcode/DerivedData/libimobiledevice-ecytvzgboxrmaxdfgpkbsrxnmdbo/Build/Products/Debug",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;

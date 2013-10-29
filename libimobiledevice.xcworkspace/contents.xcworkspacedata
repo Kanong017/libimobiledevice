@@ -5,6 +5,6 @@
       location = "container:libimobiledevice.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:deps/usbmuxd/usbmuxd.xcodeproj">
+      location = "group:deps/libusbmuxd/libusbmuxd.xcodeproj">
    </FileRef>
 </Workspace>

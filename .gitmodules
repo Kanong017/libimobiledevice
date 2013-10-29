@@ -1,3 +1,4 @@
-[submodule "deps/usbmuxd"]
-	path = deps/usbmuxd
-	url = https://github.com/aburgh/usbmuxd.git
+[submodule "deps/libusbmuxd"]
+	path = deps/libusbmuxd
+	url = https://github.com/aburgh/libusbmuxd.git
+	branch = osx
