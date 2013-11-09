@@ -53,4 +53,3 @@ cython/.libs/*
 cython/*.c
 .DS_Store
 xcuserdata
-*.xccheckout
