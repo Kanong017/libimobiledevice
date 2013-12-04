@@ -233,6 +233,10 @@ static lockdownd_error_t lockdownd_client_free_simple(lockdownd_client_t client)
 		}
 	}
 
+	if (client->session_id) {
+		free(client->session_id);
+		client->session_id = NULL;
+	}
 	if (client->udid) {
 		free(client->udid);
 	}
@@ -241,6 +245,7 @@ static lockdownd_error_t lockdownd_client_free_simple(lockdownd_client_t client)
 	}
 
 	free(client);
+	client = NULL;
 
 	return ret;
 }
@@ -1549,7 +1554,6 @@ lockdownd_error_t lockdownd_start_session(lockdownd_client_t client, const char 
 	/* if we have a running session, stop current one first */
 	if (client->session_id) {
 		lockdownd_stop_session(client, client->session_id);
-		free(client->session_id);
 	}
 
 	/* setup request plist */

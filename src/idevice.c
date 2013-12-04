@@ -267,6 +267,7 @@ idevice_error_t idevice_disconnect(idevice_connection_t connection)
 	idevice_error_t result = IDEVICE_E_UNKNOWN_ERROR;
 	if (connection->type == CONNECTION_USBMUXD) {
 		usbmuxd_disconnect((int)(long)connection->data);
+		connection->data = NULL;
 		result = IDEVICE_E_SUCCESS;
 	} else {
 		debug_info("Unknown connection type %d", connection->type);
@@ -276,6 +277,7 @@ idevice_error_t idevice_disconnect(idevice_connection_t connection)
 		free(connection->udid);
 
 	free(connection);
+	connection = NULL;
 
 	return result;
 }
@@ -383,7 +385,15 @@ idevice_error_t idevice_connection_receive_timeout(idevice_connection_t connecti
 
 	if (connection->ssl_data) {
 #ifdef HAVE_OPENSSL
-		int received = SSL_read(connection->ssl_data->session, (void*)data, (int)len);
+		uint32_t received = 0;
+		while (received < len) {
+			int r = SSL_read(connection->ssl_data->session, (void*)((char*)(data+received)), (int)len-received);
+			if (r > 0) {
+				received += r;
+			} else {
+				break;
+			}
+		}
 		debug_info("SSL_read %d, received %d", len, received);
 #else
 		ssize_t received = gnutls_record_recv(connection->ssl_data->session, (void*)data, (size_t)len);
