@@ -26,6 +26,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <libimobiledevice/afc.h>
+#include <libimobiledevice/house_arrest.h>
 #include <readline/readline.h>
 #include <readline/history.h>
 
@@ -854,16 +855,20 @@ static void print_usage(int argc, const char **argv)
 	printf("  -d, --debug\t\tenable communication debugging\n");
 	printf("  -u, --udid UDID\ttarget specific device by its 40-digit device UDID\n");
 	printf("  -2, --afc2\t\tconnect to afc2 service\n");
+    printf("  -a, --appid APPID\tconnect via house_arrest to the app with bundle ID APPID\n");
 	printf("  -h, --help\t\tprints usage information\n");
 	printf("\n");
 }
 
 int main(int argc, const char **argv)
 {
+	char *errmsg = "";
 	idevice_t device = NULL;
 	lockdownd_client_t client = NULL;
 	lockdownd_service_descriptor_t service = NULL;
+	house_arrest_client_t hac = NULL;
 	const char *service_name = "com.apple.afc";
+    const char *appid = NULL;
 	char *device_name = NULL;
 	int result = 0;
 	char* udid = NULL;
@@ -892,6 +897,13 @@ int main(int argc, const char **argv)
 			service_name = "com.apple.afc2";
 			continue;
 		}
+        else if (str_is_equal(argv[i], "-a") || str_is_equal(argv[i], "--appid")) {
+            if (++i >=  argc) {
+                print_usage(argc, argv);
+                exit(EXIT_FAILURE);
+            }
+            appid = argv[i];
+        }
 		else if (str_is_equal(argv[i], "-h") || str_is_equal(argv[i], "--help")) {
 			print_usage(argc, argv);
 			exit(EXIT_SUCCESS);
@@ -921,35 +933,116 @@ int main(int argc, const char **argv)
 	/* Connect to lockdownd */
 	result = lockdownd_client_new_with_handshake(device, &client, "afccl");
 	if (result != LOCKDOWN_E_SUCCESS) {
-		idevice_free(device);
-		errx(EXIT_FAILURE, "ERROR: Connecting to lockdownd service failed!");
+		asprintf(&errmsg, "ERROR: Connecting to lockdownd service failed!");
+		goto bail;
 	}
 
 	result = lockdownd_get_device_name(client, &device_name);
 	if ((result != LOCKDOWN_E_SUCCESS) || !device_name) {
-		lockdownd_client_free(client);
-		idevice_free(device);
-		errx(EXIT_FAILURE, "ERROR: Could not get device name!");
+		asprintf(&errmsg, "ERROR: Could not get device name!");
+		goto bail;
 	}
 
-	result = lockdownd_start_service(client, service_name, &service);
-	if (result != LOCKDOWN_E_SUCCESS || !service || !service->port) {
-		lockdownd_client_free(client);
-		idevice_free(device);
-		errx(EXIT_FAILURE, "error starting AFC service: (%d) %s", result, afc_strerror(result));
-	}
+    if (appid) {
+        result = lockdownd_start_service(client, "com.apple.mobile.house_arrest", &service);
+        if (result != LOCKDOWN_E_SUCCESS || !service || !service->port) {
+			asprintf(&errmsg, "error starting house arrest service: (%d) %s", result, afc_strerror(result));
+			goto bail;
+        }
+        if (client) {
+            lockdownd_client_free(client);
+            client = NULL;
+        }
+        
+        if (house_arrest_client_new(device, service, &hac) != HOUSE_ARREST_E_SUCCESS) {
+            asprintf(&errmsg, "could not connect to house_arrest service!\n");
+			goto bail;
+        }
+        
+        if (service) {
+            lockdownd_service_descriptor_free(service);
+            service = NULL;
+        }
+        
+        result = house_arrest_send_command(hac, "VendDocuments", appid);
+        if (result != HOUSE_ARREST_E_SUCCESS) {
+            asprintf(&errmsg, "error %d when trying to get VendDocuments\n", result);
+			goto bail;
+        }
+        
+        plist_t dict = NULL;
+        if (house_arrest_get_result(hac, &dict) != HOUSE_ARREST_E_SUCCESS) {
+            if (house_arrest_get_result(hac, &dict) != HOUSE_ARREST_E_SUCCESS) {
+                asprintf(&errmsg, "hmmm....\n");
+				goto bail;
+            }
+        }
+        
+        plist_t node = plist_dict_get_item(dict, "Error");
+        if (node) {
+            char *str = NULL;
+            plist_get_string_val(node, &str);
+            asprintf(&errmsg, "Error: %s\n", str);
+            if (str) free(str);
+            plist_free(dict);
+            dict = NULL;
+			goto bail;
+		}
+        node = plist_dict_get_item(dict, "Status");
+        if (node) {
+            char *str = NULL;
+            plist_get_string_val(node, &str);
+            if (str && (strcmp(str, "Complete") != 0)) {
+                printf("Warning: Status is not 'Complete' but '%s'\n", str);
+            }
+            if (str) free(str);
+        }
+        if (dict) {
+            plist_free(dict);
+        }
+        
+        afc_error_t ae = afc_client_new_from_house_arrest_client(hac, &afc);
+        if (ae != AFC_E_SUCCESS) {
+            printf("afc error %d\n", ae);
+        }
 
-	/* Connect to AFC */
-	result = afc_client_new(device, service, &afc);
-	lockdownd_client_free(client);
-	idevice_free(device);
-	if (result != AFC_E_SUCCESS) {
-		errx(EXIT_FAILURE, "AFC connection failed (%d) %s", result, afc_strerror(result));
-	}
+    }
+    else {
+        result = lockdownd_start_service(client, service_name, &service);
+        if (result != LOCKDOWN_E_SUCCESS || !service || !service->port) {
+            asprintf(&errmsg, "error starting AFC service: (%d) %s", result, afc_strerror(result));
+			goto bail;
+        }
 
+        /* Connect to AFC */
+        result = afc_client_new(device, service, &afc);
+        lockdownd_client_free(client);
+        idevice_free(device);
+        if (result != AFC_E_SUCCESS) {
+            errx(EXIT_FAILURE, "AFC connection failed (%d) %s", result, afc_strerror(result));
+        }
+	}
 	result = do_cmd(cmd, argc, argv);
+
+	if (hac)
+		house_arrest_client_free(hac);
 
 	afc_client_free(afc);
 
 	exit(result == 0 ? EXIT_SUCCESS : EXIT_FAILURE);
+    
+bail:
+    if (hac)
+		house_arrest_client_free(hac);
+
+	if (service)
+		lockdownd_service_descriptor_free(service);
+
+    if (client)
+		lockdownd_client_free(client);
+
+    if (device)
+		idevice_free(device);
+
+	errx(EXIT_FAILURE, "%s", errmsg);
 }
