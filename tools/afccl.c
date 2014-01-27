@@ -516,12 +516,83 @@ static afc_error_t cmd_mv(int argc, const char *argv[])
 	return result;
 }
 
+struct afc_stat {
+	// OS X has a struct timespec which includes fractions of seconds, but fractions are ignored here.
+	// (There is no fraction from HFS.)
+	
+	off_t    st_size;        /* File size in bytes */
+	off_t    st_blocks;      /* File system blocks allocated */
+	int16_t  st_nlink;       /* Number of links. */
+	mode_t   st_ifmt;        /* The file type from the mode value */
+	uint32_t st_modtime;     /* Modified time */
+	uint32_t st_createtime;  /* Creation time */
+};
+
+afc_error_t afc_stat(afc_client_t client, const char *path, struct afc_stat *st_buf)
+{
+	afc_error_t result;
+	char **values = NULL;
+	int64_t time;
+	
+	result = afc_get_file_info(afc, path, &values);
+	if (result != AFC_E_SUCCESS)
+		return result;
+	
+	for (int i = 0; values[i] != NULL; i += 2) {
+		
+		if (str_is_equal(values[i], "st_size")) {
+			st_buf->st_size = atoll(values[i+1]);
+		}
+		else if (str_is_equal(values[i], "st_blocks")) {
+			st_buf->st_blocks = atol(values[i+1]);
+		}
+		else if (str_is_equal(values[i], "st_nlink")) {
+			st_buf->st_nlink = (short) atoi(values[i+1]);
+		}
+		else if (str_is_equal(values[i], "st_ifmt")) {
+			if (str_is_equal(values[i+1], "S_IFREG"))
+				st_buf->st_ifmt = S_IFREG;
+			else if (str_is_equal(values[i+1], "S_IFDIR"))
+				st_buf->st_ifmt = S_IFDIR;
+			else if (str_is_equal(values[i+1], "S_IFBLK"))
+				st_buf->st_ifmt = S_IFBLK;
+			else if (str_is_equal(values[i+1], "S_IFCHR"))
+				st_buf->st_ifmt = S_IFCHR;
+			else if (str_is_equal(values[i+1], "S_IFIFO"))
+				st_buf->st_ifmt = S_IFIFO;
+			else if (str_is_equal(values[i+1], "S_IFLNK"))
+				st_buf->st_ifmt = S_IFLNK;
+			else if (str_is_equal(values[i+1], "S_IFSOCK"))
+				st_buf->st_ifmt = S_IFSOCK;
+		}
+		else if (str_is_equal(values[i], "st_mtime")) {
+			time = atoll(values[i+1]) / 1000000000;
+			st_buf->st_modtime = time;
+		}
+		else if (str_is_equal(values[i], "st_birthtime")) {
+			time = atoll(values[i+1]) / 1000000000;
+			st_buf->st_createtime = time;
+		}
+		else
+			fprintf(stderr, "unknown stat key/value: %s: %s\n", values[i], values[i+1]);
+		
+		free(values[i]);
+		free(values[i+1]);
+	}
+	free(values);
+
+	return AFC_E_SUCCESS;
+}
+
 static afc_error_t cmd_stat(int argc, const char *argv[])
 {
 	afc_error_t result;
-	char **infolist = NULL;
+	struct afc_stat st_buf;
 	char *path;
-
+	char *ifmt;
+	time_t atime;
+	char *modtime, *createtime;
+	
 	if (argc < 1) {
 		warnx("usage: stat <file> ...");
 		return -1;
@@ -530,25 +601,38 @@ static afc_error_t cmd_stat(int argc, const char *argv[])
 	for (int i = 0; i < argc; i++) {
 
 		path = build_absolute_path(argv[0]);
-		result = afc_get_file_info(afc, path, &infolist);
+		result = afc_stat(afc, path, &st_buf);
 		free(path);
 
 		if (result != AFC_E_SUCCESS) {
 			afc_warn(result, "%s", argv[i]);
 			return result;
 		}
-
+		if      (S_ISREG(st_buf.st_ifmt))  ifmt = "S_IFREG";
+		else if (S_ISDIR(st_buf.st_ifmt))  ifmt = "S_IFDIR";
+		else if (S_ISLNK(st_buf.st_ifmt))  ifmt = "S_IFLNK";
+		else if (S_ISBLK(st_buf.st_ifmt))  ifmt = "S_IFBLK";
+		else if (S_ISCHR(st_buf.st_ifmt))  ifmt = "S_IFCHR";
+		else if (S_ISFIFO(st_buf.st_ifmt)) ifmt = "S_IFIFO";
+		else if (S_ISSOCK(st_buf.st_ifmt)) ifmt = "S_IFSOCK";
+		
+		// time_t may be 32 or 64 bits
+		atime = (time_t) st_buf.st_modtime;
+		modtime = strdup(ctime(&atime));
+		atime = (time_t) st_buf.st_createtime;
+		createtime = strdup(ctime(&atime));
+		
 		printf("%s:\n", argv[i]);
-
-		for (int j = 0; infolist[j] != NULL; j++) {
-			printf("%14s ", infolist[j]);
-			free(infolist[j]);
-			printf("%s\n", infolist[++j]);
-			free(infolist[j]);
-		}
-		free(infolist);
-
+		printf("%14s %lld\n",  "st_size",      st_buf.st_size);
+		printf("%14s %lld\n",  "st_blocks",    st_buf.st_blocks);
+		printf("%14s %hd\n",   "st_nlink",     st_buf.st_nlink);
+		printf("%14s %s\n",    "st_ifmt",      ifmt);
+		printf("%14s %u - %s", "st_mtime",     st_buf.st_modtime, modtime);
+		printf("%14s %u - %s", "st_birthtime", st_buf.st_createtime, createtime);
 		putc('\n', stdout);
+		
+		free(modtime);
+		free(createtime);
 	}
 
 	return AFC_E_SUCCESS;
