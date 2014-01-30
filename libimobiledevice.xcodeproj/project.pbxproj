@@ -72,6 +72,10 @@
 		96A8D95917A14231006E38E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5F1174E459600AF832F /* CoreFoundation.framework */; };
 		96A8D96E17A4A9B5006E38E0 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96A8D97817A4AA1F006E38E0 /* afccl.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D96217A4A902006E38E0 /* afccl.c */; };
+		96B74DD718988FD700D3A1D2 /* afc_extras.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B74DD618988FD700D3A1D2 /* afc_extras.c */; };
+		96B74DD818988FD700D3A1D2 /* afc_extras.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B74DD618988FD700D3A1D2 /* afc_extras.c */; };
+		96B74DF018995B5E00D3A1D2 /* afc_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B74DEF18995B5E00D3A1D2 /* afc_error.c */; };
+		96B74DF118995B5E00D3A1D2 /* afc_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B74DEF18995B5E00D3A1D2 /* afc_error.c */; };
 		96B88B41174E0CAD00B868D9 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B39174E0CAD00B868D9 /* debug.c */; };
 		96B88B42174E0CAD00B868D9 /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B3A174E0CAD00B868D9 /* debug.h */; };
 		96B88B43174E0CAD00B868D9 /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B3B174E0CAD00B868D9 /* socket.c */; };
@@ -787,6 +791,9 @@
 		96A8D95517A14218006E38E0 /* gstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gstring.h; sourceTree = "<group>"; };
 		96A8D96217A4A902006E38E0 /* afccl.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = afccl.c; sourceTree = "<group>"; };
 		96A8D97317A4A9B5006E38E0 /* afccl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = afccl; sourceTree = BUILT_PRODUCTS_DIR; };
+		96B74DD618988FD700D3A1D2 /* afc_extras.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = afc_extras.c; sourceTree = "<group>"; };
+		96B74DD91898901900D3A1D2 /* afc_extras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = afc_extras.h; sourceTree = "<group>"; };
+		96B74DEF18995B5E00D3A1D2 /* afc_error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = afc_error.c; path = src/afc_error.c; sourceTree = SOURCE_ROOT; };
 		96B88B30174E0B9900B868D9 /* libimobiledevice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimobiledevice.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B88B38174E0CAD00B868D9 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		96B88B39174E0CAD00B868D9 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
@@ -1307,6 +1314,9 @@
 				96B88B8D174E0D6400B868D9 /* Makefile.am */,
 				96B88B8E174E0D6400B868D9 /* afc.c */,
 				96B88B8F174E0D6400B868D9 /* afc.h */,
+				96B74DD618988FD700D3A1D2 /* afc_extras.c */,
+				96B74DD91898901900D3A1D2 /* afc_extras.h */,
+				96B74DEF18995B5E00D3A1D2 /* afc_error.c */,
 				96B88B90174E0D6400B868D9 /* device_link_service.c */,
 				96B88B91174E0D6400B868D9 /* device_link_service.h */,
 				96B88B92174E0D6400B868D9 /* diagnostics_relay.c */,
@@ -2143,6 +2153,8 @@
 				96B88BDE174E0D6400B868D9 /* service.c in Sources */,
 				96612991175EE163005AD392 /* syslog_relay.c in Sources */,
 				96B88BE0174E0D6400B868D9 /* webinspector.c in Sources */,
+				96B74DF018995B5E00D3A1D2 /* afc_error.c in Sources */,
+				96B74DD718988FD700D3A1D2 /* afc_extras.c in Sources */,
 				96B88C07174E160E00B868D9 /* plist.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2178,6 +2190,8 @@
 				96CCC61E174E4B2B00AF832F /* service.c in Sources */,
 				96612992175EE163005AD392 /* syslog_relay.c in Sources */,
 				96CCC61F174E4B2B00AF832F /* webinspector.c in Sources */,
+				96B74DF118995B5E00D3A1D2 /* afc_error.c in Sources */,
+				96B74DD818988FD700D3A1D2 /* afc_extras.c in Sources */,
 				96CCC620174E4B2B00AF832F /* plist.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2722,10 +2736,6 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/private/tmp/Xcode/DerivedData/libimobiledevice-ecytvzgboxrmaxdfgpkbsrxnmdbo/Build/Products/Debug",
-				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
@@ -2750,10 +2760,6 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/private/tmp/Xcode/DerivedData/libimobiledevice-ecytvzgboxrmaxdfgpkbsrxnmdbo/Build/Products/Debug",
-				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;

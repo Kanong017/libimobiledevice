@@ -117,6 +117,10 @@ afc_error_t afc_truncate(afc_client_t client, const char *path, uint64_t newsize
 afc_error_t afc_make_link(afc_client_t client, afc_link_type_t linktype, const char *target, const char *linkname);
 afc_error_t afc_set_file_time(afc_client_t client, const char *path, uint64_t mtime);
 
+afc_error_t posix_err_to_afc_error(int err);
+char *afc_strerror(afc_error_t err);
+void afc_warn(afc_error_t err, const char *fmt, ...);
+
 /* Helper functions */
 afc_error_t afc_get_device_info_key(afc_client_t client, const char *key, char **value);
 afc_error_t afc_dictionary_free(char **dictionary);

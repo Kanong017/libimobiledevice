@@ -25,10 +25,12 @@
 #include <string.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 #include <libimobiledevice/afc.h>
 #include <libimobiledevice/house_arrest.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include "afc_extras.h"
 
 #define CMD_INTERACTIVE 0
 #define CMD_CD 1
@@ -48,6 +50,8 @@
 afc_client_t afc = NULL;
 char *cwd;
 
+afc_error_t posix_err_to_afc_error(int err);
+
 static inline bool str_is_equal(const char *s1, const char *s2)
 {
 	return strcmp(s1, s2) == 0;
@@ -59,88 +63,6 @@ static inline bool str_has_prefix(const char *str, const char *prefix)
 }
 
 static int do_cmd(int cmd, int argc, const char *argv[]);
-
-char *afc_strerror(afc_error_t err)
-{
-	switch (err) {
-		case AFC_E_SUCCESS:
-			return "AFC success";
-		case AFC_E_OP_HEADER_INVALID:
-			return "op header invalid";
-		case AFC_E_NO_RESOURCES:
-			return "no resources";
-		case AFC_E_READ_ERROR:
-			return "read error";
-		case AFC_E_WRITE_ERROR:
-			return "write error";
-		case AFC_E_UNKNOWN_PACKET_TYPE:
-			return "unknown packet type";
-		case AFC_E_INVALID_ARG:
-			return "invalid argument";
-		case AFC_E_OBJECT_NOT_FOUND:
-			return "object not found";
-		case AFC_E_OBJECT_IS_DIR:
-			return "object is a directory";
-		case AFC_E_PERM_DENIED:
-			return "permission denied";
-		case AFC_E_SERVICE_NOT_CONNECTED:
-			return "service not connected";
-		case AFC_E_OP_TIMEOUT:
-			return "op timeout";
-		case AFC_E_TOO_MUCH_DATA:
-			return "too much data";
-		case AFC_E_END_OF_DATA:
-			return "end of data";
-		case AFC_E_OP_NOT_SUPPORTED:
-			return "op not supported";
-		case AFC_E_OBJECT_EXISTS:
-			return "object exists";
-		case AFC_E_OBJECT_BUSY:
-			return "object busy";
-		case AFC_E_NO_SPACE_LEFT:
-			return "no space available";
-		case AFC_E_OP_WOULD_BLOCK:
-			return "op would block";
-		case AFC_E_IO_ERROR:
-			return "I/O error";
-		case AFC_E_OP_INTERRUPTED:
-			return "op interrupted";
-		case AFC_E_OP_IN_PROGRESS:
-			return "op in progress";
-		case AFC_E_INTERNAL_ERROR:
-			return "internal error";
-		case AFC_E_MUX_ERROR:
-			return "usbmuxd error";
-		case AFC_E_NO_MEM:
-			return "out of memory";
-		case AFC_E_NOT_ENOUGH_DATA:
-			return "not enough data";
-		case AFC_E_DIR_NOT_EMPTY:
-			return "directory not empty";
-
-		case AFC_E_UNKNOWN_ERROR:
-		default:
-			break;
-	}
-	return "unknown error";
-}
-
-void afc_warn(afc_error_t err, const char *fmt, ...)
-{
-//	void vwarn(const char *fmt, va_list args);
-	va_list ap;
-
-	char *newfmt;
-	asprintf(&newfmt, "%s: %s (%d)", fmt, afc_strerror(err), err);
-
-	va_start(ap, fmt);
-
-	vwarnx(newfmt, ap);
-
-	va_end(ap);
-
-	free(newfmt);
-}
 
 static char *build_absolute_path(const char *inpath)
 {
@@ -514,74 +436,6 @@ static afc_error_t cmd_mv(int argc, const char *argv[])
 	free(target_path);
 
 	return result;
-}
-
-struct afc_stat {
-	// OS X has a struct timespec which includes fractions of seconds, but fractions are ignored here.
-	// (There is no fraction from HFS.)
-	
-	off_t    st_size;        /* File size in bytes */
-	off_t    st_blocks;      /* File system blocks allocated */
-	int16_t  st_nlink;       /* Number of links. */
-	mode_t   st_ifmt;        /* The file type from the mode value */
-	uint32_t st_modtime;     /* Modified time */
-	uint32_t st_createtime;  /* Creation time */
-};
-
-afc_error_t afc_stat(afc_client_t client, const char *path, struct afc_stat *st_buf)
-{
-	afc_error_t result;
-	char **values = NULL;
-	int64_t time;
-	
-	result = afc_get_file_info(afc, path, &values);
-	if (result != AFC_E_SUCCESS)
-		return result;
-	
-	for (int i = 0; values[i] != NULL; i += 2) {
-		
-		if (str_is_equal(values[i], "st_size")) {
-			st_buf->st_size = atoll(values[i+1]);
-		}
-		else if (str_is_equal(values[i], "st_blocks")) {
-			st_buf->st_blocks = atol(values[i+1]);
-		}
-		else if (str_is_equal(values[i], "st_nlink")) {
-			st_buf->st_nlink = (short) atoi(values[i+1]);
-		}
-		else if (str_is_equal(values[i], "st_ifmt")) {
-			if (str_is_equal(values[i+1], "S_IFREG"))
-				st_buf->st_ifmt = S_IFREG;
-			else if (str_is_equal(values[i+1], "S_IFDIR"))
-				st_buf->st_ifmt = S_IFDIR;
-			else if (str_is_equal(values[i+1], "S_IFBLK"))
-				st_buf->st_ifmt = S_IFBLK;
-			else if (str_is_equal(values[i+1], "S_IFCHR"))
-				st_buf->st_ifmt = S_IFCHR;
-			else if (str_is_equal(values[i+1], "S_IFIFO"))
-				st_buf->st_ifmt = S_IFIFO;
-			else if (str_is_equal(values[i+1], "S_IFLNK"))
-				st_buf->st_ifmt = S_IFLNK;
-			else if (str_is_equal(values[i+1], "S_IFSOCK"))
-				st_buf->st_ifmt = S_IFSOCK;
-		}
-		else if (str_is_equal(values[i], "st_mtime")) {
-			time = atoll(values[i+1]) / 1000000000;
-			st_buf->st_modtime = time;
-		}
-		else if (str_is_equal(values[i], "st_birthtime")) {
-			time = atoll(values[i+1]) / 1000000000;
-			st_buf->st_createtime = time;
-		}
-		else
-			fprintf(stderr, "unknown stat key/value: %s: %s\n", values[i], values[i+1]);
-		
-		free(values[i]);
-		free(values[i+1]);
-	}
-	free(values);
-
-	return AFC_E_SUCCESS;
 }
 
 static afc_error_t cmd_stat(int argc, const char *argv[])
