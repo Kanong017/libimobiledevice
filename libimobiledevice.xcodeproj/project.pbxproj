@@ -37,6 +37,7 @@
 				96F0F61E1752225B0014879C /* PBXTargetDependency */,
 				96F0F6201752225B0014879C /* PBXTargetDependency */,
 				96F0F6221752225B0014879C /* PBXTargetDependency */,
+				9649448518BBBD8E00EDE08B /* PBXTargetDependency */,
 				96F0F6241752225B0014879C /* PBXTargetDependency */,
 				96F0F6261752225B0014879C /* PBXTargetDependency */,
 				96F0F6281752225B0014879C /* PBXTargetDependency */,
@@ -54,6 +55,9 @@
 		9609CAEC174EF50100E744BE /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9609CAF3174EF51F00E744BE /* idevicepair.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B71174E0D1F00B868D9 /* idevicepair.1 */; };
 		9609CAF4174EF52D00E744BE /* idevicepair.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BED174E0D8400B868D9 /* idevicepair.c */; };
+		9649447C18BBBD2000EDE08B /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
+		9649447E18BBBD2000EDE08B /* idevice_id.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B68174E0D1F00B868D9 /* idevice_id.1 */; };
+		9649448318BBBD5A00EDE08B /* idevicename.c in Sources */ = {isa = PBXBuildFile; fileRef = 9649447518BBBCEE00EDE08B /* idevicename.c */; };
 		96612987175EE0A2005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96612991175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
 		96612992175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
@@ -282,6 +286,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
 			remoteInfo = imobiledevice.dylib;
+		};
+		9649447818BBBD2000EDE08B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
+			remoteInfo = imobiledevice.dylib;
+		};
+		9649448418BBBD8E00EDE08B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9649447618BBBD2000EDE08B;
+			remoteInfo = idevicename;
 		};
 		96A8D94617A12DF6006E38E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -583,6 +601,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		9649447D18BBBD2000EDE08B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				9649447E18BBBD2000EDE08B /* idevice_id.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		96A8D94C17A12DF6006E38E0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -779,6 +807,8 @@
 
 /* Begin PBXFileReference section */
 		9609CAF2174EF50100E744BE /* idevicepair */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicepair; sourceTree = BUILT_PRODUCTS_DIR; };
+		9649447518BBBCEE00EDE08B /* idevicename.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = idevicename.c; sourceTree = "<group>"; };
+		9649448218BBBD2000EDE08B /* idevicename */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicename; sourceTree = BUILT_PRODUCTS_DIR; };
 		96612986175EE0A2005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
 		9661298F175EE163005AD392 /* syslog_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syslog_relay.c; sourceTree = "<group>"; };
 		96612990175EE163005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
@@ -957,6 +987,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9609CAEC174EF50100E744BE /* libimobiledevice.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9649447B18BBBD2000EDE08B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9649447C18BBBD2000EDE08B /* libimobiledevice.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1187,6 +1225,7 @@
 				96F0F68E1752322C0014879C /* idevicescreenshot */,
 				96A8D95117A12DF6006E38E0 /* ideviceexec */,
 				96A8D97317A4A9B5006E38E0 /* afccl */,
+				9649448218BBBD2000EDE08B /* idevicename */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1376,6 +1415,7 @@
 				96B88BEA174E0D8400B868D9 /* ideviceenterrecovery.c */,
 				96B88BEB174E0D8400B868D9 /* ideviceimagemounter.c */,
 				96B88BEC174E0D8400B868D9 /* ideviceinfo.c */,
+				9649447518BBBCEE00EDE08B /* idevicename.c */,
 				96B88BED174E0D8400B868D9 /* idevicepair.c */,
 				96B88BEE174E0D8400B868D9 /* ideviceprovision.c */,
 				96B88BEF174E0D8400B868D9 /* idevicescreenshot.c */,
@@ -1609,6 +1649,24 @@
 			name = idevicepair;
 			productName = ideviceclient;
 			productReference = 9609CAF2174EF50100E744BE /* idevicepair */;
+			productType = "com.apple.product-type.tool";
+		};
+		9649447618BBBD2000EDE08B /* idevicename */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9649447F18BBBD2000EDE08B /* Build configuration list for PBXNativeTarget "idevicename" */;
+			buildPhases = (
+				9649447918BBBD2000EDE08B /* Sources */,
+				9649447B18BBBD2000EDE08B /* Frameworks */,
+				9649447D18BBBD2000EDE08B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9649447718BBBD2000EDE08B /* PBXTargetDependency */,
+			);
+			name = idevicename;
+			productName = ideviceclient;
+			productReference = 9649448218BBBD2000EDE08B /* idevicename */;
 			productType = "com.apple.product-type.tool";
 		};
 		96A8D94417A12DF6006E38E0 /* ideviceexec */ = {
@@ -2050,6 +2108,7 @@
 				96CCC6EF174EBC5B00AF832F /* ideviceenterrecovery */,
 				96CCC6FE174EBDCC00AF832F /* idevicesyslog */,
 				96CCC70D174EC00100AF832F /* idevicediagnostics */,
+				9649447618BBBD2000EDE08B /* idevicename */,
 				9609CAE6174EF50100E744BE /* idevicepair */,
 				96F0F5EE174EFFAC0014879C /* idevicebackup */,
 				96F0F602174F01420014879C /* idevicebackup2 */,
@@ -2102,6 +2161,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9609CAF4174EF52D00E744BE /* idevicepair.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9649447918BBBD2000EDE08B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9649448318BBBD5A00EDE08B /* idevicename.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2348,6 +2415,16 @@
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
 			targetProxy = 9609CAE8174EF50100E744BE /* PBXContainerItemProxy */;
 		};
+		9649447718BBBD2000EDE08B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
+			targetProxy = 9649447818BBBD2000EDE08B /* PBXContainerItemProxy */;
+		};
+		9649448518BBBD8E00EDE08B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9649447618BBBD2000EDE08B /* idevicename */;
+			targetProxy = 9649448418BBBD8E00EDE08B /* PBXContainerItemProxy */;
+		};
 		96A8D94517A12DF6006E38E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
@@ -2573,6 +2650,20 @@
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_OPENSSL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9649448018BBBD2000EDE08B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = idevicename;
+			};
+			name = Debug;
+		};
+		9649448118BBBD2000EDE08B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = idevicename;
 			};
 			name = Release;
 		};
@@ -3093,6 +3184,15 @@
 			buildConfigurations = (
 				9609CAF0174EF50100E744BE /* Debug */,
 				9609CAF1174EF50100E744BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9649447F18BBBD2000EDE08B /* Build configuration list for PBXNativeTarget "idevicename" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9649448018BBBD2000EDE08B /* Debug */,
+				9649448118BBBD2000EDE08B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
