@@ -12,6 +12,8 @@
 extern "C" {
 #endif
 
+#include <stdbool.h>
+	
 	/**
 	 */
 struct afc_stat {

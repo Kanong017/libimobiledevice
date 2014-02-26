@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "96B88B2F174E0B9900B868D9"
-               BuildableName = "libimobiledevice.a"
+               BuildableName = "libimobiledevice"
                BlueprintName = "imobiledevice.a"
                ReferencedContainer = "container:libimobiledevice.xcodeproj">
             </BuildableReference>

@@ -17,7 +17,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
-#include "gstring.h"
+#include "glib.h"
 
 // typedef struct __CFString GString;
 
@@ -34,7 +34,7 @@ GString * g_string_new(const gchar *init)
 	memcpy(s->str, init, s->len);
 	s->str[s ->len] = 0;
 
-	// we will manage the str bućffer
+	// we will manage the str buffer
 //	CFStringRef cf_string = CFStringCreateWithBytesNoCopy(kCFAllocatorDefault, (UInt8 *) init, strlen(init), kCFStringEncodingUTF8, true, kCFAllocatorNull);
 //	s->cf_string = CFStringCreateMutableCopy(kCFAllocatorDefault, 0, cf_string);
 //	CFRelease(cf_string);
@@ -61,12 +61,12 @@ GString * g_string_new_len(const gchar *init, gssize len)
 
 GString * g_string_sized_new(gsize dfl_size)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_assign(GString *string, const gchar *rval)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 #define	g_string_sprintf
@@ -74,27 +74,27 @@ GString * g_string_assign(GString *string, const gchar *rval)
 
 void g_string_vprintf(GString *string, const gchar *format, va_list args)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 void g_string_append_vprintf(GString *string, const gchar *format, va_list args)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 void g_string_printf(GString *string, const gchar *format, ...)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 void g_string_append_printf(GString *string, const gchar *format, ...)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_append(GString *string, const gchar *val)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_append_c(GString *string, gchar c)
@@ -114,7 +114,7 @@ GString * g_string_append_c(GString *string, gchar c)
 
 GString * g_string_append_unichar(GString *string, gunichar wc)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_append_len(GString *string, const gchar *val, gssize len)
@@ -134,7 +134,7 @@ GString * g_string_append_len(GString *string, const gchar *val, gssize len)
 
 GString * g_string_append_uri_escaped(GString *string, const char *unescaped, const char *reserved_chars_allowed, gboolean allow_utf8)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_prepend(GString *string, const gchar *val)
@@ -154,47 +154,47 @@ GString * g_string_prepend(GString *string, const gchar *val)
 
 GString * g_string_prepend_c(GString *string, gchar c)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_prepend_unichar(GString *string, gunichar wc)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_prepend_len(GString *string, const gchar *val, gssize len)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_insert(GString *string, gssize pos, const gchar *val)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_insert_c(GString *string, gssize pos, gchar c)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_insert_unichar(GString *string, gssize pos, gunichar wc)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_insert_len(GString *string, gssize pos, const gchar *val, gssize len)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_overwrite(GString *string, gsize pos, const gchar *val)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_overwrite_len(GString *string, gsize pos, const gchar *val, gssize len)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_erase(GString *string, gssize pos, gssize len)
@@ -215,12 +215,12 @@ GString * g_string_erase(GString *string, gssize pos, gssize len)
 
 GString * g_string_truncate(GString *string, gsize len)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_set_size(GString *string, gsize len)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 gchar * g_string_free(GString *string, gboolean free_segment)
@@ -239,20 +239,20 @@ gchar * g_string_free(GString *string, gboolean free_segment)
 
 GString * g_string_up(GString *string)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 GString * g_string_down(GString *string)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 guint g_string_hash(const GString *str)
 {
-	assert(false);
+	assert(FALSE);
 }
 
 gboolean g_string_equal(const GString *v, const GString *v2)
 {
-	assert(false);
+	assert(FALSE);
 }

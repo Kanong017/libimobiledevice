@@ -55,9 +55,12 @@
 		9609CAEC174EF50100E744BE /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9609CAF3174EF51F00E744BE /* idevicepair.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B71174E0D1F00B868D9 /* idevicepair.1 */; };
 		9609CAF4174EF52D00E744BE /* idevicepair.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BED174E0D8400B868D9 /* idevicepair.c */; };
+		9629593D18BE2B610021A1C2 /* gstring.c in Sources */ = {isa = PBXBuildFile; fileRef = 9629593A18BE2B410021A1C2 /* gstring.c */; };
 		9649447C18BBBD2000EDE08B /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9649447E18BBBD2000EDE08B /* idevice_id.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B68174E0D1F00B868D9 /* idevice_id.1 */; };
 		9649448318BBBD5A00EDE08B /* idevicename.c in Sources */ = {isa = PBXBuildFile; fileRef = 9649447518BBBCEE00EDE08B /* idevicename.c */; };
+		964945C318BD274000EDE08B /* libplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 964945C218BD274000EDE08B /* libplist.a */; };
+		96519CF918BD2F68009DEBFD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96519CF818BD2F68009DEBFD /* libxml2.dylib */; };
 		96612987175EE0A2005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96612991175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
 		96612992175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
@@ -70,9 +73,6 @@
 		9661893C17B2C5BC0074700A /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9661893817B2C5BB0074700A /* utils.h */; };
 		96A8D94B17A12DF6006E38E0 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96A8D95217A12E5B006E38E0 /* ideviceexec.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D93E17A12DD7006E38E0 /* ideviceexec.c */; };
-		96A8D95617A14218006E38E0 /* glib.h in Headers */ = {isa = PBXBuildFile; fileRef = 96A8D95317A14218006E38E0 /* glib.h */; };
-		96A8D95717A14218006E38E0 /* gstring.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D95417A14218006E38E0 /* gstring.c */; };
-		96A8D95817A14218006E38E0 /* gstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 96A8D95517A14218006E38E0 /* gstring.h */; };
 		96A8D95917A14231006E38E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5F1174E459600AF832F /* CoreFoundation.framework */; };
 		96A8D96E17A4A9B5006E38E0 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96A8D97817A4AA1F006E38E0 /* afccl.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D96217A4A902006E38E0 /* afccl.c */; };
@@ -148,8 +148,6 @@
 		96B88C00174E109900B868D9 /* sbservices.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B89174E0D4A00B868D9 /* sbservices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96B88C01174E109900B868D9 /* screenshotr.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8A174E0D4A00B868D9 /* screenshotr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96B88C02174E109900B868D9 /* webinspector.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8B174E0D4A00B868D9 /* webinspector.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88C07174E160E00B868D9 /* plist.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88C05174E160E00B868D9 /* plist.c */; };
-		96B88C08174E160E00B868D9 /* plist.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88C06174E160E00B868D9 /* plist.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		96CCC605174E4AA100AF832F /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5EE174E454400AF832F /* libcrypto.dylib */; };
 		96CCC606174E4ABB00AF832F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5F1174E459600AF832F /* CoreFoundation.framework */; };
 		96CCC607174E4B2B00AF832F /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B39174E0CAD00B868D9 /* debug.c */; };
@@ -177,7 +175,6 @@
 		96CCC61D174E4B2B00AF832F /* screenshotr.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB2174E0D6400B868D9 /* screenshotr.c */; };
 		96CCC61E174E4B2B00AF832F /* service.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB4174E0D6400B868D9 /* service.c */; };
 		96CCC61F174E4B2B00AF832F /* webinspector.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB6174E0D6400B868D9 /* webinspector.c */; };
-		96CCC620174E4B2B00AF832F /* plist.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88C05174E160E00B868D9 /* plist.c */; };
 		96CCC621174E4B6400AF832F /* afc.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7A174E0D4A00B868D9 /* afc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96CCC622174E4B6400AF832F /* diagnostics_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7B174E0D4A00B868D9 /* diagnostics_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96CCC623174E4B6400AF832F /* file_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7C174E0D4A00B868D9 /* file_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -221,7 +218,6 @@
 		96CCC649174E4BC000AF832F /* screenshotr.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB3174E0D6400B868D9 /* screenshotr.h */; };
 		96CCC64A174E4BC000AF832F /* service.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB5174E0D6400B868D9 /* service.h */; };
 		96CCC64B174E4BC000AF832F /* webinspector.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB7174E0D6400B868D9 /* webinspector.h */; };
-		96CCC64C174E4BDE00AF832F /* plist.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88C06174E160E00B868D9 /* plist.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		96CCC64E174E4D7900AF832F /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC64D174E4D7900AF832F /* libssl.dylib */; };
 		96CCC66B174E7DEE00AF832F /* ideviceclient.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B63174E0CF200B868D9 /* ideviceclient.c */; };
 		96CCC670174E83DC00AF832F /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
@@ -807,8 +803,13 @@
 
 /* Begin PBXFileReference section */
 		9609CAF2174EF50100E744BE /* idevicepair */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicepair; sourceTree = BUILT_PRODUCTS_DIR; };
+		9629593A18BE2B410021A1C2 /* gstring.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gstring.c; sourceTree = "<group>"; };
+		9629593B18BE2B410021A1C2 /* gstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gstring.h; sourceTree = "<group>"; };
+		9629593C18BE2B410021A1C2 /* glib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glib.h; sourceTree = "<group>"; };
 		9649447518BBBCEE00EDE08B /* idevicename.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = idevicename.c; sourceTree = "<group>"; };
 		9649448218BBBD2000EDE08B /* idevicename */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicename; sourceTree = BUILT_PRODUCTS_DIR; };
+		964945C218BD274000EDE08B /* libplist.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libplist.a; path = ../../deps/libplist/build/Debug/libplist.a; sourceTree = "<group>"; };
+		96519CF818BD2F68009DEBFD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		96612986175EE0A2005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
 		9661298F175EE163005AD392 /* syslog_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syslog_relay.c; sourceTree = "<group>"; };
 		96612990175EE163005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
@@ -816,15 +817,12 @@
 		9661893817B2C5BB0074700A /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
 		96A8D93E17A12DD7006E38E0 /* ideviceexec.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ideviceexec.c; sourceTree = "<group>"; };
 		96A8D95117A12DF6006E38E0 /* ideviceexec */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideviceexec; sourceTree = BUILT_PRODUCTS_DIR; };
-		96A8D95317A14218006E38E0 /* glib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glib.h; sourceTree = "<group>"; };
-		96A8D95417A14218006E38E0 /* gstring.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gstring.c; sourceTree = "<group>"; };
-		96A8D95517A14218006E38E0 /* gstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gstring.h; sourceTree = "<group>"; };
 		96A8D96217A4A902006E38E0 /* afccl.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = afccl.c; sourceTree = "<group>"; };
 		96A8D97317A4A9B5006E38E0 /* afccl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = afccl; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B74DD618988FD700D3A1D2 /* afc_extras.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = afc_extras.c; sourceTree = "<group>"; };
 		96B74DD91898901900D3A1D2 /* afc_extras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = afc_extras.h; sourceTree = "<group>"; };
 		96B74DEF18995B5E00D3A1D2 /* afc_error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = afc_error.c; path = src/afc_error.c; sourceTree = SOURCE_ROOT; };
-		96B88B30174E0B9900B868D9 /* libimobiledevice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimobiledevice.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		96B88B30174E0B9900B868D9 /* libimobiledevice */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimobiledevice; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B88B38174E0CAD00B868D9 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		96B88B39174E0CAD00B868D9 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
 		96B88B3A174E0CAD00B868D9 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
@@ -953,8 +951,6 @@
 		96B88BEE174E0D8400B868D9 /* ideviceprovision.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ideviceprovision.c; sourceTree = "<group>"; };
 		96B88BEF174E0D8400B868D9 /* idevicescreenshot.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = idevicescreenshot.c; sourceTree = "<group>"; };
 		96B88BF0174E0D8400B868D9 /* idevicesyslog.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = idevicesyslog.c; sourceTree = "<group>"; };
-		96B88C05174E160E00B868D9 /* plist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = plist.c; sourceTree = "<group>"; };
-		96B88C06174E160E00B868D9 /* plist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plist.h; sourceTree = "<group>"; };
 		96CCC5EE174E454400AF832F /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		96CCC5F1174E459600AF832F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		96CCC5FE174E493200AF832F /* libimobiledevice.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libimobiledevice.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1027,6 +1023,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96519CF918BD2F68009DEBFD /* libxml2.dylib in Frameworks */,
+				964945C318BD274000EDE08B /* libplist.a in Frameworks */,
 				96D5575D181F590C00BA101B /* libusbmuxd.a in Frameworks */,
 				96CCC64E174E4D7900AF832F /* libssl.dylib in Frameworks */,
 				96CCC605174E4AA100AF832F /* libcrypto.dylib in Frameworks */,
@@ -1183,6 +1181,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9629593918BE2B410021A1C2 /* osx */ = {
+			isa = PBXGroup;
+			children = (
+				9629593A18BE2B410021A1C2 /* gstring.c */,
+				9629593B18BE2B410021A1C2 /* gstring.h */,
+				9629593C18BE2B410021A1C2 /* glib.h */,
+			);
+			path = osx;
+			sourceTree = "<group>";
+		};
 		96B88B27174E0B9900B868D9 = {
 			isa = PBXGroup;
 			children = (
@@ -1193,7 +1201,7 @@
 				96B88B75174E0D4A00B868D9 /* include */,
 				96B88B8C174E0D6400B868D9 /* src */,
 				96B88BE2174E0D8400B868D9 /* tools */,
-				96B88C03174E160E00B868D9 /* osx */,
+				9629593918BE2B410021A1C2 /* osx */,
 				96CCC5F0174E455100AF832F /* Libraries and Frameworks */,
 				96B88B31174E0B9900B868D9 /* Products */,
 			);
@@ -1202,7 +1210,7 @@
 		96B88B31174E0B9900B868D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96B88B30174E0B9900B868D9 /* libimobiledevice.a */,
+				96B88B30174E0B9900B868D9 /* libimobiledevice */,
 				96CCC5FE174E493200AF832F /* libimobiledevice.dylib */,
 				96CCC65F174E7D6800AF832F /* ideviceclient */,
 				96CCC67E174EA13500AF832F /* afccheck */,
@@ -1426,26 +1434,6 @@
 			path = tools;
 			sourceTree = "<group>";
 		};
-		96B88C03174E160E00B868D9 /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				96A8D95317A14218006E38E0 /* glib.h */,
-				96A8D95417A14218006E38E0 /* gstring.c */,
-				96A8D95517A14218006E38E0 /* gstring.h */,
-				96B88C04174E160E00B868D9 /* plist */,
-			);
-			path = osx;
-			sourceTree = "<group>";
-		};
-		96B88C04174E160E00B868D9 /* plist */ = {
-			isa = PBXGroup;
-			children = (
-				96B88C05174E160E00B868D9 /* plist.c */,
-				96B88C06174E160E00B868D9 /* plist.h */,
-			);
-			path = plist;
-			sourceTree = "<group>";
-		};
 		96CCC5F0174E455100AF832F /* Libraries and Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1453,6 +1441,8 @@
 				96CCC5EE174E454400AF832F /* libcrypto.dylib */,
 				96CCC64D174E4D7900AF832F /* libssl.dylib */,
 				96CCC68D174EAAEA00AF832F /* libreadline.dylib */,
+				96519CF818BD2F68009DEBFD /* libxml2.dylib */,
+				964945C218BD274000EDE08B /* libplist.a */,
 				96D5575C181F590C00BA101B /* libusbmuxd.a */,
 			);
 			name = "Libraries and Frameworks";
@@ -1466,8 +1456,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96A8D95617A14218006E38E0 /* glib.h in Headers */,
-				96A8D95817A14218006E38E0 /* gstring.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1502,7 +1490,6 @@
 				96B88C01174E109900B868D9 /* screenshotr.h in Headers */,
 				96612995175EE1BC005AD392 /* syslog_relay.h in Headers */,
 				96B88C02174E109900B868D9 /* webinspector.h in Headers */,
-				96B88C08174E160E00B868D9 /* plist.h in Headers */,
 				96B88B42174E0CAD00B868D9 /* debug.h in Headers */,
 				96B88B44174E0CAD00B868D9 /* socket.h in Headers */,
 				96B88B46174E0CAD00B868D9 /* thread.h in Headers */,
@@ -1555,7 +1542,6 @@
 				96CCC631174E4B6400AF832F /* screenshotr.h in Headers */,
 				96612987175EE0A2005AD392 /* syslog_relay.h in Headers */,
 				96CCC632174E4B6400AF832F /* webinspector.h in Headers */,
-				96CCC64C174E4BDE00AF832F /* plist.h in Headers */,
 				96F0F611174F02360014879C /* endianness.h in Headers */,
 				96CCC633174E4BAD00AF832F /* debug.h in Headers */,
 				96CCC634174E4BAD00AF832F /* socket.h in Headers */,
@@ -1722,7 +1708,7 @@
 			);
 			name = imobiledevice.a;
 			productName = libimobiledevice;
-			productReference = 96B88B30174E0B9900B868D9 /* libimobiledevice.a */;
+			productReference = 96B88B30174E0B9900B868D9 /* libimobiledevice */;
 			productType = "com.apple.product-type.library.static";
 		};
 		96CCC5FD174E493200AF832F /* imobiledevice.dylib */ = {
@@ -2176,8 +2162,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96A8D95717A14218006E38E0 /* gstring.c in Sources */,
 				96A8D95217A12E5B006E38E0 /* ideviceexec.c in Sources */,
+				9629593D18BE2B610021A1C2 /* gstring.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2222,7 +2208,6 @@
 				96B88BE0174E0D6400B868D9 /* webinspector.c in Sources */,
 				96B74DF018995B5E00D3A1D2 /* afc_error.c in Sources */,
 				96B74DD718988FD700D3A1D2 /* afc_extras.c in Sources */,
-				96B88C07174E160E00B868D9 /* plist.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2259,7 +2244,6 @@
 				96CCC61F174E4B2B00AF832F /* webinspector.c in Sources */,
 				96B74DF118995B5E00D3A1D2 /* afc_error.c in Sources */,
 				96B74DD818988FD700D3A1D2 /* afc_extras.c in Sources */,
-				96CCC620174E4B2B00AF832F /* plist.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2670,6 +2654,10 @@
 		96A8D94F17A12DF6006E38E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/osx\"",
+					"\"$(CONFIGURATION_BUILD_DIR)/usr/local/include\"",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = ideviceexec;
 			};
@@ -2678,6 +2666,10 @@
 		96A8D95017A12DF6006E38E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/osx\"",
+					"\"$(DSTROOT)/usr/local/include\"",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = ideviceexec;
 			};
@@ -2688,6 +2680,7 @@
 			buildSettings = {
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = afccl;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\" \"$(SRCROOT)\"/src";
 			};
 			name = Debug;
 		};
@@ -2696,6 +2689,7 @@
 			buildSettings = {
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = afccl;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\" \"$(SRCROOT)\"/src";
 			};
 			name = Release;
 		};
@@ -2732,6 +2726,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -2761,6 +2756,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
@@ -2769,7 +2765,7 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
 				DYLIB_CURRENT_VERSION = 1.1.6;
-				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2781,7 +2777,7 @@
 					HAVE_STPCPY,
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = imobiledevice;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
@@ -2792,7 +2788,7 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
 				DYLIB_CURRENT_VERSION = 1.1.6;
-				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2803,7 +2799,7 @@
 					HAVE_STPCPY,
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = imobiledevice;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
@@ -2814,9 +2810,8 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
 				DYLIB_CURRENT_VERSION = 1.1.6;
-				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_EXTENSION = dylib;
 				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					HAVE_OPENSSL,
@@ -2828,7 +2823,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = imobiledevice;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
@@ -2839,9 +2834,8 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
 				DYLIB_CURRENT_VERSION = 1.1.6;
-				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_EXTENSION = dylib;
 				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					HAVE_OPENSSL,
 					HAVE_VASPRINTF,
@@ -2852,7 +2846,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = imobiledevice;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
@@ -3059,8 +3053,13 @@
 		96F0F60C174F01420014879C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"\"$(CONFIGURATION_BUILD_DIR)/usr/local/include\"",
+					"\"$(SRCROOT)\"/include",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 			};
 			name = Debug;
 		};
@@ -3069,6 +3068,7 @@
 			buildSettings = {
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 			};
 			name = Release;
 		};
@@ -3128,6 +3128,7 @@
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"/include";
 			};
 			name = Debug;
 		};
@@ -3141,6 +3142,7 @@
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"/include";
 			};
 			name = Release;
 		};

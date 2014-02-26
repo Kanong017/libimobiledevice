@@ -5,6 +5,9 @@
       location = "container:libimobiledevice.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:deps/libplist/libplist.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:deps/libusbmuxd/libusbmuxd.xcodeproj">
    </FileRef>
 </Workspace>

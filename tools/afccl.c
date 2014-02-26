@@ -19,12 +19,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#include <ctype.h>
 #include <err.h>
 #include <libgen.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <time.h>
 #include <sys/stat.h>
 #include <libimobiledevice/afc.h>
 #include <libimobiledevice/house_arrest.h>

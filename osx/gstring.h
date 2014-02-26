@@ -4,21 +4,11 @@
 //
 //	Created by Aaron Burghardt 7/25/2013.
 //	Copyright 2013 Aaron Burghardt. All rights reserved.
-//	g_string_append_c(GString *string, char c);
 
-// g_string_new(app_path);
-// g_string_free(payload, TRUE);
-// g_string_prepend(packet, ",");
-// g_string_append_len(in_queue, buf, received);
-// g_string_erase(in_queue, 0, in_queue->str - pkg_end);
+#ifndef GSTRING_H
+#define GSTRING_H
 
-
-typedef char gchar;
-typedef unsigned int guint;
-typedef signed long gssize;
-typedef unsigned long gsize;
-typedef int gboolean;
-typedef char gunichar;
+#include <glib.h>
 
 typedef struct GString {
 	gchar  *str;
@@ -26,9 +16,6 @@ typedef struct GString {
 	gsize allocated_len;
 	//	CFMutableStringRef cf_string;
 } GString;
-
-#define false (0)
-#define true  (1)
 
 GString * g_string_new(const gchar *init);
 
@@ -94,3 +81,5 @@ GString * g_string_down(GString *string);
 guint g_string_hash(const GString *str);
 
 gboolean g_string_equal(const GString *v, const GString *v2);
+
+#endif

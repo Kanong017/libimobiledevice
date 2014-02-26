@@ -4,4 +4,24 @@
 //  Copyright 2013 Aaron Burghardt. All rights reserved.
 //
 
-#include <GString.h>
+#ifndef GLIB_H
+#define GLIB_H
+
+#ifndef FALSE
+#define FALSE (0)
+#endif
+
+#ifndef TRUE
+#define TRUE (!0)
+#endif
+
+typedef char gchar;
+typedef unsigned int guint;
+typedef signed long gssize;
+typedef unsigned long gsize;
+typedef int gboolean;
+typedef char gunichar;
+
+#include <gstring.h>
+
+#endif

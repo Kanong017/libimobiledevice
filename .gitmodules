@@ -2,3 +2,6 @@
 	path = deps/libusbmuxd
 	url = https://github.com/aburgh/libusbmuxd.git
 	branch = osx
+[submodule "deps/libplist"]
+	path = deps/libplist
+	url = https://github.com/aburgh/libplist.git
