@@ -29,6 +29,7 @@
 			buildPhases = (
 			);
 			dependencies = (
+				9629593F18BE4B590021A1C2 /* PBXTargetDependency */,
 				96F0F66C175230EB0014879C /* PBXTargetDependency */,
 				96F0F66E175230EB0014879C /* PBXTargetDependency */,
 				96F0F65917522D0D0014879C /* PBXTargetDependency */,
@@ -277,6 +278,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		9609CAE8174EF50100E744BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
+			remoteInfo = imobiledevice.dylib;
+		};
+		9629593E18BE4B590021A1C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
 			proxyType = 1;
@@ -2399,6 +2407,11 @@
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
 			targetProxy = 9609CAE8174EF50100E744BE /* PBXContainerItemProxy */;
 		};
+		9629593F18BE4B590021A1C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
+			targetProxy = 9629593E18BE4B590021A1C2 /* PBXContainerItemProxy */;
+		};
 		9649447718BBBD2000EDE08B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
@@ -3054,8 +3067,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"\"$(CONFIGURATION_BUILD_DIR)/usr/local/include\"",
-					"\"$(SRCROOT)\"/include",
+					"$(inherited)",
+					"\"$(SRCROOT)/include\"",
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3066,6 +3079,10 @@
 		96F0F60D174F01420014879C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/include\"",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
