@@ -49,7 +49,16 @@ tools/idevicesyslog
 tools/idevicebackup
 tools/ideviceimagemounter
 tools/idevicescreenshot
+tools/idevicebackup2
+tools/idevicedate
+tools/idevicedebugserverproxy
+tools/idevicediagnostics
+tools/ideviceenterrecovery
+tools/idevicename
+tools/idevicepair
+tools/ideviceprovision
 cython/.libs/*
 cython/*.c
+doxygen.cfg
 .DS_Store
 xcuserdata

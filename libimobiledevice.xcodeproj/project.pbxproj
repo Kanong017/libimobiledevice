@@ -32,6 +32,7 @@
 				9629593F18BE4B590021A1C2 /* PBXTargetDependency */,
 				96F0F66C175230EB0014879C /* PBXTargetDependency */,
 				96F0F66E175230EB0014879C /* PBXTargetDependency */,
+				9653BEBA18E034A600392466 /* PBXTargetDependency */,
 				96F0F65917522D0D0014879C /* PBXTargetDependency */,
 				96F0F61A1752225B0014879C /* PBXTargetDependency */,
 				96F0F61C1752225B0014879C /* PBXTargetDependency */,
@@ -62,6 +63,9 @@
 		9649448318BBBD5A00EDE08B /* idevicename.c in Sources */ = {isa = PBXBuildFile; fileRef = 9649447518BBBCEE00EDE08B /* idevicename.c */; };
 		964945C318BD274000EDE08B /* libplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 964945C218BD274000EDE08B /* libplist.a */; };
 		96519CF918BD2F68009DEBFD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96519CF818BD2F68009DEBFD /* libxml2.dylib */; };
+		9653BEAE18E0334D00392466 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
+		9653BEB618E0342900392466 /* idevicecrashreport.c in Sources */ = {isa = PBXBuildFile; fileRef = 9653BEB518E0342900392466 /* idevicecrashreport.c */; };
+		9653BEB818E0348B00392466 /* idevicecrashreport.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9653BEB718E0345400392466 /* idevicecrashreport.1 */; };
 		96612987175EE0A2005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96612991175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
 		96612992175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
@@ -304,6 +308,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9649447618BBBD2000EDE08B;
 			remoteInfo = idevicename;
+		};
+		9653BEAA18E0334D00392466 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
+			remoteInfo = imobiledevice.dylib;
+		};
+		9653BEB918E034A600392466 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9653BEA818E0334D00392466;
+			remoteInfo = idevicecrashreport;
 		};
 		96A8D94617A12DF6006E38E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -615,6 +633,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		9653BEAF18E0334D00392466 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				9653BEB818E0348B00392466 /* idevicecrashreport.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		96A8D94C17A12DF6006E38E0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -818,6 +846,9 @@
 		9649448218BBBD2000EDE08B /* idevicename */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicename; sourceTree = BUILT_PRODUCTS_DIR; };
 		964945C218BD274000EDE08B /* libplist.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libplist.a; path = ../../deps/libplist/build/Debug/libplist.a; sourceTree = "<group>"; };
 		96519CF818BD2F68009DEBFD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		9653BEB418E0334D00392466 /* idevicecrashreport */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicecrashreport; sourceTree = BUILT_PRODUCTS_DIR; };
+		9653BEB518E0342900392466 /* idevicecrashreport.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = idevicecrashreport.c; sourceTree = "<group>"; };
+		9653BEB718E0345400392466 /* idevicecrashreport.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = idevicecrashreport.1; sourceTree = "<group>"; };
 		96612986175EE0A2005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
 		9661298F175EE163005AD392 /* syslog_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syslog_relay.c; sourceTree = "<group>"; };
 		96612990175EE163005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
@@ -999,6 +1030,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9649447C18BBBD2000EDE08B /* libimobiledevice.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9653BEAD18E0334D00392466 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9653BEAE18E0334D00392466 /* libimobiledevice.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1242,6 +1281,7 @@
 				96A8D95117A12DF6006E38E0 /* ideviceexec */,
 				96A8D97317A4A9B5006E38E0 /* afccl */,
 				9649448218BBBD2000EDE08B /* idevicename */,
+				9653BEB418E0334D00392466 /* idevicecrashreport */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1312,6 +1352,7 @@
 				96B88B68174E0D1F00B868D9 /* idevice_id.1 */,
 				96B88B69174E0D1F00B868D9 /* idevicebackup.1 */,
 				96B88B6A174E0D1F00B868D9 /* idevicebackup2.1 */,
+				9653BEB718E0345400392466 /* idevicecrashreport.1 */,
 				96B88B6B174E0D1F00B868D9 /* idevicedate.1 */,
 				96B88B6C174E0D1F00B868D9 /* idevicedebugserverproxy.1 */,
 				96B88B6D174E0D1F00B868D9 /* idevicediagnostics.1 */,
@@ -1425,6 +1466,7 @@
 				96B88BE4174E0D8400B868D9 /* idevice_id.c */,
 				96B88BE5174E0D8400B868D9 /* idevicebackup.c */,
 				96B88BE6174E0D8400B868D9 /* idevicebackup2.c */,
+				9653BEB518E0342900392466 /* idevicecrashreport.c */,
 				96B88BE7174E0D8400B868D9 /* idevicedate.c */,
 				96B88BE8174E0D8400B868D9 /* idevicedebugserverproxy.c */,
 				96B88BE9174E0D8400B868D9 /* idevicediagnostics.c */,
@@ -1661,6 +1703,24 @@
 			name = idevicename;
 			productName = ideviceclient;
 			productReference = 9649448218BBBD2000EDE08B /* idevicename */;
+			productType = "com.apple.product-type.tool";
+		};
+		9653BEA818E0334D00392466 /* idevicecrashreport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9653BEB118E0334D00392466 /* Build configuration list for PBXNativeTarget "idevicecrashreport" */;
+			buildPhases = (
+				9653BEAB18E0334D00392466 /* Sources */,
+				9653BEAD18E0334D00392466 /* Frameworks */,
+				9653BEAF18E0334D00392466 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9653BEA918E0334D00392466 /* PBXTargetDependency */,
+			);
+			name = idevicecrashreport;
+			productName = ideviceclient;
+			productReference = 9653BEB418E0334D00392466 /* idevicecrashreport */;
 			productType = "com.apple.product-type.tool";
 		};
 		96A8D94417A12DF6006E38E0 /* ideviceexec */ = {
@@ -2073,7 +2133,7 @@
 		96B88B28174E0B9900B868D9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "FBI CEAU";
 			};
 			buildConfigurationList = 96B88B2B174E0B9900B868D9 /* Build configuration list for PBXProject "libimobiledevice" */;
@@ -2098,6 +2158,7 @@
 				96CCC6AA174EAF2900AF832F /* ideviceheartbeat */,
 				96CCC6B7174EB12600AF832F /* Build Tests */,
 				96CCC6C7174EB17D00AF832F /* idevice_id */,
+				9653BEA818E0334D00392466 /* idevicecrashreport */,
 				96CCC6E0174EB24E00AF832F /* ideviceinfo */,
 				96CCC6EF174EBC5B00AF832F /* ideviceenterrecovery */,
 				96CCC6FE174EBDCC00AF832F /* idevicesyslog */,
@@ -2163,6 +2224,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9649448318BBBD5A00EDE08B /* idevicename.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9653BEAB18E0334D00392466 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9653BEB618E0342900392466 /* idevicecrashreport.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2422,6 +2491,16 @@
 			target = 9649447618BBBD2000EDE08B /* idevicename */;
 			targetProxy = 9649448418BBBD8E00EDE08B /* PBXContainerItemProxy */;
 		};
+		9653BEA918E0334D00392466 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
+			targetProxy = 9653BEAA18E0334D00392466 /* PBXContainerItemProxy */;
+		};
+		9653BEBA18E034A600392466 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9653BEA818E0334D00392466 /* idevicecrashreport */;
+			targetProxy = 9653BEB918E034A600392466 /* PBXContainerItemProxy */;
+		};
 		96A8D94517A12DF6006E38E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
@@ -2664,6 +2743,29 @@
 			};
 			name = Release;
 		};
+		9653BEB218E0334D00392466 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					HAVE_STPCPY,
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9653BEB318E0334D00392466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_STPCPY,
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		96A8D94F17A12DF6006E38E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2821,7 +2923,7 @@
 		96CCC600174E493200AF832F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
+				DYLIB_COMPATIBILITY_VERSION = 1.1.6;
 				DYLIB_CURRENT_VERSION = 1.1.6;
 				EXECUTABLE_EXTENSION = dylib;
 				EXECUTABLE_PREFIX = lib;
@@ -2845,7 +2947,7 @@
 		96CCC601174E493200AF832F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
+				DYLIB_COMPATIBILITY_VERSION = 1.1.6;
 				DYLIB_CURRENT_VERSION = 1.1.6;
 				EXECUTABLE_EXTENSION = dylib;
 				EXECUTABLE_PREFIX = lib;
@@ -3212,6 +3314,15 @@
 			buildConfigurations = (
 				9649448018BBBD2000EDE08B /* Debug */,
 				9649448118BBBD2000EDE08B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9653BEB118E0334D00392466 /* Build configuration list for PBXNativeTarget "idevicecrashreport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9653BEB218E0334D00392466 /* Debug */,
+				9653BEB318E0334D00392466 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
