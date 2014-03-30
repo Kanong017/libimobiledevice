@@ -66,6 +66,8 @@
 		9653BEAE18E0334D00392466 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9653BEB618E0342900392466 /* idevicecrashreport.c in Sources */ = {isa = PBXBuildFile; fileRef = 9653BEB518E0342900392466 /* idevicecrashreport.c */; };
 		9653BEB818E0348B00392466 /* idevicecrashreport.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9653BEB718E0345400392466 /* idevicecrashreport.1 */; };
+		9653BEBC18E4643600392466 /* service.h in Headers */ = {isa = PBXBuildFile; fileRef = 9653BEBB18E4643600392466 /* service.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9653BEBD18E4643600392466 /* service.h in Headers */ = {isa = PBXBuildFile; fileRef = 9653BEBB18E4643600392466 /* service.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96612987175EE0A2005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96612991175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
 		96612992175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
@@ -849,6 +851,7 @@
 		9653BEB418E0334D00392466 /* idevicecrashreport */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicecrashreport; sourceTree = BUILT_PRODUCTS_DIR; };
 		9653BEB518E0342900392466 /* idevicecrashreport.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = idevicecrashreport.c; sourceTree = "<group>"; };
 		9653BEB718E0345400392466 /* idevicecrashreport.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = idevicecrashreport.1; sourceTree = "<group>"; };
+		9653BEBB18E4643600392466 /* service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = service.h; sourceTree = "<group>"; };
 		96612986175EE0A2005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
 		9661298F175EE163005AD392 /* syslog_relay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syslog_relay.c; sourceTree = "<group>"; };
 		96612990175EE163005AD392 /* syslog_relay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = syslog_relay.h; sourceTree = "<group>"; };
@@ -1396,6 +1399,7 @@
 				96B88B86174E0D4A00B868D9 /* mobilesync.h */,
 				96B88B87174E0D4A00B868D9 /* notification_proxy.h */,
 				96B88B88174E0D4A00B868D9 /* restore.h */,
+				9653BEBB18E4643600392466 /* service.h */,
 				96B88B89174E0D4A00B868D9 /* sbservices.h */,
 				96B88B8A174E0D4A00B868D9 /* screenshotr.h */,
 				96612986175EE0A2005AD392 /* syslog_relay.h */,
@@ -1535,6 +1539,7 @@
 				96B88BFC174E109900B868D9 /* mobilebackup2.h in Headers */,
 				96B88BFD174E109900B868D9 /* mobilesync.h in Headers */,
 				96B88BFE174E109900B868D9 /* notification_proxy.h in Headers */,
+				9653BEBC18E4643600392466 /* service.h in Headers */,
 				96B88BFF174E109900B868D9 /* restore.h in Headers */,
 				96B88C00174E109900B868D9 /* sbservices.h in Headers */,
 				96B88C01174E109900B868D9 /* screenshotr.h in Headers */,
@@ -1588,6 +1593,7 @@
 				96CCC62D174E4B6400AF832F /* mobilesync.h in Headers */,
 				96CCC62E174E4B6400AF832F /* notification_proxy.h in Headers */,
 				96CCC62F174E4B6400AF832F /* restore.h in Headers */,
+				9653BEBD18E4643600392466 /* service.h in Headers */,
 				96CCC630174E4B6400AF832F /* sbservices.h in Headers */,
 				96CCC631174E4B6400AF832F /* screenshotr.h in Headers */,
 				96612987175EE0A2005AD392 /* syslog_relay.h in Headers */,
