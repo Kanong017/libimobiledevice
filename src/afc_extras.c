@@ -70,7 +70,7 @@ afc_error_t afc_stat(afc_client_t client, const char *path, struct afc_stat *st_
 	return AFC_E_SUCCESS;
 }
 
-static void afc_fts_entry_free(afc_fts_entry_t entry)
+static void afc_fts_entry_free(afc_ftsent_t entry)
 {
 	if (entry) {
 		free(entry->path);
@@ -80,11 +80,11 @@ static void afc_fts_entry_free(afc_fts_entry_t entry)
 	}
 }
 
-static afc_fts_entry_t afc_fts_entry_create(afc_fts_t fts, afc_fts_entry_t parent, const char *name)
+static afc_ftsent_t afc_fts_entry_create(afc_fts_t fts, afc_ftsent_t parent, const char *name)
 {
 	afc_error_t result = AFC_E_SUCCESS;
 	
-	afc_fts_entry_t self = calloc(1, sizeof(struct afc_fts_entry));
+	afc_ftsent_t self = calloc(1, sizeof(struct afc_ftsent));
 	if (self) {
 		self->name = strdup(name);
 		if (self->name) {
@@ -134,10 +134,10 @@ static afc_fts_entry_t afc_fts_entry_create(afc_fts_t fts, afc_fts_entry_t paren
 	return self;
 }
 
-static afc_error_t _afc_fts_enumerate_entry(afc_fts_t fts, afc_fts_entry_t parent)
+static afc_error_t _afc_fts_enumerate_entry(afc_fts_t fts, afc_ftsent_t parent)
 {
 	afc_error_t result = AFC_E_SUCCESS;
-	afc_fts_entry_t child;
+	afc_ftsent_t child;
 	bool stop = false;
 	char **list = NULL;
 	
@@ -193,7 +193,7 @@ afc_error_t afc_fts_enumerate_path(afc_client_t client, char *path, int options,
 {
 	afc_error_t result;
 	struct afc_fts fts;
-	afc_fts_entry_t root;
+	afc_ftsent_t root;
 	
 	memset(&fts, 0, sizeof(struct afc_fts));
 	fts.client = client;

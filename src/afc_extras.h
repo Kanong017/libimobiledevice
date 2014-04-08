@@ -13,7 +13,26 @@ extern "C" {
 #endif
 
 #include <stdbool.h>
-	
+
+/** user flags for AFC_FTSENT structure
+ */
+typedef enum {
+	AFC_FTS_D		=  1,		/**< preorder directory */
+	AFC_FTS_DC		=  2,		/**< directory that causes cycles */
+	AFC_FTS_DEFAULT	=  3,		/**< none of the above */
+	AFC_FTS_DNR		=  4,		/**< unreadable directory */
+	AFC_FTS_DOT		=  5,		/**< dot or dot-dot */
+	AFC_FTS_DP		=  6,		/**< postorder directory */
+	AFC_FTS_ERR		=  7,		/**< error; errno is set */
+	AFC_FTS_F		=  8,		/**< regular file */
+	AFC_FTS_INIT	=  9,		/**< initialized only */
+	AFC_FTS_NS		= 10,		/**< stat(2) failed */
+	AFC_FTS_NSOK	= 11,		/**< no stat(2) requested */
+	AFC_FTS_SL		= 12,		/**< symbolic link */
+	AFC_FTS_SLNONE	= 13,		/**< symbolic link without target */
+	AFC_FTS_W		= 14		/**< whiteout object */
+} afc_fts_info;
+
 	/**
 	 */
 struct afc_stat {
@@ -32,7 +51,7 @@ afc_error_t afc_stat(afc_client_t client, const char *path, struct afc_stat *st_
 	
 	/**
 	 */
-struct afc_fts_entry {
+struct afc_ftsent {
 	uint16_t info;                ///< A descriptor about the file entry
 	char    *accpath;             ///< A path for accessing the file from the current directory.
 	char    *path;                ///< The path for the file relative to the root of the traversal.  Contains the initial starting path as a prefix.
@@ -41,10 +60,10 @@ struct afc_fts_entry {
 	uint16_t namelen;             ///< strlen(name)
 	int16_t  level;               ///< The depth of traversal. 0 for the root entry.
 	afc_error_t afc_errno;        ///< AFC error of the last call related to the entry (either directly or if a child entry failed to intialize).
-	struct afc_fts_entry *parent; ///< Weak reference to the parent entry, or NULL.
+	struct afc_ftsent *parent; ///< Weak reference to the parent entry, or NULL.
 	struct afc_stat *statp;       ///< Pointer to afc_stat information for the file.
 };
-typedef struct afc_fts_entry *afc_fts_entry_t;
+typedef struct afc_ftsent *afc_ftsent_t;
 
 
 /**
@@ -54,7 +73,7 @@ typedef struct afc_fts_entry *afc_fts_entry_t;
  * @param stop set to true to stop enumerating
  * @return
  */
-typedef afc_error_t (*afc_fts_enumerator_callback_t)(afc_fts_entry_t entry, bool *stop, void *context);
+typedef afc_error_t (*afc_fts_enumerator_callback_t)(afc_ftsent_t entry, bool *stop, void *context);
 	
 typedef struct afc_fts {
 	afc_client_t client;
