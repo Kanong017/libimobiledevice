@@ -5,7 +5,6 @@
 //  Copyright (c) 2014 Aaron Burghardt. All rights reserved.
 //
 
-#include <fts.h>
 #include <stdio.h>
 #include "afc.h"
 #include "afc_extras.h"
@@ -104,7 +103,7 @@ static afc_ftsent_t afc_fts_entry_create(afc_fts_t fts, afc_ftsent_t parent, con
 				self->level = 0;
 			}
 		}
-		self->accpath = (fts->options & FTS_NOCHDIR) ? self->path : self->name;
+		self->accpath = (fts->options & AFC_FTS_NOCHDIR) ? self->path : self->name;
 		self->parent = parent;
 		self->statp = calloc(1, sizeof(struct afc_stat));
 		if (self->statp)
@@ -120,14 +119,14 @@ static afc_ftsent_t afc_fts_entry_create(afc_fts_t fts, afc_ftsent_t parent, con
 		
 		// set 'info'
 		if ((strcmp(name, ".") == 0 || strcmp(name, "..") == 0))
-			self->info = FTS_DOT;
+			self->info = AFC_FTS_DOT;
 		
 		else if (S_ISREG(self->statp->st_ifmt))
-			self->info = FTS_F;
+			self->info = AFC_FTS_F;
 		else if (S_ISLNK(self->statp->st_ifmt))
-			self->info = FTS_SL;
+			self->info = AFC_FTS_SL;
 		else if (S_ISDIR(self->statp->st_ifmt))
-			self->info = FTS_D;
+			self->info = AFC_FTS_D;
 	}
 	if (parent)
 		parent->afc_errno = result;
@@ -143,7 +142,7 @@ static afc_error_t _afc_fts_enumerate_entry(afc_fts_t fts, afc_ftsent_t parent)
 	
 	if (S_ISDIR(parent->statp->st_ifmt)) {
 		
-		parent->info = FTS_D;
+		parent->info = AFC_FTS_D;
 		if ((result = fts->callback(parent, &stop, fts->user_context)) != AFC_E_SUCCESS)
 			return result;
 		if (stop) return AFC_E_SUCCESS;
@@ -156,7 +155,7 @@ static afc_error_t _afc_fts_enumerate_entry(afc_fts_t fts, afc_ftsent_t parent)
 		
 		for (int i = 0; list[i] != NULL; i++) {
 			
-			if ((fts->options & FTS_SEEDOT) == 0 &&
+			if ((fts->options & AFC_FTS_SEEDOT) == 0 &&
 				(strcmp(list[i], ".") == 0 ||
 				 strcmp(list[i], "..") == 0))
 				continue;
@@ -176,7 +175,7 @@ static afc_error_t _afc_fts_enumerate_entry(afc_fts_t fts, afc_ftsent_t parent)
 		}
 		free(list);
 
-		parent->info = FTS_DP;
+		parent->info = AFC_FTS_DP;
 		result = fts->callback(parent, &stop, fts->user_context);
 	}
 	else {
