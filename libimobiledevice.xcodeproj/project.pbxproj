@@ -61,7 +61,6 @@
 		9649447C18BBBD2000EDE08B /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9649447E18BBBD2000EDE08B /* idevice_id.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B68174E0D1F00B868D9 /* idevice_id.1 */; };
 		9649448318BBBD5A00EDE08B /* idevicename.c in Sources */ = {isa = PBXBuildFile; fileRef = 9649447518BBBCEE00EDE08B /* idevicename.c */; };
-		964945C318BD274000EDE08B /* libplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 964945C218BD274000EDE08B /* libplist.a */; };
 		96519CF918BD2F68009DEBFD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96519CF818BD2F68009DEBFD /* libxml2.dylib */; };
 		9653BEAE18E0334D00392466 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9653BEB618E0342900392466 /* idevicecrashreport.c in Sources */ = {isa = PBXBuildFile; fileRef = 9653BEB518E0342900392466 /* idevicecrashreport.c */; };
@@ -280,6 +279,8 @@
 		96F0F6881752322C0014879C /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96F0F68F175232510014879C /* idevicescreenshot.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B73174E0D1F00B868D9 /* idevicescreenshot.1 */; };
 		96F0F6901752326D0014879C /* idevicescreenshot.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BEF174E0D8400B868D9 /* idevicescreenshot.c */; };
+		96FB72951906B80C00E8E06C /* libusbmuxd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D5575C181F590C00BA101B /* libusbmuxd.a */; };
+		96FB72AC1906BEE800E8E06C /* libplist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FB72AB1906BEE800E8E06C /* libplist.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -846,7 +847,6 @@
 		9629593C18BE2B410021A1C2 /* glib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glib.h; sourceTree = "<group>"; };
 		9649447518BBBCEE00EDE08B /* idevicename.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = idevicename.c; sourceTree = "<group>"; };
 		9649448218BBBD2000EDE08B /* idevicename */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicename; sourceTree = BUILT_PRODUCTS_DIR; };
-		964945C218BD274000EDE08B /* libplist.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libplist.a; path = ../../deps/libplist/build/Debug/libplist.a; sourceTree = "<group>"; };
 		96519CF818BD2F68009DEBFD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		9653BEB418E0334D00392466 /* idevicecrashreport */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicecrashreport; sourceTree = BUILT_PRODUCTS_DIR; };
 		9653BEB518E0342900392466 /* idevicecrashreport.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = idevicecrashreport.c; sourceTree = "<group>"; };
@@ -1017,6 +1017,7 @@
 		96F0F66717522D320014879C /* ideviceimagemounter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideviceimagemounter; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F0F67C175231690014879C /* ideviceprovision */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideviceprovision; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F0F68E1752322C0014879C /* idevicescreenshot */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicescreenshot; sourceTree = BUILT_PRODUCTS_DIR; };
+		96FB72AB1906BEE800E8E06C /* libplist.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libplist.a; path = "../../../../../Library/Developer/Xcode/DerivedData/libimobiledevice-ecytvzgboxrmaxdfgpkbsrxnmdbo/Build/Products/Debug/libplist.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1066,6 +1067,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FB72951906B80C00E8E06C /* libusbmuxd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,8 +1075,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FB72AC1906BEE800E8E06C /* libplist.a in Frameworks */,
 				96519CF918BD2F68009DEBFD /* libxml2.dylib in Frameworks */,
-				964945C318BD274000EDE08B /* libplist.a in Frameworks */,
 				96D5575D181F590C00BA101B /* libusbmuxd.a in Frameworks */,
 				96CCC64E174E4D7900AF832F /* libssl.dylib in Frameworks */,
 				96CCC605174E4AA100AF832F /* libcrypto.dylib in Frameworks */,
@@ -1496,8 +1498,8 @@
 				96CCC64D174E4D7900AF832F /* libssl.dylib */,
 				96CCC68D174EAAEA00AF832F /* libreadline.dylib */,
 				96519CF818BD2F68009DEBFD /* libxml2.dylib */,
-				964945C218BD274000EDE08B /* libplist.a */,
 				96D5575C181F590C00BA101B /* libusbmuxd.a */,
+				96FB72AB1906BEE800E8E06C /* libplist.a */,
 			);
 			name = "Libraries and Frameworks";
 			path = osx/plist;
@@ -2140,7 +2142,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "FBI CEAU";
+				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 96B88B2B174E0B9900B868D9 /* Build configuration list for PBXProject "libimobiledevice" */;
 			compatibilityVersion = "Xcode 3.2";
