@@ -7,7 +7,7 @@ bin_PROGRAMS = idevice_id ideviceinfo idevicename idevicepair idevicesyslog idev
 
 ideviceinfo_SOURCES = ideviceinfo.c
 ideviceinfo_CFLAGS = $(AM_CFLAGS)
-ideviceinfo_LDFLAGS = $(AM_LDFLAGS)
+ideviceinfo_LDFLAGS = $(top_builddir)/common/libinternalcommon.la $(AM_LDFLAGS)
 ideviceinfo_LDADD = $(top_builddir)/src/libimobiledevice.la
 
 idevicename_SOURCES = idevicename.c
@@ -42,7 +42,7 @@ idevicebackup2_LDADD = $(top_builddir)/src/libimobiledevice.la
 
 ideviceimagemounter_SOURCES = ideviceimagemounter.c
 ideviceimagemounter_CFLAGS = $(AM_CFLAGS)
-ideviceimagemounter_LDFLAGS = $(AM_LDFLAGS)
+ideviceimagemounter_LDFLAGS = $(top_builddir)/common/libinternalcommon.la $(AM_LDFLAGS)
 ideviceimagemounter_LDADD = $(top_builddir)/src/libimobiledevice.la
 
 idevicescreenshot_SOURCES = idevicescreenshot.c
@@ -62,7 +62,7 @@ idevicedate_LDADD = $(top_builddir)/src/libimobiledevice.la
 
 ideviceprovision_SOURCES = ideviceprovision.c
 ideviceprovision_CFLAGS = $(AM_CFLAGS)
-ideviceprovision_LDFLAGS = $(AM_LDFLAGS)
+ideviceprovision_LDFLAGS = $(top_builddir)/common/libinternalcommon.la $(AM_LDFLAGS)
 ideviceprovision_LDADD = $(top_builddir)/src/libimobiledevice.la
 
 idevicedebugserverproxy_SOURCES = idevicedebugserverproxy.c

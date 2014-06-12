@@ -57,6 +57,48 @@
 		9609CAEC174EF50100E744BE /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9609CAF3174EF51F00E744BE /* idevicepair.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B71174E0D1F00B868D9 /* idevicepair.1 */; };
 		9609CAF4174EF52D00E744BE /* idevicepair.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BED174E0D8400B868D9 /* idevicepair.c */; };
+		96163E7D194A44E300B04ECD /* afc.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7A174E0D4A00B868D9 /* afc.h */; };
+		96163E7E194A44E300B04ECD /* diagnostics_relay.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7B174E0D4A00B868D9 /* diagnostics_relay.h */; };
+		96163E7F194A44E300B04ECD /* file_relay.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7C174E0D4A00B868D9 /* file_relay.h */; };
+		96163E80194A44E300B04ECD /* heartbeat.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7D174E0D4A00B868D9 /* heartbeat.h */; };
+		96163E81194A44E300B04ECD /* house_arrest.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7E174E0D4A00B868D9 /* house_arrest.h */; };
+		96163E82194A44E300B04ECD /* installation_proxy.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7F174E0D4A00B868D9 /* installation_proxy.h */; };
+		96163E83194A44E300B04ECD /* libimobiledevice.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B80174E0D4A00B868D9 /* libimobiledevice.h */; };
+		96163E84194A44E300B04ECD /* lockdown.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B81174E0D4A00B868D9 /* lockdown.h */; };
+		96163E85194A44E300B04ECD /* misagent.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B82174E0D4A00B868D9 /* misagent.h */; };
+		96163E86194A44E300B04ECD /* mobile_image_mounter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B83174E0D4A00B868D9 /* mobile_image_mounter.h */; };
+		96163E87194A44E300B04ECD /* mobilebackup.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B84174E0D4A00B868D9 /* mobilebackup.h */; };
+		96163E88194A44E300B04ECD /* mobilebackup2.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B85174E0D4A00B868D9 /* mobilebackup2.h */; };
+		96163E89194A44E300B04ECD /* mobilesync.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B86174E0D4A00B868D9 /* mobilesync.h */; };
+		96163E8A194A44E300B04ECD /* notification_proxy.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B87174E0D4A00B868D9 /* notification_proxy.h */; };
+		96163E8B194A44E300B04ECD /* restore.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B88174E0D4A00B868D9 /* restore.h */; };
+		96163E8C194A44E300B04ECD /* property_list_service.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 961DED3E194A3493005BE172 /* property_list_service.h */; };
+		96163E8D194A44E300B04ECD /* service.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 9653BEBB18E4643600392466 /* service.h */; };
+		96163E8E194A44E300B04ECD /* sbservices.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B89174E0D4A00B868D9 /* sbservices.h */; };
+		96163E8F194A44E300B04ECD /* screenshotr.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8A174E0D4A00B868D9 /* screenshotr.h */; };
+		96163E90194A44E300B04ECD /* syslog_relay.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; };
+		96163E91194A44E300B04ECD /* webinspector.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8B174E0D4A00B868D9 /* webinspector.h */; };
+		961DED43194A3C75005BE172 /* afc.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7A174E0D4A00B868D9 /* afc.h */; };
+		961DED44194A3C75005BE172 /* diagnostics_relay.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7B174E0D4A00B868D9 /* diagnostics_relay.h */; };
+		961DED45194A3C75005BE172 /* file_relay.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7C174E0D4A00B868D9 /* file_relay.h */; };
+		961DED46194A3C75005BE172 /* heartbeat.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7D174E0D4A00B868D9 /* heartbeat.h */; };
+		961DED47194A3C75005BE172 /* house_arrest.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7E174E0D4A00B868D9 /* house_arrest.h */; };
+		961DED48194A3C75005BE172 /* installation_proxy.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7F174E0D4A00B868D9 /* installation_proxy.h */; };
+		961DED49194A3C75005BE172 /* libimobiledevice.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B80174E0D4A00B868D9 /* libimobiledevice.h */; };
+		961DED4A194A3C75005BE172 /* lockdown.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B81174E0D4A00B868D9 /* lockdown.h */; };
+		961DED4B194A3C75005BE172 /* misagent.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B82174E0D4A00B868D9 /* misagent.h */; };
+		961DED4C194A3C75005BE172 /* mobile_image_mounter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B83174E0D4A00B868D9 /* mobile_image_mounter.h */; };
+		961DED4D194A3C75005BE172 /* mobilebackup.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B84174E0D4A00B868D9 /* mobilebackup.h */; };
+		961DED4E194A3C75005BE172 /* mobilebackup2.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B85174E0D4A00B868D9 /* mobilebackup2.h */; };
+		961DED4F194A3C75005BE172 /* mobilesync.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B86174E0D4A00B868D9 /* mobilesync.h */; };
+		961DED50194A3C75005BE172 /* notification_proxy.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B87174E0D4A00B868D9 /* notification_proxy.h */; };
+		961DED51194A3C75005BE172 /* restore.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B88174E0D4A00B868D9 /* restore.h */; };
+		961DED52194A3C75005BE172 /* property_list_service.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 961DED3E194A3493005BE172 /* property_list_service.h */; };
+		961DED53194A3C75005BE172 /* service.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 9653BEBB18E4643600392466 /* service.h */; };
+		961DED54194A3C75005BE172 /* sbservices.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B89174E0D4A00B868D9 /* sbservices.h */; };
+		961DED55194A3C75005BE172 /* screenshotr.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8A174E0D4A00B868D9 /* screenshotr.h */; };
+		961DED56194A3C75005BE172 /* syslog_relay.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; };
+		961DED57194A3C75005BE172 /* webinspector.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8B174E0D4A00B868D9 /* webinspector.h */; };
 		9629593D18BE2B610021A1C2 /* gstring.c in Sources */ = {isa = PBXBuildFile; fileRef = 9629593A18BE2B410021A1C2 /* gstring.c */; };
 		9649447C18BBBD2000EDE08B /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9649447E18BBBD2000EDE08B /* idevice_id.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B68174E0D1F00B868D9 /* idevice_id.1 */; };
@@ -65,18 +107,10 @@
 		9653BEAE18E0334D00392466 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		9653BEB618E0342900392466 /* idevicecrashreport.c in Sources */ = {isa = PBXBuildFile; fileRef = 9653BEB518E0342900392466 /* idevicecrashreport.c */; };
 		9653BEB818E0348B00392466 /* idevicecrashreport.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9653BEB718E0345400392466 /* idevicecrashreport.1 */; };
-		9653BEBC18E4643600392466 /* service.h in Headers */ = {isa = PBXBuildFile; fileRef = 9653BEBB18E4643600392466 /* service.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9653BEBD18E4643600392466 /* service.h in Headers */ = {isa = PBXBuildFile; fileRef = 9653BEBB18E4643600392466 /* service.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96612987175EE0A2005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96612991175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
 		96612992175EE163005AD392 /* syslog_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661298F175EE163005AD392 /* syslog_relay.c */; };
-		96612993175EE163005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612990175EE163005AD392 /* syslog_relay.h */; };
-		96612994175EE163005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612990175EE163005AD392 /* syslog_relay.h */; };
-		96612995175EE1BC005AD392 /* syslog_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96612986175EE0A2005AD392 /* syslog_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9661893917B2C5BC0074700A /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661893717B2C5BB0074700A /* utils.c */; };
 		9661893A17B2C5BC0074700A /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9661893717B2C5BB0074700A /* utils.c */; };
-		9661893B17B2C5BC0074700A /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9661893817B2C5BB0074700A /* utils.h */; };
-		9661893C17B2C5BC0074700A /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9661893817B2C5BB0074700A /* utils.h */; };
 		96A8D94B17A12DF6006E38E0 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96A8D95217A12E5B006E38E0 /* ideviceexec.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D93E17A12DD7006E38E0 /* ideviceexec.c */; };
 		96A8D95917A14231006E38E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5F1174E459600AF832F /* CoreFoundation.framework */; };
@@ -87,73 +121,30 @@
 		96B74DF018995B5E00D3A1D2 /* afc_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B74DEF18995B5E00D3A1D2 /* afc_error.c */; };
 		96B74DF118995B5E00D3A1D2 /* afc_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B74DEF18995B5E00D3A1D2 /* afc_error.c */; };
 		96B88B41174E0CAD00B868D9 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B39174E0CAD00B868D9 /* debug.c */; };
-		96B88B42174E0CAD00B868D9 /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B3A174E0CAD00B868D9 /* debug.h */; };
 		96B88B43174E0CAD00B868D9 /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B3B174E0CAD00B868D9 /* socket.c */; };
-		96B88B44174E0CAD00B868D9 /* socket.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B3C174E0CAD00B868D9 /* socket.h */; };
 		96B88B45174E0CAD00B868D9 /* thread.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B3D174E0CAD00B868D9 /* thread.c */; };
-		96B88B46174E0CAD00B868D9 /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B3E174E0CAD00B868D9 /* thread.h */; };
 		96B88B47174E0CAD00B868D9 /* userpref.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B3F174E0CAD00B868D9 /* userpref.c */; };
-		96B88B48174E0CAD00B868D9 /* userpref.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B40174E0CAD00B868D9 /* userpref.h */; };
 		96B88BB8174E0D6400B868D9 /* afc.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B8E174E0D6400B868D9 /* afc.c */; };
-		96B88BB9174E0D6400B868D9 /* afc.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8F174E0D6400B868D9 /* afc.h */; };
 		96B88BBA174E0D6400B868D9 /* device_link_service.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B90174E0D6400B868D9 /* device_link_service.c */; };
-		96B88BBB174E0D6400B868D9 /* device_link_service.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B91174E0D6400B868D9 /* device_link_service.h */; };
 		96B88BBC174E0D6400B868D9 /* diagnostics_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B92174E0D6400B868D9 /* diagnostics_relay.c */; };
-		96B88BBD174E0D6400B868D9 /* diagnostics_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B93174E0D6400B868D9 /* diagnostics_relay.h */; };
 		96B88BBE174E0D6400B868D9 /* file_relay.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B94174E0D6400B868D9 /* file_relay.c */; };
-		96B88BBF174E0D6400B868D9 /* file_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B95174E0D6400B868D9 /* file_relay.h */; };
 		96B88BC0174E0D6400B868D9 /* heartbeat.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B96174E0D6400B868D9 /* heartbeat.c */; };
-		96B88BC1174E0D6400B868D9 /* heartbeat.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B97174E0D6400B868D9 /* heartbeat.h */; };
 		96B88BC2174E0D6400B868D9 /* house_arrest.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B98174E0D6400B868D9 /* house_arrest.c */; };
-		96B88BC3174E0D6400B868D9 /* house_arrest.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B99174E0D6400B868D9 /* house_arrest.h */; };
 		96B88BC4174E0D6400B868D9 /* idevice.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B9A174E0D6400B868D9 /* idevice.c */; settings = {COMPILER_FLAGS = "\"-I$(SRCROOT)/deps/usbmuxd/libusbmuxd\""; }; };
-		96B88BC5174E0D6400B868D9 /* idevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B9B174E0D6400B868D9 /* idevice.h */; };
 		96B88BC6174E0D6400B868D9 /* installation_proxy.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B9C174E0D6400B868D9 /* installation_proxy.c */; };
-		96B88BC7174E0D6400B868D9 /* installation_proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B9D174E0D6400B868D9 /* installation_proxy.h */; };
 		96B88BC8174E0D6400B868D9 /* lockdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B9E174E0D6400B868D9 /* lockdown.c */; };
-		96B88BC9174E0D6400B868D9 /* lockdown.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B9F174E0D6400B868D9 /* lockdown.h */; };
 		96B88BCA174E0D6400B868D9 /* misagent.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BA0174E0D6400B868D9 /* misagent.c */; };
-		96B88BCB174E0D6400B868D9 /* misagent.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA1174E0D6400B868D9 /* misagent.h */; };
 		96B88BCC174E0D6400B868D9 /* mobile_image_mounter.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BA2174E0D6400B868D9 /* mobile_image_mounter.c */; };
-		96B88BCD174E0D6400B868D9 /* mobile_image_mounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA3174E0D6400B868D9 /* mobile_image_mounter.h */; };
 		96B88BCE174E0D6400B868D9 /* mobilebackup.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BA4174E0D6400B868D9 /* mobilebackup.c */; };
-		96B88BCF174E0D6400B868D9 /* mobilebackup.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA5174E0D6400B868D9 /* mobilebackup.h */; };
 		96B88BD0174E0D6400B868D9 /* mobilebackup2.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BA6174E0D6400B868D9 /* mobilebackup2.c */; };
-		96B88BD1174E0D6400B868D9 /* mobilebackup2.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA7174E0D6400B868D9 /* mobilebackup2.h */; };
 		96B88BD2174E0D6400B868D9 /* mobilesync.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BA8174E0D6400B868D9 /* mobilesync.c */; };
-		96B88BD3174E0D6400B868D9 /* mobilesync.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA9174E0D6400B868D9 /* mobilesync.h */; };
 		96B88BD4174E0D6400B868D9 /* notification_proxy.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BAA174E0D6400B868D9 /* notification_proxy.c */; };
-		96B88BD5174E0D6400B868D9 /* notification_proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BAB174E0D6400B868D9 /* notification_proxy.h */; };
 		96B88BD6174E0D6400B868D9 /* property_list_service.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BAC174E0D6400B868D9 /* property_list_service.c */; };
-		96B88BD7174E0D6400B868D9 /* property_list_service.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BAD174E0D6400B868D9 /* property_list_service.h */; };
 		96B88BD8174E0D6400B868D9 /* restore.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BAE174E0D6400B868D9 /* restore.c */; };
-		96B88BD9174E0D6400B868D9 /* restore.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BAF174E0D6400B868D9 /* restore.h */; };
 		96B88BDA174E0D6400B868D9 /* sbservices.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB0174E0D6400B868D9 /* sbservices.c */; };
-		96B88BDB174E0D6400B868D9 /* sbservices.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB1174E0D6400B868D9 /* sbservices.h */; };
 		96B88BDC174E0D6400B868D9 /* screenshotr.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB2174E0D6400B868D9 /* screenshotr.c */; };
-		96B88BDD174E0D6400B868D9 /* screenshotr.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB3174E0D6400B868D9 /* screenshotr.h */; };
 		96B88BDE174E0D6400B868D9 /* service.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB4174E0D6400B868D9 /* service.c */; };
-		96B88BDF174E0D6400B868D9 /* service.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB5174E0D6400B868D9 /* service.h */; };
 		96B88BE0174E0D6400B868D9 /* webinspector.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB6174E0D6400B868D9 /* webinspector.c */; };
-		96B88BE1174E0D6400B868D9 /* webinspector.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB7174E0D6400B868D9 /* webinspector.h */; };
-		96B88BF1174E109900B868D9 /* afc.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7A174E0D4A00B868D9 /* afc.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BF2174E109900B868D9 /* diagnostics_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7B174E0D4A00B868D9 /* diagnostics_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BF3174E109900B868D9 /* file_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7C174E0D4A00B868D9 /* file_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BF4174E109900B868D9 /* heartbeat.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7D174E0D4A00B868D9 /* heartbeat.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BF5174E109900B868D9 /* house_arrest.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7E174E0D4A00B868D9 /* house_arrest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BF6174E109900B868D9 /* installation_proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7F174E0D4A00B868D9 /* installation_proxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BF7174E109900B868D9 /* libimobiledevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B80174E0D4A00B868D9 /* libimobiledevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BF8174E109900B868D9 /* lockdown.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B81174E0D4A00B868D9 /* lockdown.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BF9174E109900B868D9 /* misagent.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B82174E0D4A00B868D9 /* misagent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BFA174E109900B868D9 /* mobile_image_mounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B83174E0D4A00B868D9 /* mobile_image_mounter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BFB174E109900B868D9 /* mobilebackup.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B84174E0D4A00B868D9 /* mobilebackup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BFC174E109900B868D9 /* mobilebackup2.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B85174E0D4A00B868D9 /* mobilebackup2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BFD174E109900B868D9 /* mobilesync.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B86174E0D4A00B868D9 /* mobilesync.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BFE174E109900B868D9 /* notification_proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B87174E0D4A00B868D9 /* notification_proxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88BFF174E109900B868D9 /* restore.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B88174E0D4A00B868D9 /* restore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88C00174E109900B868D9 /* sbservices.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B89174E0D4A00B868D9 /* sbservices.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88C01174E109900B868D9 /* screenshotr.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8A174E0D4A00B868D9 /* screenshotr.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96B88C02174E109900B868D9 /* webinspector.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8B174E0D4A00B868D9 /* webinspector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96CCC605174E4AA100AF832F /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5EE174E454400AF832F /* libcrypto.dylib */; };
 		96CCC606174E4ABB00AF832F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5F1174E459600AF832F /* CoreFoundation.framework */; };
 		96CCC607174E4B2B00AF832F /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B39174E0CAD00B868D9 /* debug.c */; };
@@ -181,49 +172,6 @@
 		96CCC61D174E4B2B00AF832F /* screenshotr.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB2174E0D6400B868D9 /* screenshotr.c */; };
 		96CCC61E174E4B2B00AF832F /* service.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB4174E0D6400B868D9 /* service.c */; };
 		96CCC61F174E4B2B00AF832F /* webinspector.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BB6174E0D6400B868D9 /* webinspector.c */; };
-		96CCC621174E4B6400AF832F /* afc.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7A174E0D4A00B868D9 /* afc.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC622174E4B6400AF832F /* diagnostics_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7B174E0D4A00B868D9 /* diagnostics_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC623174E4B6400AF832F /* file_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7C174E0D4A00B868D9 /* file_relay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC624174E4B6400AF832F /* heartbeat.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7D174E0D4A00B868D9 /* heartbeat.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC625174E4B6400AF832F /* house_arrest.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7E174E0D4A00B868D9 /* house_arrest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC626174E4B6400AF832F /* installation_proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B7F174E0D4A00B868D9 /* installation_proxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC627174E4B6400AF832F /* libimobiledevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B80174E0D4A00B868D9 /* libimobiledevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC628174E4B6400AF832F /* lockdown.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B81174E0D4A00B868D9 /* lockdown.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC629174E4B6400AF832F /* misagent.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B82174E0D4A00B868D9 /* misagent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC62A174E4B6400AF832F /* mobile_image_mounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B83174E0D4A00B868D9 /* mobile_image_mounter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC62B174E4B6400AF832F /* mobilebackup.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B84174E0D4A00B868D9 /* mobilebackup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC62C174E4B6400AF832F /* mobilebackup2.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B85174E0D4A00B868D9 /* mobilebackup2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC62D174E4B6400AF832F /* mobilesync.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B86174E0D4A00B868D9 /* mobilesync.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC62E174E4B6400AF832F /* notification_proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B87174E0D4A00B868D9 /* notification_proxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC62F174E4B6400AF832F /* restore.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B88174E0D4A00B868D9 /* restore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC630174E4B6400AF832F /* sbservices.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B89174E0D4A00B868D9 /* sbservices.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC631174E4B6400AF832F /* screenshotr.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8A174E0D4A00B868D9 /* screenshotr.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC632174E4B6400AF832F /* webinspector.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8B174E0D4A00B868D9 /* webinspector.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96CCC633174E4BAD00AF832F /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B3A174E0CAD00B868D9 /* debug.h */; };
-		96CCC634174E4BAD00AF832F /* socket.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B3C174E0CAD00B868D9 /* socket.h */; };
-		96CCC635174E4BAD00AF832F /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B3E174E0CAD00B868D9 /* thread.h */; };
-		96CCC636174E4BAD00AF832F /* userpref.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B40174E0CAD00B868D9 /* userpref.h */; };
-		96CCC637174E4BC000AF832F /* afc.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B8F174E0D6400B868D9 /* afc.h */; };
-		96CCC638174E4BC000AF832F /* device_link_service.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B91174E0D6400B868D9 /* device_link_service.h */; };
-		96CCC639174E4BC000AF832F /* diagnostics_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B93174E0D6400B868D9 /* diagnostics_relay.h */; };
-		96CCC63A174E4BC000AF832F /* file_relay.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B95174E0D6400B868D9 /* file_relay.h */; };
-		96CCC63B174E4BC000AF832F /* heartbeat.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B97174E0D6400B868D9 /* heartbeat.h */; };
-		96CCC63C174E4BC000AF832F /* house_arrest.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B99174E0D6400B868D9 /* house_arrest.h */; };
-		96CCC63D174E4BC000AF832F /* idevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B9B174E0D6400B868D9 /* idevice.h */; };
-		96CCC63E174E4BC000AF832F /* installation_proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B9D174E0D6400B868D9 /* installation_proxy.h */; };
-		96CCC63F174E4BC000AF832F /* lockdown.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B9F174E0D6400B868D9 /* lockdown.h */; };
-		96CCC640174E4BC000AF832F /* misagent.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA1174E0D6400B868D9 /* misagent.h */; };
-		96CCC641174E4BC000AF832F /* mobile_image_mounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA3174E0D6400B868D9 /* mobile_image_mounter.h */; };
-		96CCC642174E4BC000AF832F /* mobilebackup.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA5174E0D6400B868D9 /* mobilebackup.h */; };
-		96CCC643174E4BC000AF832F /* mobilebackup2.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA7174E0D6400B868D9 /* mobilebackup2.h */; };
-		96CCC644174E4BC000AF832F /* mobilesync.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BA9174E0D6400B868D9 /* mobilesync.h */; };
-		96CCC645174E4BC000AF832F /* notification_proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BAB174E0D6400B868D9 /* notification_proxy.h */; };
-		96CCC646174E4BC000AF832F /* property_list_service.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BAD174E0D6400B868D9 /* property_list_service.h */; };
-		96CCC647174E4BC000AF832F /* restore.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BAF174E0D6400B868D9 /* restore.h */; };
-		96CCC648174E4BC000AF832F /* sbservices.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB1174E0D6400B868D9 /* sbservices.h */; };
-		96CCC649174E4BC000AF832F /* screenshotr.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB3174E0D6400B868D9 /* screenshotr.h */; };
-		96CCC64A174E4BC000AF832F /* service.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB5174E0D6400B868D9 /* service.h */; };
-		96CCC64B174E4BC000AF832F /* webinspector.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88BB7174E0D6400B868D9 /* webinspector.h */; };
 		96CCC64E174E4D7900AF832F /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC64D174E4D7900AF832F /* libssl.dylib */; };
 		96CCC66B174E7DEE00AF832F /* ideviceclient.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88B63174E0CF200B868D9 /* ideviceclient.c */; };
 		96CCC670174E83DC00AF832F /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
@@ -262,7 +210,6 @@
 		96F0F608174F01420014879C /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96F0F60F174F015A0014879C /* idevicebackup2.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B6A174E0D1F00B868D9 /* idevicebackup2.1 */; };
 		96F0F610174F01650014879C /* idevicebackup2.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BE6174E0D8400B868D9 /* idevicebackup2.c */; };
-		96F0F611174F02360014879C /* endianness.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B78174E0D4A00B868D9 /* endianness.h */; };
 		96F0F614174F02DC0014879C /* endianness.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B88B78174E0D4A00B868D9 /* endianness.h */; settings = {ATTRIBUTES = (); }; };
 		96F0F631175223B70014879C /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96F0F638175223DB0014879C /* idevicedate.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B6B174E0D1F00B868D9 /* idevicedate.1 */; };
@@ -272,7 +219,7 @@
 		96F0F657175225310014879C /* idevicedebugserverproxy.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B6C174E0D1F00B868D9 /* idevicedebugserverproxy.1 */; };
 		96F0F66117522D320014879C /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96F0F66817522D520014879C /* ideviceimagemounter.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B6F174E0D1F00B868D9 /* ideviceimagemounter.1 */; };
-		96F0F66A17522D850014879C /* ideviceimagemounter.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BEB174E0D8400B868D9 /* ideviceimagemounter.c */; };
+		96F0F66A17522D850014879C /* ideviceimagemounter.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BEB174E0D8400B868D9 /* ideviceimagemounter.c */; settings = {COMPILER_FLAGS = "-I$(SRCROOT)/include"; }; };
 		96F0F676175231690014879C /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96F0F67D175231970014879C /* ideviceprovision.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B88BEE174E0D8400B868D9 /* ideviceprovision.c */; };
 		96F0F67E175231A00014879C /* ideviceprovision.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96B88B72174E0D1F00B868D9 /* ideviceprovision.1 */; };
@@ -626,6 +573,68 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		96163E7C194A44BF00B04ECD /* Copy Headers */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = include/libimobiledevice;
+			dstSubfolderSpec = 16;
+			files = (
+				96163E7D194A44E300B04ECD /* afc.h in Copy Headers */,
+				96163E7E194A44E300B04ECD /* diagnostics_relay.h in Copy Headers */,
+				96163E7F194A44E300B04ECD /* file_relay.h in Copy Headers */,
+				96163E80194A44E300B04ECD /* heartbeat.h in Copy Headers */,
+				96163E81194A44E300B04ECD /* house_arrest.h in Copy Headers */,
+				96163E82194A44E300B04ECD /* installation_proxy.h in Copy Headers */,
+				96163E83194A44E300B04ECD /* libimobiledevice.h in Copy Headers */,
+				96163E84194A44E300B04ECD /* lockdown.h in Copy Headers */,
+				96163E85194A44E300B04ECD /* misagent.h in Copy Headers */,
+				96163E86194A44E300B04ECD /* mobile_image_mounter.h in Copy Headers */,
+				96163E87194A44E300B04ECD /* mobilebackup.h in Copy Headers */,
+				96163E88194A44E300B04ECD /* mobilebackup2.h in Copy Headers */,
+				96163E89194A44E300B04ECD /* mobilesync.h in Copy Headers */,
+				96163E8A194A44E300B04ECD /* notification_proxy.h in Copy Headers */,
+				96163E8B194A44E300B04ECD /* restore.h in Copy Headers */,
+				96163E8C194A44E300B04ECD /* property_list_service.h in Copy Headers */,
+				96163E8D194A44E300B04ECD /* service.h in Copy Headers */,
+				96163E8E194A44E300B04ECD /* sbservices.h in Copy Headers */,
+				96163E8F194A44E300B04ECD /* screenshotr.h in Copy Headers */,
+				96163E90194A44E300B04ECD /* syslog_relay.h in Copy Headers */,
+				96163E91194A44E300B04ECD /* webinspector.h in Copy Headers */,
+			);
+			name = "Copy Headers";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961DED42194A3C3F005BE172 /* Copy Headers */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(HEADER_INSTALL_PATH)/libimobiledevice";
+			dstSubfolderSpec = 0;
+			files = (
+				961DED43194A3C75005BE172 /* afc.h in Copy Headers */,
+				961DED44194A3C75005BE172 /* diagnostics_relay.h in Copy Headers */,
+				961DED45194A3C75005BE172 /* file_relay.h in Copy Headers */,
+				961DED46194A3C75005BE172 /* heartbeat.h in Copy Headers */,
+				961DED47194A3C75005BE172 /* house_arrest.h in Copy Headers */,
+				961DED48194A3C75005BE172 /* installation_proxy.h in Copy Headers */,
+				961DED49194A3C75005BE172 /* libimobiledevice.h in Copy Headers */,
+				961DED4A194A3C75005BE172 /* lockdown.h in Copy Headers */,
+				961DED4B194A3C75005BE172 /* misagent.h in Copy Headers */,
+				961DED4C194A3C75005BE172 /* mobile_image_mounter.h in Copy Headers */,
+				961DED4D194A3C75005BE172 /* mobilebackup.h in Copy Headers */,
+				961DED4E194A3C75005BE172 /* mobilebackup2.h in Copy Headers */,
+				961DED4F194A3C75005BE172 /* mobilesync.h in Copy Headers */,
+				961DED50194A3C75005BE172 /* notification_proxy.h in Copy Headers */,
+				961DED51194A3C75005BE172 /* restore.h in Copy Headers */,
+				961DED52194A3C75005BE172 /* property_list_service.h in Copy Headers */,
+				961DED53194A3C75005BE172 /* service.h in Copy Headers */,
+				961DED54194A3C75005BE172 /* sbservices.h in Copy Headers */,
+				961DED55194A3C75005BE172 /* screenshotr.h in Copy Headers */,
+				961DED56194A3C75005BE172 /* syslog_relay.h in Copy Headers */,
+				961DED57194A3C75005BE172 /* webinspector.h in Copy Headers */,
+			);
+			name = "Copy Headers";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9649447D18BBBD2000EDE08B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -842,6 +851,7 @@
 
 /* Begin PBXFileReference section */
 		9609CAF2174EF50100E744BE /* idevicepair */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicepair; sourceTree = BUILT_PRODUCTS_DIR; };
+		961DED3E194A3493005BE172 /* property_list_service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = property_list_service.h; sourceTree = "<group>"; };
 		9629593A18BE2B410021A1C2 /* gstring.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gstring.c; sourceTree = "<group>"; };
 		9629593B18BE2B410021A1C2 /* gstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gstring.h; sourceTree = "<group>"; };
 		9629593C18BE2B410021A1C2 /* glib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glib.h; sourceTree = "<group>"; };
@@ -1401,6 +1411,7 @@
 				96B88B86174E0D4A00B868D9 /* mobilesync.h */,
 				96B88B87174E0D4A00B868D9 /* notification_proxy.h */,
 				96B88B88174E0D4A00B868D9 /* restore.h */,
+				961DED3E194A3493005BE172 /* property_list_service.h */,
 				9653BEBB18E4643600392466 /* service.h */,
 				96B88B89174E0D4A00B868D9 /* sbservices.h */,
 				96B88B8A174E0D4A00B868D9 /* screenshotr.h */,
@@ -1519,115 +1530,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		96B88B2E174E0B9900B868D9 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				96B88BF1174E109900B868D9 /* afc.h in Headers */,
-				96B88BF2174E109900B868D9 /* diagnostics_relay.h in Headers */,
-				96B88BF3174E109900B868D9 /* file_relay.h in Headers */,
-				96B88BF4174E109900B868D9 /* heartbeat.h in Headers */,
-				96B88BF5174E109900B868D9 /* house_arrest.h in Headers */,
-				96B88BF6174E109900B868D9 /* installation_proxy.h in Headers */,
-				96B88BF7174E109900B868D9 /* libimobiledevice.h in Headers */,
-				96B88BF8174E109900B868D9 /* lockdown.h in Headers */,
-				96B88BF9174E109900B868D9 /* misagent.h in Headers */,
-				96B88BFA174E109900B868D9 /* mobile_image_mounter.h in Headers */,
-				9661893B17B2C5BC0074700A /* utils.h in Headers */,
-				96B88BFB174E109900B868D9 /* mobilebackup.h in Headers */,
-				96B88BFC174E109900B868D9 /* mobilebackup2.h in Headers */,
-				96B88BFD174E109900B868D9 /* mobilesync.h in Headers */,
-				96B88BFE174E109900B868D9 /* notification_proxy.h in Headers */,
-				9653BEBC18E4643600392466 /* service.h in Headers */,
-				96B88BFF174E109900B868D9 /* restore.h in Headers */,
-				96B88C00174E109900B868D9 /* sbservices.h in Headers */,
-				96B88C01174E109900B868D9 /* screenshotr.h in Headers */,
-				96612995175EE1BC005AD392 /* syslog_relay.h in Headers */,
-				96B88C02174E109900B868D9 /* webinspector.h in Headers */,
-				96B88B42174E0CAD00B868D9 /* debug.h in Headers */,
-				96B88B44174E0CAD00B868D9 /* socket.h in Headers */,
-				96B88B46174E0CAD00B868D9 /* thread.h in Headers */,
-				96B88B48174E0CAD00B868D9 /* userpref.h in Headers */,
-				96B88BB9174E0D6400B868D9 /* afc.h in Headers */,
-				96B88BBB174E0D6400B868D9 /* device_link_service.h in Headers */,
-				96B88BBD174E0D6400B868D9 /* diagnostics_relay.h in Headers */,
-				96B88BBF174E0D6400B868D9 /* file_relay.h in Headers */,
-				96B88BC1174E0D6400B868D9 /* heartbeat.h in Headers */,
-				96B88BC3174E0D6400B868D9 /* house_arrest.h in Headers */,
-				96B88BC5174E0D6400B868D9 /* idevice.h in Headers */,
-				96B88BC7174E0D6400B868D9 /* installation_proxy.h in Headers */,
-				96B88BC9174E0D6400B868D9 /* lockdown.h in Headers */,
-				96B88BCB174E0D6400B868D9 /* misagent.h in Headers */,
-				96B88BCD174E0D6400B868D9 /* mobile_image_mounter.h in Headers */,
-				96B88BCF174E0D6400B868D9 /* mobilebackup.h in Headers */,
-				96B88BD1174E0D6400B868D9 /* mobilebackup2.h in Headers */,
-				96B88BD3174E0D6400B868D9 /* mobilesync.h in Headers */,
-				96B88BD5174E0D6400B868D9 /* notification_proxy.h in Headers */,
-				96B88BD7174E0D6400B868D9 /* property_list_service.h in Headers */,
-				96B88BD9174E0D6400B868D9 /* restore.h in Headers */,
-				96B88BDB174E0D6400B868D9 /* sbservices.h in Headers */,
-				96B88BDD174E0D6400B868D9 /* screenshotr.h in Headers */,
-				96B88BDF174E0D6400B868D9 /* service.h in Headers */,
-				96B88BE1174E0D6400B868D9 /* webinspector.h in Headers */,
-				96612993175EE163005AD392 /* syslog_relay.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		96CCC5FC174E493200AF832F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				96CCC621174E4B6400AF832F /* afc.h in Headers */,
-				96CCC622174E4B6400AF832F /* diagnostics_relay.h in Headers */,
-				96CCC623174E4B6400AF832F /* file_relay.h in Headers */,
-				96CCC624174E4B6400AF832F /* heartbeat.h in Headers */,
-				96CCC625174E4B6400AF832F /* house_arrest.h in Headers */,
-				96CCC626174E4B6400AF832F /* installation_proxy.h in Headers */,
-				96CCC627174E4B6400AF832F /* libimobiledevice.h in Headers */,
-				96CCC628174E4B6400AF832F /* lockdown.h in Headers */,
-				96CCC629174E4B6400AF832F /* misagent.h in Headers */,
-				96CCC62A174E4B6400AF832F /* mobile_image_mounter.h in Headers */,
-				96CCC62B174E4B6400AF832F /* mobilebackup.h in Headers */,
-				96CCC62C174E4B6400AF832F /* mobilebackup2.h in Headers */,
-				96CCC62D174E4B6400AF832F /* mobilesync.h in Headers */,
-				96CCC62E174E4B6400AF832F /* notification_proxy.h in Headers */,
-				96CCC62F174E4B6400AF832F /* restore.h in Headers */,
-				9653BEBD18E4643600392466 /* service.h in Headers */,
-				96CCC630174E4B6400AF832F /* sbservices.h in Headers */,
-				96CCC631174E4B6400AF832F /* screenshotr.h in Headers */,
-				96612987175EE0A2005AD392 /* syslog_relay.h in Headers */,
-				96CCC632174E4B6400AF832F /* webinspector.h in Headers */,
-				96F0F611174F02360014879C /* endianness.h in Headers */,
-				96CCC633174E4BAD00AF832F /* debug.h in Headers */,
-				96CCC634174E4BAD00AF832F /* socket.h in Headers */,
-				96CCC635174E4BAD00AF832F /* thread.h in Headers */,
-				96CCC636174E4BAD00AF832F /* userpref.h in Headers */,
-				96CCC637174E4BC000AF832F /* afc.h in Headers */,
-				96CCC638174E4BC000AF832F /* device_link_service.h in Headers */,
-				96CCC639174E4BC000AF832F /* diagnostics_relay.h in Headers */,
-				96CCC63A174E4BC000AF832F /* file_relay.h in Headers */,
-				96CCC63B174E4BC000AF832F /* heartbeat.h in Headers */,
-				9661893C17B2C5BC0074700A /* utils.h in Headers */,
-				96CCC63C174E4BC000AF832F /* house_arrest.h in Headers */,
-				96CCC63D174E4BC000AF832F /* idevice.h in Headers */,
-				96CCC63E174E4BC000AF832F /* installation_proxy.h in Headers */,
-				96CCC63F174E4BC000AF832F /* lockdown.h in Headers */,
-				96CCC640174E4BC000AF832F /* misagent.h in Headers */,
-				96CCC641174E4BC000AF832F /* mobile_image_mounter.h in Headers */,
-				96CCC642174E4BC000AF832F /* mobilebackup.h in Headers */,
-				96CCC643174E4BC000AF832F /* mobilebackup2.h in Headers */,
-				96CCC644174E4BC000AF832F /* mobilesync.h in Headers */,
-				96CCC645174E4BC000AF832F /* notification_proxy.h in Headers */,
-				96CCC646174E4BC000AF832F /* property_list_service.h in Headers */,
-				96CCC647174E4BC000AF832F /* restore.h in Headers */,
-				96CCC648174E4BC000AF832F /* sbservices.h in Headers */,
-				96CCC649174E4BC000AF832F /* screenshotr.h in Headers */,
-				96CCC64A174E4BC000AF832F /* service.h in Headers */,
-				96CCC64B174E4BC000AF832F /* webinspector.h in Headers */,
-				96612994175EE163005AD392 /* syslog_relay.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1773,8 +1675,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96B88B34174E0B9900B868D9 /* Build configuration list for PBXNativeTarget "imobiledevice.a" */;
 			buildPhases = (
-				96B2A2461755474100E57604 /* Print Environment */,
-				96B88B2E174E0B9900B868D9 /* Headers */,
+				96163E7C194A44BF00B04ECD /* Copy Headers */,
 				96B88B2C174E0B9900B868D9 /* Sources */,
 				96B88B2D174E0B9900B868D9 /* Frameworks */,
 			);
@@ -1791,8 +1692,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96CCC5FF174E493200AF832F /* Build configuration list for PBXNativeTarget "imobiledevice.dylib" */;
 			buildPhases = (
-				96B2A23C17550B9E00E57604 /* Print Environment */,
-				96CCC5FC174E493200AF832F /* Headers */,
+				961DED42194A3C3F005BE172 /* Copy Headers */,
 				96CCC5FA174E493200AF832F /* Sources */,
 				96CCC5FB174E493200AF832F /* Frameworks */,
 			);
@@ -2186,37 +2086,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		96B2A23C17550B9E00E57604 /* Print Environment */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Print Environment";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "exit 0\n";
-		};
-		96B2A2461755474100E57604 /* Print Environment */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Print Environment";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "exit 0\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9609CAE9174EF50100E744BE /* Sources */ = {
@@ -2720,11 +2589,6 @@
 		9609CAF0174EF50100E744BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					HAVE_OPENSSL,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2732,7 +2596,6 @@
 		9609CAF1174EF50100E744BE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = HAVE_OPENSSL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2754,11 +2617,6 @@
 		9653BEB218E0334D00392466 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					HAVE_STPCPY,
-					"$(inherited)",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2766,10 +2624,6 @@
 		9653BEB318E0334D00392466 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					HAVE_STPCPY,
-					"$(inherited)",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2778,10 +2632,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
 					"\"$(SRCROOT)/osx\"",
-					"\"$(CONFIGURATION_BUILD_DIR)/usr/local/include\"",
 				);
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = ideviceexec;
 			};
 			name = Debug;
@@ -2790,10 +2643,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
 					"\"$(SRCROOT)/osx\"",
-					"\"$(DSTROOT)/usr/local/include\"",
 				);
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = ideviceexec;
 			};
 			name = Release;
@@ -2803,7 +2655,7 @@
 			buildSettings = {
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = afccl;
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\" \"$(SRCROOT)\"/src";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\" \"$(SRCROOT)/src\"";
 			};
 			name = Debug;
 		};
@@ -2812,7 +2664,7 @@
 			buildSettings = {
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = afccl;
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\" \"$(SRCROOT)\"/src";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\" \"$(SRCROOT)/src\"";
 			};
 			name = Release;
 		};
@@ -2835,6 +2687,11 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					HAVE_OPENSSL,
+					HAVE_VASPRINTF,
+					HAVE_ASPRINTF,
+					HAVE_LANGINFO_CODESET,
+					HAVE_STPCPY,
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -2843,7 +2700,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"$(CONFIGURATION_BUILD_DIR)/usr/local/include\"";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2869,12 +2726,20 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_OPENSSL,
+					HAVE_VASPRINTF,
+					HAVE_ASPRINTF,
+					HAVE_LANGINFO_CODESET,
+					HAVE_STPCPY,
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"$(DSTROOT)/usr/local/include\"";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
@@ -2887,18 +2752,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
-				DYLIB_CURRENT_VERSION = 1.1.6;
+				DYLIB_CURRENT_VERSION = 1.1.7;
 				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					HAVE_OPENSSL,
-					HAVE_VASPRINTF,
-					HAVE_ASPRINTF,
-					HAVE_LANGINFO_CODESET,
-					HAVE_STPCPY,
-				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = imobiledevice;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
@@ -2910,17 +2767,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1.1.5;
-				DYLIB_CURRENT_VERSION = 1.1.6;
+				DYLIB_CURRENT_VERSION = 1.1.7;
 				EXECUTABLE_EXTENSION = a;
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					HAVE_OPENSSL,
-					HAVE_VASPRINTF,
-					HAVE_ASPRINTF,
-					HAVE_LANGINFO_CODESET,
-					HAVE_STPCPY,
-				);
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = imobiledevice;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
@@ -2935,19 +2785,10 @@
 				DYLIB_CURRENT_VERSION = 1.1.6;
 				EXECUTABLE_EXTENSION = dylib;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					HAVE_OPENSSL,
-					HAVE_VASPRINTF,
-					HAVE_ASPRINTF,
-					HAVE_LANGINFO_CODESET,
-					HAVE_STPCPY,
-				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_INSTALL_PATH = "$(CONFIGURATION_BUILD_DIR)/include";
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
-				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = imobiledevice;
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Debug;
@@ -2959,18 +2800,10 @@
 				DYLIB_CURRENT_VERSION = 1.1.6;
 				EXECUTABLE_EXTENSION = dylib;
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					HAVE_OPENSSL,
-					HAVE_VASPRINTF,
-					HAVE_ASPRINTF,
-					HAVE_LANGINFO_CODESET,
-					HAVE_STPCPY,
-				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_INSTALL_PATH = /usr/local/include;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
-				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = imobiledevice;
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Release;
@@ -3118,11 +2951,6 @@
 		96CCC708174EBDCC00AF832F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					HAVE_OPENSSL,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -3130,7 +2958,6 @@
 		96CCC709174EBDCC00AF832F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = HAVE_OPENSSL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -3138,10 +2965,6 @@
 		96CCC717174EC00100AF832F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -3149,7 +2972,6 @@
 		96CCC718174EC00100AF832F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -3157,10 +2979,6 @@
 		96F0F5F8174EFFAC0014879C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					HAVE_OPENSSL,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -3168,7 +2986,6 @@
 		96F0F5F9174EFFAC0014879C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = HAVE_OPENSSL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -3176,26 +2993,14 @@
 		96F0F60C174F01420014879C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/include\"",
-				);
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 			};
 			name = Debug;
 		};
 		96F0F60D174F01420014879C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/include\"",
-				);
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 			};
 			name = Release;
 		};
@@ -3216,7 +3021,6 @@
 		96F0F635175223B70014879C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -3224,7 +3028,6 @@
 		96F0F636175223B70014879C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -3232,7 +3035,6 @@
 		96F0F653175224C20014879C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -3240,7 +3042,6 @@
 		96F0F654175224C20014879C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -3248,35 +3049,20 @@
 		96F0F66517522D320014879C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					HAVE_VASPRINTF,
-					HAVE_ASPRINTF,
-					"$(inherited)",
-				);
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"/include";
 			};
 			name = Debug;
 		};
 		96F0F66617522D320014879C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					HAVE_VASPRINTF,
-					HAVE_ASPRINTF,
-					"$(inherited)",
-				);
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"/include";
 			};
 			name = Release;
 		};
 		96F0F67A175231690014879C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -3284,7 +3070,6 @@
 		96F0F67B175231690014879C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -3292,7 +3077,6 @@
 		96F0F68C1752322C0014879C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -3300,7 +3084,6 @@
 		96F0F68D1752322C0014879C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

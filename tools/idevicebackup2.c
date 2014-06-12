@@ -1504,7 +1504,7 @@ int main(int argc, char *argv[])
 	}
 
 	if (cmd == CMD_CHANGEPW || cmd == CMD_CLOUD) {
-		backup_directory = strdup(".this_folder_is_not_present_on_purpose");
+		backup_directory = (char*)".this_folder_is_not_present_on_purpose";
 	} else {
 		if (backup_directory == NULL) {
 			printf("No target backup directory specified.\n");
@@ -1544,7 +1544,8 @@ int main(int argc, char *argv[])
 	uint8_t is_encrypted = 0;
 	char *info_path = NULL; 
 	if (cmd == CMD_CHANGEPW) {
-		if (!interactive_mode && (!backup_password || !newpw)) {
+		if (!interactive_mode && !backup_password && !newpw) {
+			idevice_free(device);
 			printf("ERROR: Can't get password input in non-interactive mode. Either pass password(s) on the command line, or enable interactive mode with -i or --interactive.\n");
 			return -1;
 		}
@@ -1553,6 +1554,7 @@ int main(int argc, char *argv[])
 		info_path = build_path(backup_directory, source_udid, "Info.plist", NULL);
 		if (cmd == CMD_RESTORE || cmd == CMD_UNBACK) {
 			if (stat(info_path, &st) != 0) {
+				idevice_free(device);
 				free(info_path);
 				printf("ERROR: Backup directory \"%s\" is invalid. No Info.plist found for UDID %s.\n", backup_directory, source_udid);
 				return -1;
@@ -1564,6 +1566,7 @@ int main(int argc, char *argv[])
 			plist_t manifest_plist = NULL;
 			plist_read_from_filename(&manifest_plist, manifest_path);
 			if (!manifest_plist) {
+				idevice_free(device);
 				free(info_path);
 				free(manifest_path);
 				printf("ERROR: Backup directory \"%s\" is invalid. No Manifest.plist found for UDID %s.\n", backup_directory, source_udid);
@@ -2223,11 +2226,14 @@ checkpoint:
 					PRINT_VERBOSE(1, " Finished\n");
 				}
 
+files_out:
 				if (message)
 					plist_free(message);
 				message = NULL;
+				if (dlmsg)
+					free(dlmsg);
+				dlmsg = NULL;
 
-files_out:
 				if (quit_flag > 0) {
 					/* need to cancel the backup here */
 					//mobilebackup_send_error(mobilebackup, "Cancelling DLSendFile");
@@ -2358,6 +2364,10 @@ files_out:
 
 	idevice_free(device);
 	device = NULL;
+
+	if (backup_password) {
+		free(backup_password);
+	}
 
 	if (udid) {
 		free(udid);
