@@ -42,6 +42,7 @@
  * @return A matching mobilebackup2_error_t error code,
  *     MOBILEBACKUP2_E_UNKNOWN_ERROR otherwise.
  */
+
 static mobilebackup2_error_t mobilebackup2_error(device_link_service_error_t err)
 {
 	switch (err) {
