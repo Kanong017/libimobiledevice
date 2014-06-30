@@ -884,7 +884,7 @@ int main(int argc, const char **argv)
 	}
 
     if (appid) {
-        result = lockdownd_start_service(client, "com.apple.mobile.house_arrest", &service);
+        result = lockdownd_start_service_with_unlock(client, "com.apple.mobile.house_arrest", &service);
         if (result != LOCKDOWN_E_SUCCESS || !service || !service->port) {
 			asprintf(&errmsg, "error starting house arrest service: (%d) %s", result, afc_strerror(result));
 			goto bail;
