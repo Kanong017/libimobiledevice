@@ -55,6 +55,7 @@ extern "C" {
 #define LOCKDOWN_E_INVALID_ACTIVATION_RECORD -18
 #define LOCKDOWN_E_PAIRING_DIALOG_PENDING    -20
 #define LOCKDOWN_E_USER_DENIED_PAIRING       -21
+#define LOCKDOWN_E_NO_ESCROW_KEYBAG         -255
 
 #define LOCKDOWN_E_UNKNOWN_ERROR            -256
 /*@}*/
@@ -85,6 +86,7 @@ typedef enum {
 	LOCKDOWN_E_INVALID_ACTIVATION_RECORD = -18,
 	LOCKDOWN_E_PAIRING_DIALOG_PENDING    = -20,
 	LOCKDOWN_E_USER_DENIED_PAIRING       = -21,
+	LOCKDOWN_E_NO_ESCROW_KEYBAG         = -255,
 
 	LOCKDOWN_E_UNKNOWN_ERROR            = -256
 } lockdownd_error_t;
@@ -220,6 +222,22 @@ lockdownd_error_t lockdownd_remove_value(lockdownd_client_t client, const char *
  *  started by the device
  */
 lockdownd_error_t lockdownd_start_service(lockdownd_client_t client, const char *identifier, lockdownd_service_descriptor_t *service);
+
+/**
+ * Requests to start a service and retrieve it's port on success. In the process, it sends the escrow keybag
+ * from the pairing record if it exists. If the escrow keybag does not exist, then it behaves
+ * like @see lockdownd_start_service.
+ *
+ * @param client The lockdownd client
+ * @param identifier The identifier of the service to start
+ * @param descriptor The service descriptor on success or NULL on failure
+
+ * @return LOCKDOWN_E_SUCCESS on success, LOCKDOWN_E_INVALID_ARG if a parameter
+ *  is NULL, LOCKDOWN_E_INVALID_SERVICE if the requested service is not known
+ *  by the device, LOCKDOWN_E_START_SERVICE_FAILED if the service could not be
+ *  started by the device
+ */
+lockdownd_error_t lockdownd_start_service_with_unlock(lockdownd_client_t client, const char *identifier, lockdownd_service_descriptor_t *service);
 
 /**
  * Opens a session with lockdownd and switches to SSL mode if device wants it.

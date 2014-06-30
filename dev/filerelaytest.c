@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 		goto leave_cleanup;
 	}
 
-	if (lockdownd_start_service(client, FILE_RELAY_SERVICE_NAME, &service) != LOCKDOWN_E_SUCCESS) {
+	if (lockdownd_start_service_with_unlock(client, FILE_RELAY_SERVICE_NAME, &service) != LOCKDOWN_E_SUCCESS) {
 		printf("could not start file_relay service!\n");
 		goto leave_cleanup;
 	}

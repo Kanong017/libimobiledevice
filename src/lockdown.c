@@ -1132,7 +1132,7 @@ lockdownd_error_t lockdownd_start_session(lockdownd_client_t client, const char 
 	return ret;
 }
 
-lockdownd_error_t lockdownd_start_service(lockdownd_client_t client, const char *identifier, lockdownd_service_descriptor_t *service)
+static lockdownd_error_t _lockdownd_start_service(lockdownd_client_t client, const char *identifier, lockdownd_service_descriptor_t *service, uint8_t unlock)
 {
 	if (!client || !identifier || !service)
 		return LOCKDOWN_E_INVALID_ARG;
@@ -1151,6 +1151,28 @@ lockdownd_error_t lockdownd_start_service(lockdownd_client_t client, const char 
 	plist_dict_add_label(dict, client->label);
 	plist_dict_set_item(dict,"Request", plist_new_string("StartService"));
 	plist_dict_set_item(dict,"Service", plist_new_string(identifier));
+
+	if (unlock) {
+		char *udid = NULL;
+		plist_t item = NULL;
+		plist_t pair_record = NULL;
+		plist_t escrow_bag = NULL;
+
+		if (lockdownd_get_device_udid(client, &udid) == LOCKDOWN_E_SUCCESS) {
+			if (userpref_read_pair_record(udid, &pair_record) == USERPREF_E_SUCCESS) {
+				if ((item = plist_dict_get_item(pair_record, "EscrowBag"))) {
+					escrow_bag = plist_copy(item);
+				}
+				plist_free(pair_record);
+			}
+		}
+		free(udid);
+		if (!escrow_bag) {
+			plist_free(dict);
+			return LOCKDOWN_E_NO_ESCROW_KEYBAG;
+		}
+		plist_dict_set_item(dict, "EscrowBag", escrow_bag);
+	}
 
 	/* send to device */
 	ret = lockdownd_send(client, dict);
@@ -1215,6 +1237,16 @@ lockdownd_error_t lockdownd_start_service(lockdownd_client_t client, const char 
 	plist_free(dict);
 	dict = NULL;
 	return ret;
+}
+
+lockdownd_error_t lockdownd_start_service(lockdownd_client_t client, const char *identifier, lockdownd_service_descriptor_t *service)
+{
+	return _lockdownd_start_service(client, identifier, service, 0);
+}
+
+lockdownd_error_t lockdownd_start_service_with_unlock(lockdownd_client_t client, const char *identifier, lockdownd_service_descriptor_t *service)
+{
+	return _lockdownd_start_service(client, identifier, service, 1);
 }
 
 lockdownd_error_t lockdownd_activate(lockdownd_client_t client, plist_t activation_record)

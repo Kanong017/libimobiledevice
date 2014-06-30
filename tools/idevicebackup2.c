@@ -1541,7 +1541,7 @@ int main(int argc, char *argv[])
 
 	/* start mobilebackup service and retrieve port */
 	mobilebackup2_client_t mobilebackup2 = NULL;
-	ldret = lockdownd_start_service(lockdown, MOBILEBACKUP2_SERVICE_NAME, &service);
+	ldret = lockdownd_start_service_with_unlock(lockdown, MOBILEBACKUP2_SERVICE_NAME, &service);
 	if ((ldret == LOCKDOWN_E_SUCCESS) && service && service->port) {
 		PRINT_VERBOSE(1, "Started \"%s\" service on port %d.\n", MOBILEBACKUP2_SERVICE_NAME, service->port);
 		mobilebackup2_client_new(device, service, &mobilebackup2);

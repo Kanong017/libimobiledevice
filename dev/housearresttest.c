@@ -97,7 +97,7 @@ int main(int argc, char **argv)
 	}
 
 	lockdownd_service_descriptor_t service = NULL;
-	if (lockdownd_start_service(client, "com.apple.mobile.house_arrest", &service) != LOCKDOWN_E_SUCCESS) {
+	if (lockdownd_start_service_with_unlock(client, "com.apple.mobile.house_arrest", &service) != LOCKDOWN_E_SUCCESS) {
 		printf("could not start house_arrest service!\n");
 		goto leave_cleanup;
 	}
