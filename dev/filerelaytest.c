@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 	}
 	printf("\n");
 
-	if (file_relay_request_sources(frc, sources, &dump) != FILE_RELAY_E_SUCCESS) {
+	if (file_relay_request_sources_timeout(frc, sources, &dump, 0) != FILE_RELAY_E_SUCCESS) {
 		printf("could not get sources\n");
 		goto leave_cleanup;
 	}
