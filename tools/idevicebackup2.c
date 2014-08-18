@@ -36,6 +36,7 @@
 #include <libimobiledevice/mobilebackup2.h>
 #include <libimobiledevice/notification_proxy.h>
 #include <libimobiledevice/afc.h>
+#include "common/utils.h"
 
 #include <endianness.h>
 
@@ -73,11 +74,6 @@ enum cmd_mode {
 	CMD_CLOUD
 };
 
-enum plist_format_t {
-	PLIST_FORMAT_XML,
-	PLIST_FORMAT_BINARY
-};
-
 enum cmd_flags {
 	CMD_FLAG_RESTORE_SYSTEM_FILES       = (1 << 1),
 	CMD_FLAG_RESTORE_REBOOT             = (1 << 2),
@@ -109,19 +105,6 @@ static void notify_cb(const char *notification, void *userdata)
 	}
 }
 
-static void free_dictionary(char **dictionary)
-{
-	int i = 0;
-
-	if (!dictionary)
-		return;
-
-	for (i = 0; dictionary[i]; i++) {
-		free(dictionary[i]);
-	}
-	free(dictionary);
-}
-
 static void mobilebackup_afc_get_file_contents(afc_client_t afc, const char *filename, char **data, uint64_t *size)
 {
 	if (!afc || !data || !size) {
@@ -130,7 +113,7 @@ static void mobilebackup_afc_get_file_contents(afc_client_t afc, const char *fil
 
 	char **fileinfo = NULL;
 	uint32_t fsize = 0;
-		
+
 	afc_get_file_info(afc, filename, &fileinfo);
 	if (!fileinfo) {
 		return;
@@ -142,12 +125,12 @@ static void mobilebackup_afc_get_file_contents(afc_client_t afc, const char *fil
 			break;
 		}
 	}
-	free_dictionary(fileinfo);
+	afc_dictionary_free(fileinfo);
 
 	if (fsize == 0) {
 		return;
 	}
-		
+
 	uint64_t f = 0;
 	afc_file_open(afc, filename, AFC_FOPEN_RDONLY, &f);
 	if (!f) {
@@ -368,93 +351,6 @@ static plist_t mobilebackup_factory_info_plist_new(const char* udid, lockdownd_c
 	plist_free(root_node);
 
 	return ret;
-}
-
-static void buffer_read_from_filename(const char *filename, char **buffer, uint64_t *length)
-{
-	FILE *f;
-	uint64_t size;
-
-	*length = 0;
-
-	f = fopen(filename, "rb");
-	if (!f) {
-		return;
-	}
-
-	fseek(f, 0, SEEK_END);
-	size = ftell(f);
-	rewind(f);
-
-	if (size == 0) {
-		return;
-	}
-
-	*buffer = (char*)malloc(sizeof(char)*size);
-	fread(*buffer, sizeof(char), size, f);
-	fclose(f);
-
-	*length = size;
-}
-
-static void buffer_write_to_filename(const char *filename, const char *buffer, uint64_t length)
-{
-	FILE *f;
-
-	f = fopen(filename, "ab");
-	if (!f)
-		f = fopen(filename, "wb");
-	if (f) {
-		fwrite(buffer, sizeof(char), length, f);
-		fclose(f);
-	}
-}
-
-static int plist_read_from_filename(plist_t *plist, const char *filename)
-{
-	char *buffer = NULL;
-	uint64_t length;
-
-	if (!filename)
-		return 0;
-
-	buffer_read_from_filename(filename, &buffer, &length);
-
-	if (!buffer) {
-		return 0;
-	}
-
-	if ((length > 8) && (memcmp(buffer, "bplist00", 8) == 0)) {
-		plist_from_bin(buffer, length, plist);
-	} else {
-		plist_from_xml(buffer, length, plist);
-	}
-
-	free(buffer);
-
-	return 1;
-}
-
-static int plist_write_to_filename(plist_t plist, const char *filename, enum plist_format_t format)
-{
-	char *buffer = NULL;
-	uint32_t length;
-
-	if (!plist || !filename)
-		return 0;
-
-	if (format == PLIST_FORMAT_XML)
-		plist_to_xml(plist, &buffer, &length);
-	else if (format == PLIST_FORMAT_BINARY)
-		plist_to_bin(plist, &buffer, &length);
-	else
-		return 0;
-
-	buffer_write_to_filename(filename, buffer, length);
-
-	free(buffer);
-
-	return 1;
 }
 
 static int mb2_status_check_snapshot_state(const char *path, const char *udid, const char *matches)

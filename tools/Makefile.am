@@ -1,4 +1,4 @@
-AM_CPPFLAGS = -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)
 
 AM_CFLAGS = $(GLOBAL_CFLAGS) $(libgnutls_CFLAGS) $(libtasn1_CFLAGS) $(libgcrypt_CFLAGS) $(openssl_CFLAGS) $(libplist_CFLAGS) $(LFS_CFLAGS)
 AM_LDFLAGS = $(libgnutls_LIBS) $(libtasn1_LIBS) $(libgcrypt_LIBS) $(openssl_LIBS) $(libplist_LIBS)
@@ -32,12 +32,12 @@ idevice_id_LDADD = $(top_builddir)/src/libimobiledevice.la
 
 idevicebackup_SOURCES = idevicebackup.c
 idevicebackup_CFLAGS = $(AM_CFLAGS)
-idevicebackup_LDFLAGS = $(AM_LDFLAGS)
+idevicebackup_LDFLAGS = $(top_builddir)/common/libinternalcommon.la $(AM_LDFLAGS)
 idevicebackup_LDADD = $(top_builddir)/src/libimobiledevice.la
 
 idevicebackup2_SOURCES = idevicebackup2.c
 idevicebackup2_CFLAGS = $(AM_CFLAGS)
-idevicebackup2_LDFLAGS = $(AM_LDFLAGS)
+idevicebackup2_LDFLAGS = $(top_builddir)/common/libinternalcommon.la $(AM_LDFLAGS)
 idevicebackup2_LDADD = $(top_builddir)/src/libimobiledevice.la
 
 ideviceimagemounter_SOURCES = ideviceimagemounter.c

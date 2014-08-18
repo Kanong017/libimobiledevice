@@ -743,7 +743,8 @@ static lockdownd_error_t pair_record_generate(lockdownd_client_t client, plist_t
 	}
 
 	/* set SystemBUID */
-	if (userpref_read_system_buid(&system_buid)) {
+	userpref_read_system_buid(&system_buid);
+	if (system_buid) {
 		plist_dict_set_item(*pair_record, USERPREF_SYSTEM_BUID_KEY, plist_new_string(system_buid));
 	}
 
@@ -1347,14 +1348,16 @@ lockdownd_error_t lockdownd_get_sync_data_classes(lockdownd_client_t client, cha
 	}
 
 	while((value = plist_array_get_item(dict, *count)) != NULL) {
-			plist_get_string_val(value, &val);
-			newlist = realloc(*classes, sizeof(char*) * (*count+1));
-			str_remove_spaces(val);
-			asprintf(&newlist[*count], "com.apple.%s", val);
-			free(val);
-			val = NULL;
-			*classes = newlist;
-			*count = *count+1;
+		plist_get_string_val(value, &val);
+		newlist = realloc(*classes, sizeof(char*) * (*count+1));
+		str_remove_spaces(val);
+		if (asprintf(&newlist[*count], "com.apple.%s", val) < 0) {
+			debug_info("ERROR: asprintf failed");
+		}
+		free(val);
+		val = NULL;
+		*classes = newlist;
+		*count = *count+1;
 	}
 
 	newlist = realloc(*classes, sizeof(char*) * (*count+1));
