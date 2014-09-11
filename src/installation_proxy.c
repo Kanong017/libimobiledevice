@@ -183,7 +183,9 @@ instproxy_error_t instproxy_browse(instproxy_client_t client, plist_t client_opt
 	do {
 		browsing = 0;
 		dict = NULL;
-		res = instproxy_error(property_list_service_receive_plist(client->parent, &dict));
+		// A long timeout is needed in case the device is busy and slow to respond. One data point: an iPhone 5
+		// with iOS 6 takes 40 seconds to respond in certain conditions.
+		res = instproxy_error(property_list_service_receive_plist_with_timeout(client->parent, &dict, 90000));
 		if (res != INSTPROXY_E_SUCCESS && res != INSTPROXY_E_RECEIVE_TIMEOUT) {
 			break;
 		}
