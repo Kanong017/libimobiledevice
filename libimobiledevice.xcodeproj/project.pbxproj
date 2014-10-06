@@ -35,6 +35,7 @@
 				9653BEBA18E034A600392466 /* PBXTargetDependency */,
 				96F0F65917522D0D0014879C /* PBXTargetDependency */,
 				96F0F61A1752225B0014879C /* PBXTargetDependency */,
+				96AFF50519E2218000086CBA /* PBXTargetDependency */,
 				96F0F61C1752225B0014879C /* PBXTargetDependency */,
 				96F0F61E1752225B0014879C /* PBXTargetDependency */,
 				96F0F6201752225B0014879C /* PBXTargetDependency */,
@@ -116,6 +117,11 @@
 		96A8D95917A14231006E38E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5F1174E459600AF832F /* CoreFoundation.framework */; };
 		96A8D96E17A4A9B5006E38E0 /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
 		96A8D97817A4AA1F006E38E0 /* afccl.c in Sources */ = {isa = PBXBuildFile; fileRef = 96A8D96217A4A902006E38E0 /* afccl.c */; };
+		96AFF4F119E21F8400086CBA /* debugserver.c in Sources */ = {isa = PBXBuildFile; fileRef = 96AFF4EF19E21F8400086CBA /* debugserver.c */; };
+		96AFF4F219E2201700086CBA /* debugserver.c in Sources */ = {isa = PBXBuildFile; fileRef = 96AFF4EF19E21F8400086CBA /* debugserver.c */; };
+		96AFF4F919E220D000086CBA /* libimobiledevice.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CCC5FE174E493200AF832F /* libimobiledevice.dylib */; };
+		96AFF50119E2210B00086CBA /* idevicedebug.c in Sources */ = {isa = PBXBuildFile; fileRef = 96AFF50019E2210B00086CBA /* idevicedebug.c */; };
+		96AFF50319E2214500086CBA /* idevicedebug.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96AFF50219E2213900086CBA /* idevicedebug.1 */; };
 		96B74DD718988FD700D3A1D2 /* afc_extras.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B74DD618988FD700D3A1D2 /* afc_extras.c */; };
 		96B74DD818988FD700D3A1D2 /* afc_extras.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B74DD618988FD700D3A1D2 /* afc_extras.c */; };
 		96B74DF018995B5E00D3A1D2 /* afc_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 96B74DEF18995B5E00D3A1D2 /* afc_error.c */; };
@@ -300,6 +306,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 96A8D96317A4A9B5006E38E0;
 			remoteInfo = afccl;
+		};
+		96AFF4F519E220D000086CBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CCC5FD174E493200AF832F;
+			remoteInfo = imobiledevice.dylib;
+		};
+		96AFF50419E2218000086CBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96B88B28174E0B9900B868D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96AFF4F319E220D000086CBA;
+			remoteInfo = idevicedebug;
 		};
 		96CCC66E174E83D500AF832F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -673,6 +693,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		96AFF4FA19E220D000086CBA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				96AFF50319E2214500086CBA /* idevicedebug.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		96CCC65D174E7D6800AF832F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -871,6 +901,12 @@
 		96A8D95117A12DF6006E38E0 /* ideviceexec */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideviceexec; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A8D96217A4A902006E38E0 /* afccl.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = afccl.c; sourceTree = "<group>"; };
 		96A8D97317A4A9B5006E38E0 /* afccl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = afccl; sourceTree = BUILT_PRODUCTS_DIR; };
+		96AFF4EE19E21F1F00086CBA /* debugserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debugserver.h; sourceTree = "<group>"; };
+		96AFF4EF19E21F8400086CBA /* debugserver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debugserver.c; sourceTree = "<group>"; };
+		96AFF4F019E21F8400086CBA /* debugserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debugserver.h; sourceTree = "<group>"; };
+		96AFF4FF19E220D000086CBA /* idevicedebug */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idevicedebug; sourceTree = BUILT_PRODUCTS_DIR; };
+		96AFF50019E2210B00086CBA /* idevicedebug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = idevicedebug.c; sourceTree = "<group>"; };
+		96AFF50219E2213900086CBA /* idevicedebug.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = idevicedebug.1; sourceTree = "<group>"; };
 		96B74DD618988FD700D3A1D2 /* afc_extras.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = afc_extras.c; sourceTree = "<group>"; };
 		96B74DD91898901900D3A1D2 /* afc_extras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = afc_extras.h; sourceTree = "<group>"; };
 		96B74DEF18995B5E00D3A1D2 /* afc_error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = afc_error.c; path = src/afc_error.c; sourceTree = SOURCE_ROOT; };
@@ -1070,6 +1106,14 @@
 			files = (
 				96EF04CA17AA96EA00253A04 /* libreadline.dylib in Frameworks */,
 				96A8D96E17A4A9B5006E38E0 /* libimobiledevice.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96AFF4F819E220D000086CBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96AFF4F919E220D000086CBA /* libimobiledevice.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1297,6 +1341,7 @@
 				96A8D97317A4A9B5006E38E0 /* afccl */,
 				9649448218BBBD2000EDE08B /* idevicename */,
 				9653BEB418E0334D00392466 /* idevicecrashreport */,
+				96AFF4FF19E220D000086CBA /* idevicedebug */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1369,6 +1414,7 @@
 				96B88B6A174E0D1F00B868D9 /* idevicebackup2.1 */,
 				9653BEB718E0345400392466 /* idevicecrashreport.1 */,
 				96B88B6B174E0D1F00B868D9 /* idevicedate.1 */,
+				96AFF50219E2213900086CBA /* idevicedebug.1 */,
 				96B88B6C174E0D1F00B868D9 /* idevicedebugserverproxy.1 */,
 				96B88B6D174E0D1F00B868D9 /* idevicediagnostics.1 */,
 				96B88B6E174E0D1F00B868D9 /* ideviceenterrecovery.1 */,
@@ -1397,6 +1443,7 @@
 			isa = PBXGroup;
 			children = (
 				96B88B7A174E0D4A00B868D9 /* afc.h */,
+				96AFF4EE19E21F1F00086CBA /* debugserver.h */,
 				96B88B7B174E0D4A00B868D9 /* diagnostics_relay.h */,
 				96B88B7C174E0D4A00B868D9 /* file_relay.h */,
 				96B88B7D174E0D4A00B868D9 /* heartbeat.h */,
@@ -1430,6 +1477,8 @@
 				96B74DD618988FD700D3A1D2 /* afc_extras.c */,
 				96B74DD91898901900D3A1D2 /* afc_extras.h */,
 				96B74DEF18995B5E00D3A1D2 /* afc_error.c */,
+				96AFF4EF19E21F8400086CBA /* debugserver.c */,
+				96AFF4F019E21F8400086CBA /* debugserver.h */,
 				96B88B90174E0D6400B868D9 /* device_link_service.c */,
 				96B88B91174E0D6400B868D9 /* device_link_service.h */,
 				96B88B92174E0D6400B868D9 /* diagnostics_relay.c */,
@@ -1485,6 +1534,7 @@
 				96B88BE6174E0D8400B868D9 /* idevicebackup2.c */,
 				9653BEB518E0342900392466 /* idevicecrashreport.c */,
 				96B88BE7174E0D8400B868D9 /* idevicedate.c */,
+				96AFF50019E2210B00086CBA /* idevicedebug.c */,
 				96B88BE8174E0D8400B868D9 /* idevicedebugserverproxy.c */,
 				96B88BE9174E0D8400B868D9 /* idevicediagnostics.c */,
 				96B88BEA174E0D8400B868D9 /* ideviceenterrecovery.c */,
@@ -1669,6 +1719,24 @@
 			name = afccl;
 			productName = ideviceclient;
 			productReference = 96A8D97317A4A9B5006E38E0 /* afccl */;
+			productType = "com.apple.product-type.tool";
+		};
+		96AFF4F319E220D000086CBA /* idevicedebug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96AFF4FC19E220D000086CBA /* Build configuration list for PBXNativeTarget "idevicedebug" */;
+			buildPhases = (
+				96AFF4F619E220D000086CBA /* Sources */,
+				96AFF4F819E220D000086CBA /* Frameworks */,
+				96AFF4FA19E220D000086CBA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96AFF4F419E220D000086CBA /* PBXTargetDependency */,
+			);
+			name = idevicedebug;
+			productName = ideviceclient;
+			productReference = 96AFF4FF19E220D000086CBA /* idevicedebug */;
 			productType = "com.apple.product-type.tool";
 		};
 		96B88B2F174E0B9900B868D9 /* imobiledevice.a */ = {
@@ -2067,6 +2135,7 @@
 				96CCC6B7174EB12600AF832F /* Build Tests */,
 				96CCC6C7174EB17D00AF832F /* idevice_id */,
 				9653BEA818E0334D00392466 /* idevicecrashreport */,
+				96AFF4F319E220D000086CBA /* idevicedebug */,
 				96CCC6E0174EB24E00AF832F /* ideviceinfo */,
 				96CCC6EF174EBC5B00AF832F /* ideviceenterrecovery */,
 				96CCC6FE174EBDCC00AF832F /* idevicesyslog */,
@@ -2129,6 +2198,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96AFF4F619E220D000086CBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96AFF50119E2210B00086CBA /* idevicedebug.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96B88B2C174E0B9900B868D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2139,6 +2216,7 @@
 				96B88B45174E0CAD00B868D9 /* thread.c in Sources */,
 				96B88B47174E0CAD00B868D9 /* userpref.c in Sources */,
 				96B88BB8174E0D6400B868D9 /* afc.c in Sources */,
+				96AFF4F219E2201700086CBA /* debugserver.c in Sources */,
 				96B88BBA174E0D6400B868D9 /* device_link_service.c in Sources */,
 				96B88BBC174E0D6400B868D9 /* diagnostics_relay.c in Sources */,
 				96B88BBE174E0D6400B868D9 /* file_relay.c in Sources */,
@@ -2175,6 +2253,7 @@
 				96CCC609174E4B2B00AF832F /* thread.c in Sources */,
 				96CCC60A174E4B2B00AF832F /* userpref.c in Sources */,
 				96CCC60B174E4B2B00AF832F /* afc.c in Sources */,
+				96AFF4F119E21F8400086CBA /* debugserver.c in Sources */,
 				96CCC60C174E4B2B00AF832F /* device_link_service.c in Sources */,
 				96CCC60D174E4B2B00AF832F /* diagnostics_relay.c in Sources */,
 				96CCC60E174E4B2B00AF832F /* file_relay.c in Sources */,
@@ -2397,6 +2476,16 @@
 			isa = PBXTargetDependency;
 			target = 96A8D96317A4A9B5006E38E0 /* afccl */;
 			targetProxy = 96A8D97617A4A9DE006E38E0 /* PBXContainerItemProxy */;
+		};
+		96AFF4F419E220D000086CBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CCC5FD174E493200AF832F /* imobiledevice.dylib */;
+			targetProxy = 96AFF4F519E220D000086CBA /* PBXContainerItemProxy */;
+		};
+		96AFF50519E2218000086CBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96AFF4F319E220D000086CBA /* idevicedebug */;
+			targetProxy = 96AFF50419E2218000086CBA /* PBXContainerItemProxy */;
 		};
 		96CCC66F174E83D500AF832F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2665,6 +2754,20 @@
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONFIGURATION_BUILD_DIR)/usr/local/include";
 				PRODUCT_NAME = afccl;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\" \"$(SRCROOT)/src\"";
+			};
+			name = Release;
+		};
+		96AFF4FD19E220D000086CBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = idevicedebug;
+			};
+			name = Debug;
+		};
+		96AFF4FE19E220D000086CBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = idevicedebug;
 			};
 			name = Release;
 		};
@@ -3132,6 +3235,15 @@
 			buildConfigurations = (
 				96A8D97117A4A9B5006E38E0 /* Debug */,
 				96A8D97217A4A9B5006E38E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96AFF4FC19E220D000086CBA /* Build configuration list for PBXNativeTarget "idevicedebug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96AFF4FD19E220D000086CBA /* Debug */,
+				96AFF4FE19E220D000086CBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
