@@ -3,7 +3,7 @@
 
 AC_PREREQ(2.61)
 AC_INIT(libimobiledevice, 1.1.7, nospam@nowhere.com)
-AM_INIT_AUTOMAKE([dist-bzip2 no-dist-gzip])
+AM_INIT_AUTOMAKE([dist-bzip2 no-dist-gzip check-news])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES])
 AC_CONFIG_SRCDIR([src/])
 AC_CONFIG_HEADERS([config.h])
@@ -15,7 +15,7 @@ dnl libtool versioning
 #                 changes to the signature and the semantic)
 #  ? :+1 : ?   == just internal changes
 # CURRENT : REVISION : AGE
-LIBIMOBILEDEVICE_SO_VERSION=4:1:0
+LIBIMOBILEDEVICE_SO_VERSION=4:2:0
 
 dnl Minimum package versions
 LIBPLIST_VERSION=1.11
@@ -188,8 +188,13 @@ else
 	building_debug_code=yes
 fi
 
-AS_COMPILER_FLAGS(GLOBAL_CFLAGS, "-Wall -Wextra -Wmissing-declarations -Wredundant-decls -Wshadow -Wpointer-arith  -Wwrite-strings -Wswitch-default -Wno-unused-parameter -fsigned-char")
+AS_COMPILER_FLAGS(GLOBAL_CFLAGS, "-Wall -Wextra -Wmissing-declarations -Wredundant-decls -Wshadow -Wpointer-arith  -Wwrite-strings -Wswitch-default -Wno-unused-parameter -fsigned-char -fvisibility=hidden")
 AC_SUBST(GLOBAL_CFLAGS)
+
+case "$GLOBAL_CFLAGS" in
+  *-fvisibility=hidden*)
+    AC_DEFINE([HAVE_FVISIBILITY], [1], [Define if compiled with -fvisibility=hidden])
+esac
 
 # check for large file support
 AC_SYS_LARGEFILE

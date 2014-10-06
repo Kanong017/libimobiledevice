@@ -32,30 +32,14 @@ extern "C" {
 
 #define NP_SERVICE_NAME "com.apple.mobile.notification_proxy"
 
-#if LEGACY_ERRORS
-/** @name Error Codes */
-/*@{*/
-#define NP_E_SUCCESS                0
-#define NP_E_INVALID_ARG           -1
-#define NP_E_PLIST_ERROR           -2
-#define NP_E_CONN_FAILED           -3
-
-#define NP_E_UNKNOWN_ERROR       -256
-/*@}*/
-
-/** Represents an error code. */
-typedef int16_t np_error_t;
-#else
-/** Notification Proxy Error Codes */
+/** Error Codes */
 typedef enum {
-	NP_E_SUCCESS              =  0,
-	NP_E_INVALID_ARG          = -1,
-	NP_E_PLIST_ERROR          = -2,
-	NP_E_CONN_FAILED          = -3,
-
-	NP_E_UNKNOWN_ERROR      = -256
+	NP_E_SUCCESS       =  0,
+	NP_E_INVALID_ARG   = -1,
+	NP_E_PLIST_ERROR   = -2,
+	NP_E_CONN_FAILED   = -3,
+	NP_E_UNKNOWN_ERROR = -256
 } np_error_t;
-#endif // LEGACY_ERRORS
 
 /**
  * @name Notifications that can be send

@@ -33,6 +33,7 @@
 
 #include "debug.h"
 #include "libimobiledevice/libimobiledevice.h"
+#include "src/idevice.h"
 
 #ifndef STRIP_DEBUG_CODE
 #include "asprintf.h"
@@ -46,7 +47,7 @@ int debug_level = 0;
  *
  * @param level Set to 0 for no debugging or 1 for debugging.
  */
-void idevice_set_debug_level(int level)
+LIBIMOBILEDEVICE_API void idevice_set_debug_level(int level)
 {
 	debug_level = level;
 }

@@ -31,38 +31,7 @@ extern "C" {
 #include <libimobiledevice/libimobiledevice.h>
 #include <libimobiledevice/lockdown.h>
 
-#ifdef LEGACY_ERRORS
-/** @name Error Codes */
-/*@{*/
-#define LOCKDOWN_E_SUCCESS                     0
-#define LOCKDOWN_E_INVALID_ARG                -1
-#define LOCKDOWN_E_INVALID_CONF               -2
-#define LOCKDOWN_E_PLIST_ERROR                -3
-#define LOCKDOWN_E_PAIRING_FAILED             -4
-#define LOCKDOWN_E_SSL_ERROR                  -5
-#define LOCKDOWN_E_DICT_ERROR                 -6
-#define LOCKDOWN_E_START_SERVICE_FAILED       -7
-#define LOCKDOWN_E_NOT_ENOUGH_DATA            -8
-#define LOCKDOWN_E_SET_VALUE_PROHIBITED       -9
-#define LOCKDOWN_E_GET_VALUE_PROHIBITED      -10
-#define LOCKDOWN_E_REMOVE_VALUE_PROHIBITED   -11
-#define LOCKDOWN_E_MUX_ERROR                 -12
-#define LOCKDOWN_E_ACTIVATION_FAILED         -13
-#define LOCKDOWN_E_PASSWORD_PROTECTED        -14
-#define LOCKDOWN_E_NO_RUNNING_SESSION        -15
-#define LOCKDOWN_E_INVALID_HOST_ID           -16
-#define LOCKDOWN_E_INVALID_SERVICE           -17
-#define LOCKDOWN_E_INVALID_ACTIVATION_RECORD -18
-#define LOCKDOWN_E_PAIRING_DIALOG_PENDING    -20
-#define LOCKDOWN_E_USER_DENIED_PAIRING       -21
-
-#define LOCKDOWN_E_UNKNOWN_ERROR            -256
-/*@}*/
-
-/** Represents an error code. */
-typedef int16_t lockdownd_error_t;
-#else
-/** Lockdown Error Codes */
+/** Error Codes */
 typedef enum {
 	LOCKDOWN_E_SUCCESS                   =   0,
 	LOCKDOWN_E_INVALID_ARG               =  -1,
@@ -85,10 +54,8 @@ typedef enum {
 	LOCKDOWN_E_INVALID_ACTIVATION_RECORD = -18,
 	LOCKDOWN_E_PAIRING_DIALOG_PENDING    = -20,
 	LOCKDOWN_E_USER_DENIED_PAIRING       = -21,
-
-	LOCKDOWN_E_UNKNOWN_ERROR            = -256
+	LOCKDOWN_E_UNKNOWN_ERROR             = -256
 } lockdownd_error_t;
-#endif // LEGACY_ERRORS
 
 typedef struct lockdownd_client_private lockdownd_client_private;
 typedef lockdownd_client_private *lockdownd_client_t; /**< The client handle. */
@@ -213,13 +180,29 @@ lockdownd_error_t lockdownd_remove_value(lockdownd_client_t client, const char *
  * @param client The lockdownd client
  * @param identifier The identifier of the service to start
  * @param descriptor The service descriptor on success or NULL on failure
-
+ *
  * @return LOCKDOWN_E_SUCCESS on success, LOCKDOWN_E_INVALID_ARG if a parameter
  *  is NULL, LOCKDOWN_E_INVALID_SERVICE if the requested service is not known
  *  by the device, LOCKDOWN_E_START_SERVICE_FAILED if the service could not be
  *  started by the device
  */
 lockdownd_error_t lockdownd_start_service(lockdownd_client_t client, const char *identifier, lockdownd_service_descriptor_t *service);
+
+/**
+ * Requests to start a service and retrieve it's port on success.
+ * Sends the escrow bag from the device's pair record.
+ *
+ * @param client The lockdownd client
+ * @param identifier The identifier of the service to start
+ * @param descriptor The service descriptor on success or NULL on failure
+ *
+ * @return LOCKDOWN_E_SUCCESS on success, LOCKDOWN_E_INVALID_ARG if a parameter
+ *  is NULL, LOCKDOWN_E_INVALID_SERVICE if the requested service is not known
+ *  by the device, LOCKDOWN_E_START_SERVICE_FAILED if the service could not because
+ *  started by the device, LOCKDOWN_E_INVALID_CONF if the host id or escrow bag are
+ *  missing from the device record.
+ */
+lockdownd_error_t lockdownd_start_service_with_escrow_bag(lockdownd_client_t client, const char *identifier, lockdownd_service_descriptor_t *service);
 
 /**
  * Opens a session with lockdownd and switches to SSL mode if device wants it.

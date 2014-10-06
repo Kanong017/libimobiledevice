@@ -1,8 +1,9 @@
 /**
  * @file libimobiledevice/afc.h
- * @brief Access the filesystem.
+ * @brief Access the filesystem on the device.
  * \internal
  *
+ * Copyright (c) 2014 Martin Szulecki All Rights Reserved.
  * Copyright (c) 2009 Nikias Bassen All Rights Reserved.
  *
  * This library is free software; you can redistribute it and/or
@@ -32,79 +33,38 @@ extern "C" {
 
 #define AFC_SERVICE_NAME "com.apple.afc"
 
-#ifdef LEGACY_ERRORS
-/** @name Error Codes */
-/*@{*/
-#define AFC_E_SUCCESS                 0
-#define AFC_E_UNKNOWN_ERROR           1
-#define AFC_E_OP_HEADER_INVALID       2
-#define AFC_E_NO_RESOURCES            3
-#define AFC_E_READ_ERROR              4
-#define AFC_E_WRITE_ERROR             5
-#define AFC_E_UNKNOWN_PACKET_TYPE     6
-#define AFC_E_INVALID_ARG             7
-#define AFC_E_OBJECT_NOT_FOUND        8
-#define AFC_E_OBJECT_IS_DIR           9
-#define AFC_E_PERM_DENIED            10
-#define AFC_E_SERVICE_NOT_CONNECTED  11
-#define AFC_E_OP_TIMEOUT             12
-#define AFC_E_TOO_MUCH_DATA          13
-#define AFC_E_END_OF_DATA            14
-#define AFC_E_OP_NOT_SUPPORTED       15
-#define AFC_E_OBJECT_EXISTS          16
-#define AFC_E_OBJECT_BUSY            17
-#define AFC_E_NO_SPACE_LEFT          18
-#define AFC_E_OP_WOULD_BLOCK         19
-#define AFC_E_IO_ERROR               20
-#define AFC_E_OP_INTERRUPTED         21
-#define AFC_E_OP_IN_PROGRESS         22
-#define AFC_E_INTERNAL_ERROR         23
-
-#define AFC_E_MUX_ERROR              30
-#define AFC_E_NO_MEM                 31
-#define AFC_E_NOT_ENOUGH_DATA        32
-#define AFC_E_DIR_NOT_EMPTY          33
-/*@}*/
-
-/** Represents an error code. */
-typedef int16_t afc_error_t;
-#else
-/** AFC Error Codes */
+/** Error Codes */
 typedef enum {
-	AFC_E_SUCCESS                =  0,
-	AFC_E_UNKNOWN_ERROR          =  1,
-	AFC_E_OP_HEADER_INVALID      =  2,
-	AFC_E_NO_RESOURCES           =  3,
-	AFC_E_READ_ERROR             =  4,
-	AFC_E_WRITE_ERROR            =  5,
-	AFC_E_UNKNOWN_PACKET_TYPE    =  6,
-	AFC_E_INVALID_ARG            =  7,
-	AFC_E_OBJECT_NOT_FOUND       =  8,
-	AFC_E_OBJECT_IS_DIR          =  9,
-	AFC_E_PERM_DENIED            = 10,
-	AFC_E_SERVICE_NOT_CONNECTED  = 11,
-	AFC_E_OP_TIMEOUT             = 12,
-	AFC_E_TOO_MUCH_DATA          = 13,
-	AFC_E_END_OF_DATA            = 14,
-	AFC_E_OP_NOT_SUPPORTED       = 15,
-	AFC_E_OBJECT_EXISTS          = 16,
-	AFC_E_OBJECT_BUSY            = 17,
-	AFC_E_NO_SPACE_LEFT          = 18,
-	AFC_E_OP_WOULD_BLOCK         = 19,
-	AFC_E_IO_ERROR               = 20,
-	AFC_E_OP_INTERRUPTED         = 21,
-	AFC_E_OP_IN_PROGRESS         = 22,
-	AFC_E_INTERNAL_ERROR         = 23,
-
-	AFC_E_MUX_ERROR              = 30,
-	AFC_E_NO_MEM                 = 31,
-	AFC_E_NOT_ENOUGH_DATA        = 32,
-	AFC_E_DIR_NOT_EMPTY          = 33,
-
-	// Silence compiler warnings from an unsigned enum type
-	AFC_E_FORCE_SIGNED_TYPE      = -1
+	AFC_E_SUCCESS               =  0,
+	AFC_E_UNKNOWN_ERROR         =  1,
+	AFC_E_OP_HEADER_INVALID     =  2,
+	AFC_E_NO_RESOURCES          =  3,
+	AFC_E_READ_ERROR            =  4,
+	AFC_E_WRITE_ERROR           =  5,
+	AFC_E_UNKNOWN_PACKET_TYPE   =  6,
+	AFC_E_INVALID_ARG           =  7,
+	AFC_E_OBJECT_NOT_FOUND      =  8,
+	AFC_E_OBJECT_IS_DIR         =  9,
+	AFC_E_PERM_DENIED           = 10,
+	AFC_E_SERVICE_NOT_CONNECTED = 11,
+	AFC_E_OP_TIMEOUT            = 12,
+	AFC_E_TOO_MUCH_DATA         = 13,
+	AFC_E_END_OF_DATA           = 14,
+	AFC_E_OP_NOT_SUPPORTED      = 15,
+	AFC_E_OBJECT_EXISTS         = 16,
+	AFC_E_OBJECT_BUSY           = 17,
+	AFC_E_NO_SPACE_LEFT         = 18,
+	AFC_E_OP_WOULD_BLOCK        = 19,
+	AFC_E_IO_ERROR              = 20,
+	AFC_E_OP_INTERRUPTED        = 21,
+	AFC_E_OP_IN_PROGRESS        = 22,
+	AFC_E_INTERNAL_ERROR        = 23,
+	AFC_E_MUX_ERROR             = 30,
+	AFC_E_NO_MEM                = 31,
+	AFC_E_NOT_ENOUGH_DATA       = 32,
+	AFC_E_DIR_NOT_EMPTY         = 33,
+	AFC_E_FORCE_SIGNED_TYPE     = -1
 } afc_error_t;
-#endif // LEGACY_ERRORS
 
 /** Flags for afc_file_open */
 typedef enum {
@@ -140,11 +100,11 @@ typedef afc_client_private *afc_client_t; /**< The client handle. */
  * @param device The device to connect to.
  * @param service The service descriptor returned by lockdownd_start_service.
  * @param client Pointer that will be set to a newly allocated afc_client_t
- *     upon successful return.
+ *        upon successful return.
  *
  * @return AFC_E_SUCCESS on success, AFC_E_INVALID_ARG if device or service is
- *  invalid, AFC_E_MUX_ERROR if the connection cannot be established,
- *  or AFC_E_NO_MEM if there is a memory allocation problem.
+ *         invalid, AFC_E_MUX_ERROR if the connection cannot be established,
+ *         or AFC_E_NO_MEM if there is a memory allocation problem.
  */
 afc_error_t afc_client_new(idevice_t device, lockdownd_service_descriptor_t service, afc_client_t *client);
 
@@ -152,20 +112,18 @@ afc_error_t afc_client_new(idevice_t device, lockdownd_service_descriptor_t serv
  * Starts a new AFC service on the specified device and connects to it.
  *
  * @param device The device to connect to.
- * @param client Pointer that will point to a newly allocated
- *     afc_client_t upon successful return. Must be freed using
- *     afc_client_free() after use.
+ * @param client Pointer that will point to a newly allocated afc_client_t upon
+ *        successful return. Must be freed using afc_client_free() after use.
  * @param label The label to use for communication. Usually the program name.
- *  Pass NULL to disable sending the label in requests to lockdownd.
+ *        Pass NULL to disable sending the label in requests to lockdownd.
  *
- * @return AFC_E_SUCCESS on success, or an AFC_E_* error
- *     code otherwise.
+ * @return AFC_E_SUCCESS on success, or an AFC_E_* error code otherwise.
  */
 afc_error_t afc_client_start_service(idevice_t device, afc_client_t* client, const char* label);
 
 /**
- * Frees up an AFC client. If the connection was created by the
- * client itself, the connection will be closed.
+ * Frees up an AFC client. If the connection was created by the client itself,
+ * the connection will be closed.
  *
  * @param client The client to free.
  */
@@ -177,37 +135,39 @@ afc_error_t afc_client_free(afc_client_t client);
  * and blocksize on the accessed disk partition.
  *
  * @param client The client to get device info for.
- * @param infos A char ** list of parameters as given by AFC or NULL if there
- *  was an error.
+ * @param device_information A char list of device information terminated by an
+ *        empty string or NULL if there was an error. Free with
+ *        afc_dictionary_free().
  *
  * @return AFC_E_SUCCESS on success or an AFC_E_* error value.
  */
-afc_error_t afc_get_device_info(afc_client_t client, char ***infos);
+afc_error_t afc_get_device_info(afc_client_t client, char ***device_information);
 
 /**
  * Gets a directory listing of the directory requested.
  *
  * @param client The client to get a directory listing from.
- * @param dir The directory to list. (must be a fully-qualified path)
- * @param list A char list of files in that directory, terminated by an empty
- *         string or NULL if there was an error.
+ * @param path The directory for listing. (must be a fully-qualified path)
+ * @param directory_information A char list of files in the directory
+ *        terminated by an empty string or NULL if there was an error. Free with
+ *        afc_dictionary_free().
  *
  * @return AFC_E_SUCCESS on success or an AFC_E_* error value.
  */
-afc_error_t afc_read_directory(afc_client_t client, const char *dir, char ***list);
+afc_error_t afc_read_directory(afc_client_t client, const char *path, char ***directory_information);
 
 /**
  * Gets information about a specific file.
  *
  * @param client The client to use to get the information of the file.
  * @param path The fully-qualified path to the file.
- * @param infolist Pointer to a buffer that will be filled with a NULL-terminated
- *                 list of strings with the file information.
- *                 Set to NULL before calling this function.
+ * @param file_information Pointer to a buffer that will be filled with a
+ *        NULL-terminated list of strings with the file information. Set to NULL
+ *        before calling this function. Free with afc_dictionary_free().
  *
  * @return AFC_E_SUCCESS on success or an AFC_E_* error value.
  */
-afc_error_t afc_get_file_info(afc_client_t client, const char *filename, char ***infolist);
+afc_error_t afc_get_file_info(afc_client_t client, const char *filename, char ***file_information);
 
 /**
  * Opens a file on the device.
@@ -215,9 +175,9 @@ afc_error_t afc_get_file_info(afc_client_t client, const char *filename, char **
  * @param client The client to use to open the file.
  * @param filename The file to open. (must be a fully-qualified path)
  * @param file_mode The mode to use to open the file. Can be AFC_FILE_READ or
- * 		    AFC_FILE_WRITE; the former lets you read and write,
- * 		    however, and the second one will *create* the file,
- * 		    destroying anything previously there.
+ *        AFC_FILE_WRITE; the former lets you read and write, however, and the
+ *        second one will *create* the file, destroying anything previously
+ *        there.
  * @param handle Pointer to a uint64_t that will hold the handle of the file
  *
  * @return AFC_E_SUCCESS on success or an AFC_E_* error value.
@@ -235,14 +195,14 @@ afc_error_t afc_file_close(afc_client_t client, uint64_t handle);
 /**
  * Locks or unlocks a file on the device.
  *
- * makes use of flock on the device, see
- * http://developer.apple.com/documentation/Darwin/Reference/ManPages/man2/flock.2.html
+ * Makes use of flock on the device.
+ * @see http://developer.apple.com/documentation/Darwin/Reference/ManPages/man2/flock.2.html
  *
  * @param client The client to lock the file with.
  * @param handle File handle of a previously opened file.
  * @param operation the lock or unlock operation to perform, this is one of
- *        AFC_LOCK_SH (shared lock), AFC_LOCK_EX (exclusive lock),
- *        or AFC_LOCK_UN (unlock).
+ *        AFC_LOCK_SH (shared lock), AFC_LOCK_EX (exclusive lock), or
+ *        AFC_LOCK_UN (unlock).
  */
 afc_error_t afc_file_lock(afc_client_t client, uint64_t handle, afc_lock_op_t operation);
 
@@ -334,12 +294,12 @@ afc_error_t afc_rename_path(afc_client_t client, const char *from, const char *t
  * Creates a directory on the device.
  *
  * @param client The client to use to make a directory.
- * @param dir The directory's path. (must be a fully-qualified path, I assume
+ * @param path The directory's path. (must be a fully-qualified path, I assume
  *        all other mkdir restrictions apply as well)
  *
  * @return AFC_E_SUCCESS on success or an AFC_E_* error value.
  */
-afc_error_t afc_make_directory(afc_client_t client, const char *dir);
+afc_error_t afc_make_directory(afc_client_t client, const char *path);
 
 /**
  * Sets the size of a file on the device without prior opening it.
@@ -375,12 +335,17 @@ afc_error_t afc_make_link(afc_client_t client, afc_link_type_t linktype, const c
  */
 afc_error_t afc_set_file_time(afc_client_t client, const char *path, uint64_t mtime);
 
-
-afc_error_t posix_err_to_afc_error(int err);
-
-char *afc_strerror(afc_error_t err);
-
-void afc_warn(afc_error_t err, const char *fmt, ...);
+/**
+ * Deletes a file or directory including possible contents.
+ *
+ * @param client The client to use.
+ * @param path The path to delete. (must be a fully-qualified path)
+ * @since libimobiledevice 1.1.7
+ * @note Only available in iOS 6 and later.
+ *
+ * @return AFC_E_SUCCESS on success or an AFC_E_* error value.
+ */
+afc_error_t afc_remove_path_and_contents(afc_client_t client, const char *path);
 
 /* Helper functions */
 
@@ -397,7 +362,20 @@ void afc_warn(afc_error_t err, const char *fmt, ...);
  */
 afc_error_t afc_get_device_info_key(afc_client_t client, const char *key, char **value);
 
+/**
+ * Frees up a char dictionary as returned by some AFC functions.
+ *
+ * @param dictionary The char array terminated by an empty string.
+ *
+ * @return AFC_E_SUCCESS on success or an AFC_E_* error value.
+ */
 afc_error_t afc_dictionary_free(char **dictionary);
+
+afc_error_t posix_err_to_afc_error(int err);
+
+char *afc_strerror(afc_error_t err);
+
+void afc_warn(afc_error_t err, const char *fmt, ...);
 
 #ifdef __cplusplus
 }

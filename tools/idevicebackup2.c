@@ -387,7 +387,7 @@ static void do_post_notification(idevice_t device, const char *notification)
 
 	lockdownd_client_t lockdown = NULL;
 
-	if (lockdownd_client_new_with_handshake(device, &lockdown, "idevicebackup") != LOCKDOWN_E_SUCCESS) {
+	if (lockdownd_client_new_with_handshake(device, &lockdown, "idevicebackup2") != LOCKDOWN_E_SUCCESS) {
 		return;
 	}
 
@@ -1499,7 +1499,7 @@ int main(int argc, char *argv[])
 	}
 
 	lockdownd_client_t lockdown = NULL;
-	if (LOCKDOWN_E_SUCCESS != lockdownd_client_new_with_handshake(device, &lockdown, "idevicebackup")) {
+	if (LOCKDOWN_E_SUCCESS != lockdownd_client_new_with_handshake(device, &lockdown, "idevicebackup2")) {
 		idevice_free(device);
 		return -1;
 	}
@@ -1527,7 +1527,7 @@ int main(int argc, char *argv[])
 		/* start AFC, we need this for the lock file */
 		service->port = 0;
 		service->ssl_enabled = 0;
-		ldret = lockdownd_start_service(lockdown, "com.apple.afc", &service);
+		ldret = lockdownd_start_service(lockdown, AFC_SERVICE_NAME, &service);
 		if ((ldret == LOCKDOWN_E_SUCCESS) && service->port) {
 			afc_client_new(device, service, &afc);
 		}
@@ -1540,7 +1540,7 @@ int main(int argc, char *argv[])
 
 	/* start mobilebackup service and retrieve port */
 	mobilebackup2_client_t mobilebackup2 = NULL;
-	ldret = lockdownd_start_service(lockdown, MOBILEBACKUP2_SERVICE_NAME, &service);
+	ldret = lockdownd_start_service_with_escrow_bag(lockdown, MOBILEBACKUP2_SERVICE_NAME, &service);
 	if ((ldret == LOCKDOWN_E_SUCCESS) && service && service->port) {
 		PRINT_VERBOSE(1, "Started \"%s\" service on port %d.\n", MOBILEBACKUP2_SERVICE_NAME, service->port);
 		mobilebackup2_client_new(device, service, &mobilebackup2);
