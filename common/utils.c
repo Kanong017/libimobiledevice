@@ -29,6 +29,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <inttypes.h>
+#include <ctype.h>
 
 #include "utils.h"
 
@@ -44,7 +45,7 @@
  * @return a pointer to the terminating `\0' character of @s1,
  * or NULL if @s1 or @s2 is NULL.
  */
-char *stpcpy(char * s1, const char * s2)
+char *stpcpy(char *s1, const char *s2)
 {
 	if (s1 == NULL || s2 == NULL)
 		return NULL;
@@ -108,6 +109,66 @@ char *string_concat(const char *str, ...)
 	va_end(args);
 
 	return result;
+}
+
+char *string_build_path(const char *elem, ...)
+{
+	if (!elem)
+		return NULL;
+	va_list args;
+	int len = strlen(elem)+1;
+	va_start(args, elem);
+	char *arg = va_arg(args, char*);
+	while (arg) {
+		len += strlen(arg)+1;
+		arg = va_arg(args, char*);
+	}
+	va_end(args);
+
+	char* out = (char*)malloc(len);
+	strcpy(out, elem);
+
+	va_start(args, elem);
+	arg = va_arg(args, char*);
+	while (arg) {
+		strcat(out, "/");
+		strcat(out, arg);
+		arg = va_arg(args, char*);
+	}
+	va_end(args);
+	return out;
+}
+
+char *string_format_size(uint64_t size)
+{
+	char buf[80];
+	double sz;
+	if (size >= 1000000000000LL) {
+		sz = ((double)size / 1000000000000.0f);
+		sprintf(buf, "%0.1f TB", sz);
+	} else if (size >= 1000000000LL) {
+		sz = ((double)size / 1000000000.0f);
+		sprintf(buf, "%0.1f GB", sz);
+	} else if (size >= 1000000LL) {
+		sz = ((double)size / 1000000.0f);
+		sprintf(buf, "%0.1f MB", sz);
+	} else if (size >= 1000LL) {
+		sz = ((double)size / 1000.0f);
+		sprintf(buf, "%0.1f KB", sz);
+	} else {
+		sprintf(buf, "%d Bytes", (int)size);
+	}
+	return strdup(buf);
+}
+
+char *string_toupper(char* str)
+{
+	char *res = strdup(str);
+	unsigned int i;
+	for (i = 0; i < strlen(res); i++) {
+		res[i] = toupper(res[i]);
+	}
+	return res;
 }
 
 static int get_rand(int min, int max)

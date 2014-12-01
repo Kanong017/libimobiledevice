@@ -157,16 +157,6 @@ static void mobilebackup_afc_get_file_contents(afc_client_t afc, const char *fil
 	afc_file_close(afc, f);
 }
 
-static char *str_toupper(char* str)
-{
-	char *res = strdup(str);
-	unsigned int i;
-	for (i = 0; i < strlen(res); i++) {
-		res[i] = toupper(res[i]);
-	}
-	return res;
-}
-
 static int __mkdir(const char* path, int mode)
 {
 #ifdef WIN32
@@ -197,52 +187,6 @@ static int mkdir_with_parents(const char *dir, int mode)
 		mkdir_with_parents(dir, mode);
 	}
 	return res;
-}
-
-static char* build_path(const char* elem, ...)
-{
-	if (!elem) return NULL;
-	va_list args;
-	int len = strlen(elem)+1;
-	va_start(args, elem);
-	char *arg = va_arg(args, char*);
-	while (arg) {
-		len += strlen(arg)+1;
-		arg = va_arg(args, char*);
-	}
-	va_end(args);
-
-	char* out = (char*)malloc(len);
-	strcpy(out, elem);
-
-	va_start(args, elem);
-	arg = va_arg(args, char*);
-	while (arg) {
-		strcat(out, "/");
-		strcat(out, arg);
-		arg = va_arg(args, char*);
-	}
-	va_end(args);
-	return out;
-}
-
-static char* format_size_for_display(uint64_t size)
-{
-	char buf[32];
-	double sz;
-	if (size >= 1000000000LL) {
-		sz = ((double)size / 1000000000.0f);
-		sprintf(buf, "%0.1f GB", sz);
-	} else if (size >= 1000000LL) {
-		sz = ((double)size / 1000000.0f);
-		sprintf(buf, "%0.1f MB", sz);
-	} else if (size >= 1000LL) {
-		sz = ((double)size / 1000.0f);
-		sprintf(buf, "%0.1f kB", sz);
-	} else {
-		sprintf(buf, "%d Bytes", (int)size);
-	}
-	return strdup(buf);
 }
 
 static plist_t mobilebackup_factory_info_plist_new(const char* udid, lockdownd_client_t lockdown, afc_client_t afc)
@@ -300,7 +244,7 @@ static plist_t mobilebackup_factory_info_plist_new(const char* udid, lockdownd_c
 	plist_dict_set_item(ret, "Target Type", plist_new_string("Device"));
 
 	/* uppercase */
-	udid_uppercase = str_toupper((char*)udid);
+	udid_uppercase = string_toupper((char*)udid);
 	plist_dict_set_item(ret, "Unique Identifier", plist_new_string(udid_uppercase));
 	free(udid_uppercase);
 
@@ -357,7 +301,7 @@ static int mb2_status_check_snapshot_state(const char *path, const char *udid, c
 {
 	int ret = -1;
 	plist_t status_plist = NULL;
-	char *file_path = build_path(path, udid, "Status.plist", NULL);
+	char *file_path = string_build_path(path, udid, "Status.plist", NULL);
 
 	plist_read_from_filename(&status_plist, file_path);
 	free(file_path);
@@ -441,10 +385,10 @@ static void print_progress(uint64_t current, uint64_t total)
 
 	print_progress_real((double)progress, 0);
 
-	format_size = format_size_for_display(current);
+	format_size = string_format_size(current);
 	PRINT_VERBOSE(1, " (%s", format_size);
 	free(format_size);
-	format_size = format_size_for_display(total);
+	format_size = string_format_size(total);
 	PRINT_VERBOSE(1, "/%s)     ", format_size);
 	free(format_size);
 
@@ -522,7 +466,7 @@ static int mb2_handle_send_file(mobilebackup2_client_t mobilebackup2, const char
 	uint32_t nlen = 0;
 	uint32_t pathlen = strlen(path);
 	uint32_t bytes = 0;
-	char *localfile = build_path(backup_dir, path, NULL);
+	char *localfile = string_build_path(backup_dir, path, NULL);
 	char buf[32768];
 #ifdef WIN32
 	struct _stati64 fst;
@@ -580,7 +524,7 @@ static int mb2_handle_send_file(mobilebackup2_client_t mobilebackup2, const char
 
 	total = fst.st_size;
 
-	char *format_size = format_size_for_display(total);
+	char *format_size = string_format_size(total);
 	PRINT_VERBOSE(1, "Sending '%s' (%s)\n", path, format_size);
 	free(format_size);
 
@@ -809,7 +753,7 @@ static int mb2_handle_receive_files(mobilebackup2_client_t mobilebackup2, plist_
 			bname = NULL;
 		}
 
-		bname = build_path(backup_dir, fname, NULL);
+		bname = string_build_path(backup_dir, fname, NULL);
 
 		if (fname != NULL) {
 			free(fname);
@@ -942,7 +886,7 @@ static void mb2_handle_list_directory(mobilebackup2_client_t mobilebackup2, plis
 		return;
 	}
 
-	char *path = build_path(backup_dir, str, NULL);
+	char *path = string_build_path(backup_dir, str, NULL);
 	free(str);
 
 	plist_t dirlist = plist_new_dict();
@@ -954,7 +898,7 @@ static void mb2_handle_list_directory(mobilebackup2_client_t mobilebackup2, plis
 			if ((strcmp(ep->d_name, ".") == 0) || (strcmp(ep->d_name, "..") == 0)) {
 				continue;
 			}
-			char *fpath = build_path(path, ep->d_name, NULL);
+			char *fpath = string_build_path(path, ep->d_name, NULL);
 			if (fpath) {
 				plist_t fdict = plist_new_dict();
 				struct stat st;
@@ -995,7 +939,7 @@ static void mb2_handle_make_directory(mobilebackup2_client_t mobilebackup2, plis
 	char *errdesc = NULL;
 	plist_get_string_val(dir, &str);
 
-	char *newpath = build_path(backup_dir, str, NULL);
+	char *newpath = string_build_path(backup_dir, str, NULL);
 	free(str);
 
 	if (mkdir_with_parents(newpath, 0755) < 0) {
@@ -1075,8 +1019,8 @@ static void mb2_copy_directory_by_path(const char *src, const char *dst)
 			if ((strcmp(ep->d_name, ".") == 0) || (strcmp(ep->d_name, "..") == 0)) {
 				continue;
 			}
-			char *srcpath = build_path(src, ep->d_name, NULL);
-			char *dstpath = build_path(dst, ep->d_name, NULL);
+			char *srcpath = string_build_path(src, ep->d_name, NULL);
+			char *dstpath = string_build_path(dst, ep->d_name, NULL);
 			if (srcpath && dstpath) {
 				/* copy file */
 				mb2_copy_file_by_path(srcpath, dstpath);
@@ -1446,7 +1390,7 @@ int main(int argc, char *argv[])
 		}
 	} else if (cmd != CMD_CLOUD) {
 		/* backup directory must contain an Info.plist */
-		info_path = build_path(backup_directory, source_udid, "Info.plist", NULL);
+		info_path = string_build_path(backup_directory, source_udid, "Info.plist", NULL);
 		if (cmd == CMD_RESTORE || cmd == CMD_UNBACK) {
 			if (stat(info_path, &st) != 0) {
 				idevice_free(device);
@@ -1454,7 +1398,7 @@ int main(int argc, char *argv[])
 				printf("ERROR: Backup directory \"%s\" is invalid. No Info.plist found for UDID %s.\n", backup_directory, source_udid);
 				return -1;
 			}
-			char* manifest_path = build_path(backup_directory, source_udid, "Manifest.plist", NULL);
+			char* manifest_path = string_build_path(backup_directory, source_udid, "Manifest.plist", NULL);
 			if (stat(manifest_path, &st) != 0) {
 				free(info_path);
 			}
@@ -1647,20 +1591,20 @@ checkpoint:
 			PRINT_VERBOSE(1, "Starting backup...\n");
 
 			/* make sure backup device sub-directory exists */
-			char* devbackupdir = build_path(backup_directory, source_udid, NULL);
+			char* devbackupdir = string_build_path(backup_directory, source_udid, NULL);
 			__mkdir(devbackupdir, 0755);
 			free(devbackupdir);
 
 			if (strcmp(source_udid, udid) != 0) {
 				/* handle different source backup directory */
 				// make sure target backup device sub-directory exists
-				devbackupdir = build_path(backup_directory, udid, NULL);
+				devbackupdir = string_build_path(backup_directory, udid, NULL);
 				__mkdir(devbackupdir, 0755);
 				free(devbackupdir);
 
 				// use Info.plist path in target backup folder */
 				free(info_path);
-				info_path = build_path(backup_directory, udid, "Info.plist", NULL);
+				info_path = string_build_path(backup_directory, udid, "Info.plist", NULL);
 			}
 
 			/* TODO: check domain com.apple.mobile.backup key RequiresEncrypt and WillEncrypt with lockdown */
@@ -1942,9 +1886,9 @@ checkpoint:
 								char *str = NULL;
 								plist_get_string_val(val, &str);
 								if (str) {
-									char *newpath = build_path(backup_directory, str, NULL);
+									char *newpath = string_build_path(backup_directory, str, NULL);
 									free(str);
-									char *oldpath = build_path(backup_directory, key, NULL);
+									char *oldpath = string_build_path(backup_directory, key, NULL);
 
 #ifdef WIN32
 									if ((stat(newpath, &st) == 0) && S_ISDIR(st.st_mode))
@@ -2000,7 +1944,7 @@ checkpoint:
 										suppress_warning = 1;
 									}
 								}
-								char *newpath = build_path(backup_directory, str, NULL);
+								char *newpath = string_build_path(backup_directory, str, NULL);
 								free(str);
 #ifdef WIN32
 								int res = 0;
@@ -2044,8 +1988,8 @@ checkpoint:
 						plist_get_string_val(srcpath, &src);
 						plist_get_string_val(dstpath, &dst);
 						if (src && dst) {
-							char *oldpath = build_path(backup_directory, src, NULL);
-							char *newpath = build_path(backup_directory, dst, NULL);
+							char *oldpath = string_build_path(backup_directory, src, NULL);
+							char *newpath = string_build_path(backup_directory, dst, NULL);
 
 							PRINT_VERBOSE(1, "Copying '%s' to '%s'\n", src, dst);
 

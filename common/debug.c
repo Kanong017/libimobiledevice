@@ -39,18 +39,14 @@
 #include "asprintf.h"
 #endif
 
-int debug_level = 0;
+static int debug_level;
 
-/**
- * Sets the level of debugging. Currently the only acceptable values are 0 and
- * 1.
- *
- * @param level Set to 0 for no debugging or 1 for debugging.
- */
-LIBIMOBILEDEVICE_API void idevice_set_debug_level(int level)
+void internal_set_debug_level(int level)
 {
 	debug_level = level;
 }
+
+#define MAX_PRINT_LEN 16*1024
 
 #ifndef STRIP_DEBUG_CODE
 static void debug_print_line(const char *func, const char *file, int line, const char *buffer)
@@ -163,7 +159,11 @@ void debug_plist_real(const char *func, const char *file, int line, plist_t plis
 	if (buffer[length-1] == '\n')
 		buffer[length-1] = '\0';
 
-	debug_info_real(func, file, line, "printing %i bytes plist:\n%s", length, buffer);
+	if (length <= MAX_PRINT_LEN)
+		debug_info_real(func, file, line, "printing %i bytes plist:\n%s", length, buffer);
+	else
+		debug_info_real(func, file, line, "supress printing %i bytes plist...\n", length);
+
 	free(buffer);
 #endif
 }

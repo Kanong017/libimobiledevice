@@ -224,6 +224,7 @@ int main(int argc, char *argv[])
 	char* working_directory = NULL;
 	char **newlist = NULL;
 	char** environment = NULL;
+	int environment_index = 0;
 	int environment_count = 0;
 	char* response = NULL;
 	debugserver_command_t command = NULL;
@@ -404,24 +405,22 @@ int main(int argc, char *argv[])
 			/* set environment */
 			if (environment) {
 				debug_info("Setting environment...");
-				int environment_index = 0;
 				for (environment_index = 0; environment_index < environment_count; environment_index++) {
 					debug_info("setting environment variable: %s", environment[environment_index]);
 					debugserver_client_set_environment_hex_encoded(debugserver_client, environment[environment_index], NULL);
-					environment_index++;
 				}
 			}
 
 			/* set arguments and run app */
 			debug_info("Setting argv...");
+			i++; /* i is the offset of the bundle identifier, thus skip it */
 			int app_argc = (argc - i + 2);
-			debug_info("app_argc: %d", app_argc);
 			char **app_argv = (char**)malloc(sizeof(char*) * app_argc);
 			app_argv[0] = path;
 			debug_info("app_argv[%d] = %s", 0, app_argv[0]);
 			app_argc = 1;
 			while (i < argc && argv && argv[i]) {
-				debug_info("app_argv[%d] = argv[%d]: %s", app_argc, i, argv[i]);
+				debug_info("app_argv[%d] = %s", app_argc, argv[i]);
 				app_argv[app_argc++] = argv[i];
 				i++;
 			}
@@ -504,10 +503,8 @@ int main(int argc, char *argv[])
 cleanup:
 	/* cleanup the house */
 	if (environment) {
-		int environment_index = 0;
 		for (environment_index = 0; environment_index < environment_count; environment_index++) {
 			free(environment[environment_index]);
-			environment_index++;
 		}
 		free(environment);
 	}

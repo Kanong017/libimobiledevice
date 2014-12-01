@@ -44,7 +44,6 @@
 #endif
 
 #include "common/userpref.h"
-
 #include "libimobiledevice/libimobiledevice.h"
 
 enum connection_type {

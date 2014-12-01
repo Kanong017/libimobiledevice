@@ -224,62 +224,6 @@ static void notify_cb(const char *notification, void *userdata)
 	}
 }
 
-static char *str_toupper(char* str)
-{
-	char *res = strdup(str);
-	unsigned int i;
-	for (i = 0; i < strlen(res); i++) {
-		res[i] = toupper(res[i]);
-	}
-	return res;
-}
-
-static char* build_path(const char* elem, ...)
-{
-	if (!elem) return NULL;
-	va_list args;
-	int len = strlen(elem)+1;
-	va_start(args, elem);
-	char *arg = va_arg(args, char*);
-	while (arg) {
-		len += strlen(arg)+1;
-		arg = va_arg(args, char*);
-	}
-	va_end(args);
-
-	char* out = (char*)malloc(len);
-	strcpy(out, elem);
-
-	va_start(args, elem);
-	arg = va_arg(args, char*);
-	while (arg) {
-		strcat(out, "/");
-		strcat(out, arg);
-		arg = va_arg(args, char*);
-	}
-	va_end(args);
-	return out;
-}
-
-static char* format_size_for_display(uint64_t size)
-{
-	char buf[32];
-	double sz;
-	if (size >= 1000000000LL) {
-		sz = ((double)size / 1000000000.0f);
-		sprintf(buf, "%0.1f GB", sz);
-	} else if (size >= 1000000LL) {
-		sz = ((double)size / 1000000.0f);
-		sprintf(buf, "%0.1f MB", sz);
-	} else if (size >= 1000LL) {
-		sz = ((double)size / 1000.0f);
-		sprintf(buf, "%0.1f kB", sz);
-	} else {
-		sprintf(buf, "%d Bytes", (int)size);
-	}
-	return strdup(buf);
-}
-
 static plist_t mobilebackup_factory_info_plist_new(const char* udid)
 {
 	/* gather data from lockdown */
@@ -322,7 +266,7 @@ static plist_t mobilebackup_factory_info_plist_new(const char* udid)
 	plist_dict_set_item(ret, "Target Identifier", plist_new_string(udid));
 
 	/* uppercase */
-	udid_uppercase = str_toupper((char*)udid);
+	udid_uppercase = string_toupper((char*)udid);
 	plist_dict_set_item(ret, "Unique Identifier", plist_new_string(udid_uppercase));
 	free(udid_uppercase);
 
@@ -370,7 +314,7 @@ static char *mobilebackup_build_path(const char *backup_directory, const char *n
 	strcpy(filename, name);
 	if (extension != NULL)
 		strcat(filename, extension);
-	char *path = build_path(backup_directory, filename, NULL);
+	char *path = string_build_path(backup_directory, filename, NULL);
 	free(filename);
 	return path;
 }
@@ -1074,7 +1018,7 @@ int main(int argc, char *argv[])
 					node = plist_dict_get_item(node_tmp, "BackupTotalSizeKey");
 					if (node) {
 						plist_get_uint_val(node, &backup_total_size);
-						format_size = format_size_for_display(backup_total_size);
+						format_size = string_format_size(backup_total_size);
 						printf("Backup data requires %s on the disk.\n", format_size);
 						free(format_size);
 					}
@@ -1104,15 +1048,15 @@ int main(int argc, char *argv[])
 					plist_get_uint_val(node, &file_size);
 					backup_real_size += file_size;
 
-					format_size = format_size_for_display(backup_real_size);
+					format_size = string_format_size(backup_real_size);
 					printf("(%s", format_size);
 					free(format_size);
 
-					format_size = format_size_for_display(backup_total_size);
+					format_size = string_format_size(backup_total_size);
 					printf("/%s): ", format_size);
 					free(format_size);
 
-					format_size = format_size_for_display(file_size);
+					format_size = string_format_size(file_size);
 					printf("Receiving file %s (%s)... \n", filename_source, format_size);
 					free(format_size);
 
