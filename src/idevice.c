@@ -31,6 +31,7 @@
 
 #ifdef WIN32
 #include <windows.h>
+#include <process.h>
 #endif
 
 #include <usbmuxd.h>
@@ -115,7 +116,11 @@ static thread_once_t init_once = THREAD_ONCE_INIT;
 static thread_once_t deinit_once = THREAD_ONCE_INIT;
 
 #ifdef WIN32
+#ifdef __MINGW32__
+WINBOOL WINAPI DllMain(HANDLE hModule, DWORD dwReason, LPVOID lpReserved)
+#else
 BOOL WINAPI DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
+#endif
 {
 	switch (dwReason) {
 	case DLL_PROCESS_ATTACH:
