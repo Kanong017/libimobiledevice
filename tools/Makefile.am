@@ -88,8 +88,8 @@ idevicecrashreport_LDFLAGS = $(top_builddir)/common/libinternalcommon.la $(AM_LD
 idevicecrashreport_LDADD = $(top_builddir)/src/libimobiledevice.la
 
 bin_PROGRAMS += ideviceexec
-ideviceexec_SOURCES = ideviceexec.c
-ideviceexec_CFLAGS = $(AM_CFLAGS)
+ideviceexec_SOURCES = ideviceexec.c ../osx/gstring.c
+ideviceexec_CFLAGS = -I$(top_srcdir)/osx $(AM_CFLAGS)
 ideviceexec_LDFLAGS = $(AM_LDFLAGS)
 ideviceexec_LDADD = $(top_builddir)/src/libimobiledevice.la
 endif
