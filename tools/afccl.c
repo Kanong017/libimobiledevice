@@ -905,8 +905,9 @@ int main(int argc, const char **argv)
         }
         
         result = house_arrest_send_command(hac, "VendDocuments", appid);
+//		result = house_arrest_send_command(hac, "VendContainer", appid);
         if (result != HOUSE_ARREST_E_SUCCESS) {
-            asprintf(&errmsg, "error %d when trying to get VendDocuments\n", result);
+            asprintf(&errmsg, "error %d when trying to get VendContainer\n", result);
 			goto bail;
         }
         
