@@ -2416,9 +2416,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.10;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				USE_HEADERMAP = NO;
 			};
@@ -2455,8 +2455,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx10.10;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				USE_HEADERMAP = NO;
 			};
@@ -2473,7 +2473,6 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = imobiledevice;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Debug;
 		};
@@ -2488,7 +2487,6 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/plist;
 				PRODUCT_NAME = imobiledevice;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/libimobiledevice;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Release;
 		};
@@ -2503,7 +2501,6 @@
 				HEADER_INSTALL_PATH = "$(CONFIGURATION_BUILD_DIR)/include";
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = imobiledevice;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Debug;
 		};
@@ -2518,7 +2515,6 @@
 				HEADER_INSTALL_PATH = /usr/local/include;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = imobiledevice;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/include\"";
 			};
 			name = Release;
 		};
